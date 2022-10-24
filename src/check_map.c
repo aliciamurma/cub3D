@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:23:24 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:32:54 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	check_map_letters(t_game *game)
 
 	cont1 = 0;
 	cont2 = 0;
-	while (cont2 < game->height)
+	while (game->map[cont1])
 	{
-		cont1 = 0;
-		while (cont1 < game->width)
+		cont2 = 0;
+		while (game->map[cont1][cont2])
 		{
 			if (game->map[cont1][cont2] != '1' && game->map[cont1][cont2] != '0'
 				&& game->map[cont1][cont2] != 'N'
@@ -35,11 +35,15 @@ void	check_map_letters(t_game *game)
 				&& game->map[cont1][cont2] != 'E'
 				&& game->map[cont1][cont2] != 'W'
 				&& game->map[cont1][cont2] != '\0'
+				&& game->map[cont1][cont2] != ' '
+				&& game->map[cont1][cont2] != '\t'
 				&& game->map[cont1][cont2] != '\n')
+			{
 				close_cub3d(-1);
-			cont1++;
+			}
+			cont2++;
 		}
-		cont2++;
+		cont1++;
 	}
 }
 
