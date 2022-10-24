@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:05:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 18:41:27 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:18:06 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ int	empty_line(t_game *game, int c1)
 		c1++;
 	}
 	return (c1);
+}
+
+int	ft_strlen_map(char **str)
+{
+	int	count;
+
+	count = 0;
+	while (str[count])
+		count++;
+	return (count);
 }
 
 int	ft_strlen(char *s)

@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 18:41:33 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:18:27 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,31 @@
 
 # define BUFFER_SIZE 1
 
+typedef struct s_texture
+{
+	char	*north;
+	char	*south;
+	char	*east;
+	char	*west;
+}	t_texture;
+
 typedef struct s_game
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	**cub;
-	char	*cub_raw;
-	int		width;
-	int		height;
-	char	**textures;
-	char	**colours;
-	char	**map;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	char		**cub;
+	char		*cub_raw;
+	int			width;
+	int			height;
+	// TEXTURAS
+	char		*tnorth;
+	char		*tsouth;
+	char		*teast;
+	char		*twest;
+	// COLORES
+	char		*floor;
+	char		*ceiling;
+	char		**map;
 }	t_game;
 
 // CHECK MAP
@@ -58,6 +72,7 @@ void	get_cub_info(t_game *game, char **argv);
 
 // UTILS
 int		empty_line(t_game *game, int c1);
+int		ft_strlen_map(char **str);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char *s, unsigned int start, size_t len);

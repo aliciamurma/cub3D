@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 19:07:02 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:24:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	main(int argc, char **argv)
 
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
-	// check_map(&game);
+	check_map(&game);
 	return (0);
 }

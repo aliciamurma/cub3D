@@ -6,53 +6,54 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 18:26:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:25:54 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Get the textures object
+ * 
+ * @param game 
+ */
 void	get_textures(t_game *game)
 {
-	int	cont1;
-
-	cont1 = empty_line(game, 0);
-	game->textures[0] = game->cub[cont1];
-	game->textures[1] = game->cub[cont1 + 1];
-	game->textures[2] = game->cub[cont1 + 2];
-	game->textures[3] = game->cub[cont1 + 3];
+	game->tnorth = game->cub[0];
+	game->tsouth = game->cub[1];
+	game->teast = game->cub[2];
+	game->twest = game->cub[3];
 }
 
+/**
+ * @brief Get the colours object
+ * 
+ * @param game 
+ */
 void	get_colours(t_game *game)
 {
-	int	cont1;
-
-	cont1 = empty_line(game, cont1) + 4;
-	cont1 = empty_line(game, cont1);
-	game->colours[0] = game->cub[cont1];
-	game->colours[1] = game->cub[cont1 + 1];
+	game->floor = game->cub[4];
+	game->ceiling = game->cub[5];
 }
 
+/**
+ * @brief Get the map object
+ * 
+ * @param game 
+ */
 void	get_map(t_game *game)
 {
-	int	cont1;
-	int	cont2;
-	int	cmap;
+	int	count;
+	int	countmap;
 
-	cont2 = 0;
-	cmap = 0;
-	cont1 = empty_line(game, cont1) + 4;
-	cont1 = empty_line(game, cont1) + 2;
-	cont1 = empty_line(game, cont1);
-	while (game->cub[cont1][cont2])
+	count = 6;
+	countmap = 0;
+	game->map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->cub) + 1);
+	while (game->cub[count])
 	{
-		cont2 = 0;
-		while (game->cub[cont1][cont2])
-		{
-			game->map[cmap][cont2] = game->cub[cont1][cont2];
-			cont2++;
-		}
-		cont1++;
-		cmap++;
+		game->map[countmap] = malloc(sizeof(char) * ft_strlen(game->cub[count]));
+		game->map[countmap] = game->cub[count];
+		count++;
+		countmap++;
 	}
 }
