@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
 	check_map(&game);
+	game.mlx_ptr = mlx_init();
 	return (0);
 }
