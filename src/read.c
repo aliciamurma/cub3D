@@ -81,7 +81,11 @@ static void	open_cub(t_game *game, char **argv)
 void	get_cub_info(t_game *game, char **argv)
 {
 	open_cub(game, argv);
-	get_textures(game);
-	get_colours(game);
+	get_textures_colours(game);
+	check_colours(game);
+	check_textures(game->twest);
+	check_textures(game->tsouth);
+	check_textures(game->tnorth);
+	check_textures(game->teast);
 	get_map(game);
 }
