@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 17:47:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:11:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,17 @@ void	check_surrounded(t_game *game)
 	c2 = 0;
 	while (game->map[c1])
 	{
+		if (game->map[c1][0] == '0')
+			close_cub3d(-2);
 		c2 = 0;
 		while (game->map[c1][c2])
 		{
+			if (game->map[c1][c2] == ' ' && game->map[c1][c2 +1] == '0')
+				close_cub3d(-2);
 			if (game->map[c1][c2] == '0' && (game->map[c1][c2 + 1] == ' '
 			|| game->map[c1][c2 + 1] == '\n' || game->map[c1][c2 +1] == '\0'))
 				close_cub3d(-2);
+
 			c2++;
 		}
 		c1++;
