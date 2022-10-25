@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 18:11:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:57:27 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_map_letters(t_game *game)
 	}
 }
 
-void	check_surrounded(t_game *game)
+void	check_surrounded_x(t_game *game)
 {
 	int	c1;
 	int	c2;
@@ -99,9 +99,58 @@ void	check_surrounded(t_game *game)
 	}
 }
 
+void	check_surrounded_y(t_game *game)
+{
+	int	c1;
+	int	c2;
+
+	c1 = 0;
+	c2 = 0;
+	while (game->map[c1])
+	{
+		c2 = 0;
+		while (game->map[c1][c2])
+		{
+			// if (game->map[c1][c2] == ' ' && game->map[c1 +1][c2] == '0')
+			// 	close_cub3d(-2);
+			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
+			|| game->map[c1 -1][c2] == ' ' || game->map[c1 +1][c2] == '\0'
+			|| game->map[c1 -1][c2] == '\0'))
+				close_cub3d(-2);
+			c2++;
+		}
+		c1++;
+	}
+}
+
+// void	check_surrounded_y(t_game *game)
+// {
+// 	int	c1;
+// 	int	c2;
+
+// 	c1 = 0;
+// 	c2 = 0;
+// 	while (game->map[c1][c2])
+// 	{
+// 		c1 = 0;
+// 		while (game->map[c1])
+// 		{
+// 			printf("DENTRO WHILE PEQUE\n");
+// 			if (game->map[c1][c2] == ' ' && game->map[c1 +1][c2] == '0')
+// 				close_cub3d(-2);
+// 			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
+// 			|| game->map[c1 +1][c2] == '\0'))
+// 				close_cub3d(-2);
+// 			c1++;
+// 		}
+// 		c2++;
+// 	}
+// }
+
 void	check_map(t_game *game)
 {
 	check_map_letters(game);
 	check_one_player(game);
-	check_surrounded(game);
+	check_surrounded_x(game);
+	check_surrounded_y(game);
 }
