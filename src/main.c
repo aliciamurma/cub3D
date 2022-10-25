@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:24:28 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:45:07 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
-	check_map(&game);
-	game.mlx_ptr = mlx_init();
+	// check_map(&game);
+	// game.mlx_ptr = mlx_init();
 	return (0);
 }

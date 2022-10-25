@@ -6,35 +6,39 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:25:54 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:49:30 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "../inc/cub3d.h"
 
 void	check_colours(t_game *game)
 {
 	char	**nbrs;
+	char	**raw_nbrs;
 
-	nbrs = ft_split(game->floor, ' ');
-	nbrs = ft_split(nbrs[1], ',');
-	if (!nbrs || nbrs[4] != NULL)
+	nbrs = ft_my_split(game->floor);
+	if (!nbrs)
 		close_cub3d(-1);
-	if ((nbrs[0] < 0 && nbrs[0] > 255) || (nbrs[1] < 0 && nbrs[1] > 255) || (nbrs[2] < 0 && nbrs[2] > 255))
+	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
+		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
+		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
 		close_cub3d(-1);
-	floor_nbr = ft_split(game->ceiling, ' ');
-	floor_nbr = ft_split(floor_nbr[1], ',');
-	if (!nbrs || nbrs[4] != NULL)
+	free (nbrs);
+	nbrs = ft_my_split(game->ceiling);
+	if (!nbrs)
 		close_cub3d(-1);
-	if ((nbrs[0] < 0 && nbrs[0] > 255) || (nbrs[1] < 0 && nbrs[1] > 255) || (nbrs[2] < 0 && nbrs[2] > 255))
+	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
+		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
+		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
 		close_cub3d(-1);
-	free (floor_nbr);
+	free (nbrs);
 }
 
 void	check_textures(char *str)
 {
-	int fd;
-
+	int		fd;
 	char	**texture;
 
 	texture = ft_split(str, ' ');
@@ -57,27 +61,45 @@ void	get_textures_colours(t_game *game)
 {
 	int	count1;
 	int	count2;
-	
+
 	count1 = 0;
 	count2 = 0;
-	while (game->cub[count1])
+	while (count1 < 6)
 	{
 		while (game->cub[count1][count2])
 		{
 			if (game->cub[count1][count2] == ' ' || game->cub[count1][count2] == '\t')
 				count2++;
-			if (ft_strnstr(game->cub[count1], "NO", 2))
+			else if (ft_strnstr(game->cub[count1], "NO", 2))
+			{
 				game->tnorth = game->cub[count1];
-			if (ft_strnstr(game->cub[count1], "SO", 2))
+				break ;
+			}
+			else if (ft_strnstr(game->cub[count1], "SO", 2))
+			{
 				game->tsouth = game->cub[count1];
-			if (ft_strnstr(game->cub[count1], "WE", 2))
+				break ;
+			}
+			else if (ft_strnstr(game->cub[count1], "WE", 2))
+			{
 				game->twest = game->cub[count1];
-			if (ft_strnstr(game->cub[count1], "EA", 2))
+				break ;
+			}
+			else if (ft_strnstr(game->cub[count1], "EA", 2))
+			{
 				game->teast = game->cub[count1];
-			if (ft_strnstr(game->cub[count1], "F", 2))
+				break ;
+			}
+			else if (ft_strnstr(game->cub[count1], "F", 2))
+			{
 				game->floor = game->cub[count1];
-			if (ft_strnstr(game->cub[count1], "C", 2))
+				break ;
+			}
+			else if (ft_strnstr(game->cub[count1], "C", 2))
+			{
 				game->ceiling = game->cub[count1];
+				break ;
+			}
 			else
 				close_cub3d(-1);
 		}

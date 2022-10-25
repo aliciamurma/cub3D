@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:18:27 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:46:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,18 @@ char	*get_next_line(int fd);
 
 // INFO CUB
 void	get_map(t_game *game);
-void	get_colours(t_game *game);
-void	get_textures(t_game *game);
+void	get_textures_colours(t_game *game);
+void	check_textures(char *str);
+void	check_colours(t_game *game);
 
 // READ
 void	get_cub_info(t_game *game, char **argv);
 
 // UTILS
+char	**ft_my_split(char *str);
+int		ft_isdigit(int c);
+int		ft_atoi(char *str);
+void	free_matrix(char **str);
 int		empty_line(t_game *game, int c1);
 int		ft_strlen_map(char **str);
 int		ft_strlen(char *s);

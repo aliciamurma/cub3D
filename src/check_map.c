@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:32:54 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:44:53 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	check_one_player(t_game *game)
 	if (player != 1)
 		close_cub3d(-1);
 }
-
 
 /**
  * @brief Check if there is a letter different from 1, 0, N, S, E, W, espacio, \n o NULL
@@ -76,4 +75,5 @@ void	check_map_letters(t_game *game)
 void	check_map(t_game *game)
 {
 	check_map_letters(game);
+	check_one_player(game);
 }
