@@ -12,8 +12,34 @@
 
 #include "../inc/cub3d.h"
 
+void	check_one_player(t_game *game)
+{
+	int	player;
+	int	cont1;
+	int	cont2;
+
+	cont1 = 0;
+	cont2 = 0;
+	player = 0;
+	while (game->map[cont1])
+	{
+		cont2 = 0;
+		while (game->map[cont1][cont2])
+		{
+			if (game->map[cont1][cont2] == 'N' || game->map[cont1][cont2] == 'S'
+			    || game->map[cont1][cont2] == 'E' || game->map[cont1][cont2] == 'W')
+				player++;
+			cont2++;
+		}
+		cont1++;
+	}
+	if (player != 1)
+		close_cub3d(-1);
+}
+
+
 /**
- * @brief Check if there is a letter different from 1, 0, N, S, E, W, \n o NULL
+ * @brief Check if there is a letter different from 1, 0, N, S, E, W, espacio, \n o NULL
  * 
  * @param game 
  */
