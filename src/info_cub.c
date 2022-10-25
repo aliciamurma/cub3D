@@ -17,7 +17,7 @@
  * 
  * @param game 
  */
-void	get_textures(t_game *game)
+void	get_textures_colours(t_game *game)
 {
 	int	count1;
 	int	count2;
@@ -38,22 +38,15 @@ void	get_textures(t_game *game)
 				game->twest = game->cub[count1];
 			if (ft_strnstr(game->cub[count1][count2], "EA", 2))
 				game->teast = game->cub[count1];
+			if (ft_strnstr(game->cub[count1][count2], "F", 2))
+				game->floor = game->cub[count1];
+			if (ft_strnstr(game->cub[count1][count2], "C", 2))
+				game->ceiling = game->cub[count1];
 			else
 				close_cub3d(-1);
 		}
 		count1++;
 	}
-}
-
-/**
- * @brief Get the colours object
- * 
- * @param game 
- */
-void	get_colours(t_game *game)
-{
-	game->floor = game->cub[4];
-	game->ceiling = game->cub[5];
 }
 
 /**
