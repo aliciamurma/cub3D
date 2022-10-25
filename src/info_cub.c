@@ -19,10 +19,30 @@
  */
 void	get_textures(t_game *game)
 {
-	game->tnorth = game->cub[0];
-	game->tsouth = game->cub[1];
-	game->teast = game->cub[2];
-	game->twest = game->cub[3];
+	int	count1;
+	int	count2;
+	
+	count1 = 0;
+	count2 = 0;
+	while (game->cub[count1])
+	{
+		while (game->cub[count1][count2])
+		{
+			if (game->cub[count1][count2] == ' ' || game->cub[count1][count2] == '\t')
+				count2++;
+			if (ft_strnstr(game->cub[count1][count2], "NO", 2))
+				game->tnorth = game->cub[count1];
+			if (ft_strnstr(game->cub[count1][count2], "SO", 2))
+				game->tsouth = game->cub[count1];
+			if (ft_strnstr(game->cub[count1][count2], "WE", 2))
+				game->twest = game->cub[count1];
+			if (ft_strnstr(game->cub[count1][count2], "EA", 2))
+				game->teast = game->cub[count1];
+			else
+				close_cub3d(-1);
+		}
+		count1++;
+	}
 }
 
 /**
