@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 16:49:30 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:47:59 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ void	check_colours(t_game *game)
 	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
 		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
 		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
-		close_cub3d(-1);
+		close_cub3d(-2);
 	free (nbrs);
 	nbrs = ft_my_split(game->ceiling);
 	if (!nbrs)
-		close_cub3d(-1);
+		close_cub3d(-2);
 	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
 		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
 		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
-		close_cub3d(-1);
+		close_cub3d(-2);
 	free (nbrs);
 }
 
@@ -45,8 +45,9 @@ void	check_textures(char *str)
 	fd = open(texture[1], R_OK);
 	if (fd == -1)
 	{
+		printf("aun no tengo textura\n");
 		free_matrix(texture);
-		close_cub3d(-1);
+		close_cub3d(-2);
 	}
 	close(fd);
 	free_matrix(texture);
@@ -101,7 +102,7 @@ void	get_textures_colours(t_game *game)
 				break ;
 			}
 			else
-				close_cub3d(-1);
+				close_cub3d(-2);
 		}
 		count1++;
 	}

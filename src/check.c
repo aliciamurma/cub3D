@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:04:11 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/24 17:36:34 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:47:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	check_parameters(int argc, char **argv)
 
 	len = 0;
 	if (argc != 2)
-	{
-		printf("Error\nNum argumentos incorrecto\n");
-		exit (-1);
-	}
+		close_cub3d(-1);
 	fd = open(argv[0], O_RDONLY);
 	if (fd < 0)
 	{
