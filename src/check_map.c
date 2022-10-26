@@ -80,21 +80,22 @@ void	check_surrounded_x(t_game *game)
 
 	c1 = 0;
 	c2 = 0;
-	while (game->map[c1])
+	while (game->map[c1][c2])
 	{
 		if (game->map[c1][0] == '0')
 			close_cub3d(-2);
 		c2 = 0;
 		while (game->map[c1][c2])
 		{
+			// printf("%c", game->map[c1][c2]);
 			if (game->map[c1][c2] == ' ' && game->map[c1][c2 +1] == '0')
 				close_cub3d(-2);
 			if (game->map[c1][c2] == '0' && (game->map[c1][c2 + 1] == ' '
 			|| game->map[c1][c2 + 1] == '\n' || game->map[c1][c2 +1] == '\0'))
 				close_cub3d(-2);
-
 			c2++;
 		}
+		printf("\n");
 		c1++;
 	}
 }
@@ -111,41 +112,15 @@ void	check_surrounded_y(t_game *game)
 		c2 = 0;
 		while (game->map[c1][c2])
 		{
-			// if (game->map[c1][c2] == ' ' && game->map[c1 +1][c2] == '0')
-			// 	close_cub3d(-2);
 			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
-			|| game->map[c1 -1][c2] == ' ' || game->map[c1 +1][c2] == '\0'
-			|| game->map[c1 -1][c2] == '\0'))
+			|| game->map[c1 -1][c2] == ' ' || !game->map[c1 +1][c2]
+			|| !game->map[c1 -1][c2]))
 				close_cub3d(-2);
 			c2++;
 		}
 		c1++;
 	}
 }
-
-// void	check_surrounded_y(t_game *game)
-// {
-// 	int	c1;
-// 	int	c2;
-
-// 	c1 = 0;
-// 	c2 = 0;
-// 	while (game->map[c1][c2])
-// 	{
-// 		c1 = 0;
-// 		while (game->map[c1])
-// 		{
-// 			printf("DENTRO WHILE PEQUE\n");
-// 			if (game->map[c1][c2] == ' ' && game->map[c1 +1][c2] == '0')
-// 				close_cub3d(-2);
-// 			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
-// 			|| game->map[c1 +1][c2] == '\0'))
-// 				close_cub3d(-2);
-// 			c1++;
-// 		}
-// 		c2++;
-// 	}
-// }
 
 void	check_map(t_game *game)
 {

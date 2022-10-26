@@ -108,6 +108,67 @@ void	get_textures_colours(t_game *game)
 	}
 }
 
+void	get_width(t_game *game, char **map)
+{
+	int	c1;
+
+	c1 = 0;
+	while (map[c1] && map[c1 + 1])
+	{
+		if (ft_strlen(map[c1]) > ft_strlen(map[c1 + 1]))
+			game->width = ft_strlen(map[c1]);
+		c1++;
+	}
+}
+
+void	create_map(t_game *game, char **map)
+{
+	int	c1;
+	int	c2;
+
+	c1 = 0;
+	c2 = 0;
+	game->map = (char **)malloc(sizeof(char *) * (14 + 1));
+	game->map[14] = NULL;
+	while (c1 < 14)
+	{
+		game->map[c1] = (char *)malloc(sizeof(char) * game->width + 1);
+		game->map[c1][game->width] = '\0';
+		c2 = 0;
+		while (c2 < game->width)
+		{
+			game->map[c1][c2] = ' ';
+			c2++;
+		}
+		c1++;
+	}
+}
+
+void	refile_spaces(t_game *game, char **map)
+{
+	int	c1;
+	int	c2;
+
+	c1 = 0;
+	c2 = 0;
+	while (map[c1])
+	{
+		c2 = 0;
+		while (map[c1][c2])
+		{
+			game->map[c1][c2] = map[c1][c2];
+			c2++;
+		}
+		c1++;
+	}
+	c1 = 0;
+	while (game->map[c1])
+	{
+		printf("%s\n", game->map[c1]);
+		c1++;
+	}
+}
+
 /**
  * @brief Get the map object
  * 
@@ -117,15 +178,20 @@ void	get_map(t_game *game)
 {
 	int	count;
 	int	countmap;
+	char	**map;
 
 	count = 6;
 	countmap = 0;
-	game->map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->cub) + 1);
+	map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->cub) + 1);
 	while (game->cub[count])
 	{
-		game->map[countmap] = malloc(sizeof(char) * ft_strlen(game->cub[count]));
-		game->map[countmap] = game->cub[count];
+		map[countmap] = malloc(sizeof(char) * ft_strlen(game->cub[count]));
+		map[countmap] = game->cub[count];
 		count++;
 		countmap++;
 	}
+	count = 0;
+	get_width(game, map);
+	create_map(game, map);
+	refile_spaces(game, map);
 }
