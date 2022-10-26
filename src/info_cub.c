@@ -108,6 +108,29 @@ void	get_textures_colours(t_game *game)
 	}
 }
 
+void	get_height(t_game *game, char **map)
+{
+	int	c1;
+	int	c2;
+	int	c2_old;
+
+	c1 = 0;
+	c2 = 0;
+	c2_old = 0;
+	while (map[c1])
+	{
+		c2 = 0;
+		while (map[c1][c2])
+		{
+			c2++;
+		}
+		if (c2_old < c2)
+			c2_old = c2;
+		c1++;
+	}
+	game->height = c2_old;
+}
+
 void	get_width(t_game *game, char **map)
 {
 	int	c1;
@@ -128,9 +151,9 @@ void	create_map(t_game *game, char **map)
 
 	c1 = 0;
 	c2 = 0;
-	game->map = (char **)malloc(sizeof(char *) * (14 + 1));
-	game->map[14] = NULL;
-	while (c1 < 14)
+	game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
+	game->map[game->height] = NULL;
+	while (c1 < game->height)
 	{
 		game->map[c1] = (char *)malloc(sizeof(char) * game->width + 1);
 		game->map[c1][game->width] = '\0';
@@ -161,12 +184,6 @@ void	refile_spaces(t_game *game, char **map)
 		}
 		c1++;
 	}
-	c1 = 0;
-	while (game->map[c1])
-	{
-		printf("%s\n", game->map[c1]);
-		c1++;
-	}
 }
 
 /**
@@ -192,6 +209,7 @@ void	get_map(t_game *game)
 	}
 	count = 0;
 	get_width(game, map);
+	get_height(game, map);
 	create_map(game, map);
 	refile_spaces(game, map);
 }

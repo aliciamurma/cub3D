@@ -87,7 +87,6 @@ void	check_surrounded_x(t_game *game)
 		c2 = 0;
 		while (game->map[c1][c2])
 		{
-			// printf("%c", game->map[c1][c2]);
 			if (game->map[c1][c2] == ' ' && game->map[c1][c2 +1] == '0')
 				close_cub3d(-2);
 			if (game->map[c1][c2] == '0' && (game->map[c1][c2 + 1] == ' '
@@ -95,7 +94,6 @@ void	check_surrounded_x(t_game *game)
 				close_cub3d(-2);
 			c2++;
 		}
-		printf("\n");
 		c1++;
 	}
 }
