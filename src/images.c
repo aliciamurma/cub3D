@@ -6,12 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:05:03 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:54:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:09:29 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Charge the texture images
+ * 
+ * @param game 
+ */
 void	put_images(t_game *game)
 {
 	int	i;

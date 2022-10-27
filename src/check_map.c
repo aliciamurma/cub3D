@@ -6,12 +6,18 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:21:02 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:08:36 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Check if there is only 1 player
+ * Remember that the player can be N, S, E or W
+ * 
+ * @param game 
+ */
 void	check_one_player(t_game *game)
 {
 	int	player;
@@ -73,6 +79,11 @@ void	check_map_letters(t_game *game)
 	}
 }
 
+/**
+ * @brief Check if the map is surrounded by 1 - x axis
+ * 
+ * @param game 
+ */
 void	check_surrounded_x(t_game *game)
 {
 	int	c1;
@@ -100,6 +111,11 @@ void	check_surrounded_x(t_game *game)
 	}
 }
 
+/**
+ * @brief Check if the map is surrounded by 1 - y axis
+ * 
+ * @param game 
+ */
 void	check_surrounded_y(t_game *game)
 {
 	int	c1;
@@ -121,6 +137,11 @@ void	check_surrounded_y(t_game *game)
 	}
 }
 
+/**
+ * @brief Check the inside of the map
+ * 
+ * @param game 
+ */
 void	check_map(t_game *game)
 {
 	check_map_letters(game);

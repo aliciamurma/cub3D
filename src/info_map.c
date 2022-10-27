@@ -6,12 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:41:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:12:42 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Get the player position
+ * 
+ * @param game 
+ */
 void	get_player_pos(t_game *game)
 {
 	int	c1;
@@ -36,6 +41,12 @@ void	get_player_pos(t_game *game)
 	}
 }
 
+/**
+ * @brief Get the width of our map
+ * 
+ * @param game 
+ * @param map 
+ */
 void	get_width(t_game *game, char **map)
 {
 	int	c1;
@@ -50,6 +61,18 @@ void	get_width(t_game *game, char **map)
 	game->width++;
 }
 
+/**
+ * @brief Create a empty map
+ * It is because we need to check if there is:
+ * 111111
+ * 11111110111
+ * 11111
+ * And if we don't have an space up and down the 0,
+ * we won't check the uncorrect map
+ * 
+ * @param game 
+ * @param map 
+ */
 void	create_empty_map(t_game *game, char **map)
 {
 	int	c1;
@@ -71,6 +94,12 @@ void	create_empty_map(t_game *game, char **map)
 	}
 }
 
+/**
+ * @brief Refile a new bidimensional array with only the map (1, 0 and player)
+ * 
+ * @param game 
+ * @param map 
+ */
 void	refile_map(t_game *game, char **map)
 {
 	int	c1;
@@ -91,7 +120,7 @@ void	refile_map(t_game *game, char **map)
 }
 
 /**
- * @brief Get the map object
+ * @brief Get the map
  * 
  * @param game 
  */

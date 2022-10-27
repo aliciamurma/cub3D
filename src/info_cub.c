@@ -6,13 +6,18 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:35:44 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:10:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Check if the given number for the colours is correct
+ * 
+ * @param game 
+ */
 void	check_colours(t_game *game)
 {
 	char	**nbrs;
@@ -36,6 +41,11 @@ void	check_colours(t_game *game)
 	free (nbrs);
 }
 
+/**
+ * @brief Check if the texture path can be opened
+ * 
+ * @param str 
+ */
 void	check_textures(char *str)
 {
 	int		fd;
@@ -46,6 +56,13 @@ void	check_textures(char *str)
 	close(fd);
 }
 
+/**
+ * @brief Get the texture path
+ * 
+ * @param game 
+ * @param index 
+ * @param pos 
+ */
 void	get_texture_path(t_game *game, int index, int pos)
 {
 	char	**path;

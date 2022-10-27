@@ -6,12 +6,19 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:40:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:51:49 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:12:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/**
+ * @brief Keycode of movements
+ * 
+ * @param keycode 
+ * @param game 
+ * @return int 
+ */
 int	movements(int keycode, t_game *game)
 {
 	if (keycode == 53)

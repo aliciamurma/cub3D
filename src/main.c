@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:58:46 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:07:01 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 // Cub es el archivo que nos dan, con las texturas, los colores y el mapa
 
+/**
+ * @brief 
+ * Check if the parameters are correct
+ * Extract the info from the given .cub (argv[1])
+ * Init the game
+ * Create a new window
+ * Charge the images
+ * Make a hook for the movements
+ * Make a hook for the X botton
+ * Create a loop for the window
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main(int argc, char **argv)
 {
 	t_game	game;
