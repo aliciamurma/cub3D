@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:41:37 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:38:20 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "../mlx/mlx.h"
 
 # define BUFFER_SIZE 1
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct s_texture
 {
@@ -34,6 +36,7 @@ typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		**image;
 	char		**cub;
 	char		*cub_raw;
 	int			width;
@@ -51,6 +54,19 @@ typedef struct s_game
 	int			player_x;
 	int			player_y;
 }	t_game;
+
+typedef struct s_position
+{
+	int	pos_x; // pos player
+	int	pos_y; // pos player
+	int	ray_dirx; //vector de direccion del rayo
+	int	ray_diry; //vector de direccion del rayo
+	int	plane_x;
+	int	plane_y;
+	int	camera_x; // la posicion en el plano de la camara
+	int	camera_y; // la posicion en el plano de la camara
+	//la dirección del rayo se puede encontrar como (vector de dirección) + (plano de la cámara x múltiplo) 
+}	t_position;
 
 // CHECK MAP
 void	check_map(t_game *game);

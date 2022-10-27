@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 18:12:41 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:38:37 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int	main(int argc, char **argv)
 	get_cub_info(&game, argv);
 	check_map(&game);
 	game.mlx_ptr = mlx_init();
-	game.win_ptr = mlx_new_window(game.mlx_ptr, game.height, game.width, "ACABAMOS C");
-	mlx_loop(game.mlx_ptr);
+	game.win_ptr = mlx_new_window(game.mlx_ptr, HEIGHT, WIDTH, "ACABAMOS C");
+	game.image = mlx_new_image(game.mlx_ptr, HEIGHT, WIDTH);
+
 // 	double posX = 22, posY = 12;  //x and y start position
 // 	double dirX = -1, dirY = 0; //initial direction vector
 // 	double planeX = 0, planeY = 0.66; //the 2d raycaster version of camera plane
@@ -41,5 +42,6 @@ int	main(int argc, char **argv)
 //       double rayDirY = dirY + planeY * cameraX;
 // 	}
 //   }
+	mlx_loop(game.mlx_ptr);
 	return (0);
 }

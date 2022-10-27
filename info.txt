@@ -3,3 +3,12 @@ https://github-com.translate.goog/365kim/raycasting_tutorial/blob/master/3_untex
 Ponemos FOV = 66.8° para jugadores en primera persona
 La diferencia de tiempo entre time y oldTime se usará para determinar la distancia recorrida cuando se presiona cierta tecla (para moverse a una velocidad constante sin importar cuánto se tarde en calcular un cuadro) y para medir los FPS.
 
+CAMERA_X - sirve para calcular la dirección del rayo
+Si el valor x de la declaración for es 0 (si el borde izquierdo de la pantalla) cameraX = -1
+Si el valor x de la instrucción for es w/2 (centro de la pantalla) cameraX = 0
+Si el valor x de la declaración for es w (en el extremo derecho de la pantalla) cameraX = 1
+
+
+
+ray_dirx;
+	ray_diry;
