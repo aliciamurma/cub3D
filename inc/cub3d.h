@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:16:51 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:41:37 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef struct s_game
 	char		*floor;
 	char		*ceiling;
 	char		**map;
+	// PLAYER
+	int			player_x;
+	int			player_y;
 }	t_game;
 
 // CHECK MAP

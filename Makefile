@@ -14,7 +14,7 @@ INC = -I $(INC_DIR)
 OBJ             = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 DEP             = $(addsuffix .d, $(basename $(OBJ)))
 
-LIBFT 	= libft/libft.a
+# LIBFT 	= libft/libft.a
 
 CC = gcc
 
@@ -34,13 +34,15 @@ all: $(NAME)
 
 $(NAME) : $(OBJ) 
 	make -C mlx
-	$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
-#	$(CC) $(LIBFT) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
+#	$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
+	$(CC) $(LIBFT) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 clean :
 	@$(RM) $(OBJ)
+	@$(RM) $(DEP)
 	@$(RM_DIR) $(OBJ_DIR)
+	make clean -C mlx
 	@echo "$(GREEN)$(NAME) cleaned!$(NC)"
 
 fclean : clean

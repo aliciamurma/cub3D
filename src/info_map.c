@@ -6,20 +6,34 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:21:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:41:55 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	get_height(t_game *game, char **map)
+void	get_player_pos(t_game *game)
 {
 	int	c1;
 	int	c2;
 
 	c1 = 0;
 	c2 = 0;
-	game->height = ft_strlen_map(map) + 1;
+	while (game->map[c1])
+	{
+		c2 = 0;
+		while (game->map[c1][c2])
+		{
+			if (game->map[c1][c2] == 'N' || game->map[c1][c2] == 'S'
+				|| game->map[c1][c2] == 'E' || game->map[c1][c2] == 'W')
+			{
+				game->player_x = c1;
+				game->player_y = c2;
+			}
+			c2++;
+		}
+		c1++;
+	}
 }
 
 void	get_width(t_game *game, char **map)
@@ -101,7 +115,7 @@ void	get_map(t_game *game)
 	}
 	count = 0;
 	get_width(game, map);
-	get_height(game, map);
+	game->height = ft_strlen_map(map) + 1;
 	create_empty_map(game, map);
 	refile_map(game, map);
 }
