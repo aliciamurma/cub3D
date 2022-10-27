@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 19:19:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:57:02 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,9 @@ typedef struct s_position
 // IMAGES
 void    put_images(t_game *game);
 
+// MOVE
+int	movements(int keycode, t_game *game);
+
 // CHECK MAP
 void	check_map(t_game *game);
 
@@ -99,6 +102,7 @@ void	open_map(t_game *game, char **argv);
 
 // CLOSE
 void	close_cub3d(int value);
+int		close_x(t_game *game);
 
 // GET_NEXT_LINE
 char	*get_next_line(int fd);

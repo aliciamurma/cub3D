@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   images.c                                           :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 19:05:03 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:54:09 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/10/27 20:40:00 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/10/27 20:51:49 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	put_images(t_game *game)
+int	movements(int keycode, t_game *game)
 {
-	int	i;
-
-	i = 0;
-	game->img_ptr = mlx_new_image(game->mlx_ptr, HEIGHT, WIDTH);
-	game->data_addr = mlx_get_data_addr(game->img_ptr, &game->bits_per_pixel, &game->width, &game->endian);
-	while (i < 4)
+	if (keycode == 53)
 	{
-		game->texture[i].texture = mlx_xpm_file_to_image(game->mlx_ptr, game->texture[i].path, &game->texture[i].tex_width, &game->texture[i].tex_height);
-		i++;
+		mlx_clear_window(game->mlx_ptr, game->win_ptr);
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		close_cub3d(0);
 	}
+	return (0);
 }
