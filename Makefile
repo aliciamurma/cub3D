@@ -14,6 +14,8 @@ INC = -I $(INC_DIR)
 OBJ             = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 DEP             = $(addsuffix .d, $(basename $(OBJ)))
 
+LIBFT 	= libft/libft.a
+
 CC = gcc
 
 CFLAGS 			= -Werror -Wall -Wextra -MMD $(INC)
@@ -30,9 +32,10 @@ all: $(NAME)
 
 -include $(DEP)
 
-$(NAME) : $(OBJ)
-#	$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(OBJ) 
+	make -C mlx
+	$(CC) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
+#	$(CC) $(LIBFT) $(CFLAGS) -Lmlx -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 clean :
