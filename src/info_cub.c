@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 17:47:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 20:35:44 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,20 @@ void	check_colours(t_game *game)
 void	check_textures(char *str)
 {
 	int		fd;
-	char	**texture;
 
-	texture = ft_split(str, ' ');
-	fd = open(texture[1], R_OK);
+	fd = open(str, R_OK);
 	if (fd == -1)
-	{
-		printf("aun no tengo textura\n");
-		free_matrix(texture);
 		close_cub3d(-2);
-	}
 	close(fd);
-	free_matrix(texture);
+}
+
+void	get_texture_path(t_game *game, int index, int pos)
+{
+	char	**path;
+
+	path = ft_split(game->cub[pos], ' ');
+	game->texture[index].path = malloc(sizeof(char) * ft_strlen(path[1]));
+	game->texture[index].path = path[1];
 }
 
 /**
@@ -60,9 +62,10 @@ void	check_textures(char *str)
  */
 void	get_textures_colours(t_game *game)
 {
-	int	count1;
-	int	count2;
+	int		count1;
+	int		count2;
 
+	game->texture = malloc(sizeof(t_texture));
 	count1 = 0;
 	count2 = 0;
 	while (count1 < 6)
@@ -73,22 +76,22 @@ void	get_textures_colours(t_game *game)
 				count2++;
 			else if (ft_strnstr(game->cub[count1], "NO", 2))
 			{
-				game->tnorth = game->cub[count1];
+				get_texture_path(game, 0, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "SO", 2))
 			{
-				game->tsouth = game->cub[count1];
+				get_texture_path(game, 1, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "WE", 2))
 			{
-				game->twest = game->cub[count1];
+				get_texture_path(game, 2, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "EA", 2))
 			{
-				game->teast = game->cub[count1];
+				get_texture_path(game, 3, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "F", 2))

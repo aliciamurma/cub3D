@@ -7,7 +7,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = inc
 
-SRC = main.c check.c check_map.c close.c get_next_line.c info_cub.c info_map.c read.c utils.c
+SRC = main.c check.c check_map.c close.c get_next_line.c info_cub.c info_map.c images.c read.c utils.c
 
 INC = -I $(INC_DIR)
 	  

@@ -10,5 +10,19 @@ Si el valor x de la declaración for es w (en el extremo derecho de la pantalla)
 
 
 
-ray_dirx;
-	ray_diry;
+
+MLX A USAR
+https://qst0.github.io/ft_libgfx/man_mlx_new_image.html
+void *
+mlx_new_image ( void *mlx_ptr, int width, int height );
+
+char *
+mlx_get_data_addr ( void *img_ptr, int *bits_per_pixel, int *size_line, int *endian );
+returns information about the created image, allowing a user to modify it later
+
+int
+mlx_put_image_to_window ( void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y );
+
+int
+mlx_destroy_image ( void *mlx_ptr, void *img_ptr );
+

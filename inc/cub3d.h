@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 18:38:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:19:55 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,48 @@
 # define BUFFER_SIZE 1
 # define WIDTH 1920
 # define HEIGHT 1080
+# define SIZE_TEXTURE 100
 
+// typedef struct s_texture
+// {
+// 	char	*north;
+// 	char	*south;
+// 	char	*east;
+// 	char	*west;
+// }	t_texture;
+
+// 0 for north
+// 1 for south
+// 2 for west
+// 3 for east
 typedef struct s_texture
 {
-	char	*north;
-	char	*south;
-	char	*east;
-	char	*west;
+	void			*texture;
+	char			*path;
+	int				width;
+	int				endian;
+	int				tex_width;
+	int				tex_height;
 }	t_texture;
 
 typedef struct s_game
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		**image;
+	void		**img_ptr;
 	char		**cub;
 	char		*cub_raw;
 	int			width;
 	int			height;
+	int			bits_per_pixel;
+	int			endian;
+	char		*data_addr;
 	// TEXTURAS
-	char		*tnorth;
-	char		*tsouth;
-	char		*teast;
-	char		*twest;
+	// char		*tnorth;
+	// char		*tsouth;
+	// char		*teast;
+	// char		*twest;
+	t_texture	*texture;
 	// COLORES
 	char		*floor;
 	char		*ceiling;
@@ -67,6 +86,9 @@ typedef struct s_position
 	int	camera_y; // la posicion en el plano de la camara
 	//la dirección del rayo se puede encontrar como (vector de dirección) + (plano de la cámara x múltiplo) 
 }	t_position;
+
+// IMAGES
+void    put_images(t_game *game);
 
 // CHECK MAP
 void	check_map(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 17:02:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:51:51 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ void	get_cub_info(t_game *game, char **argv)
 	open_cub(game, argv);
 	get_textures_colours(game);
 	check_colours(game);
-	// check_textures(game->twest);
-	// check_textures(game->tsouth);
-	// check_textures(game->tnorth);
-	// check_textures(game->teast);
+	check_textures(game->texture[0].path);
+	check_textures(game->texture[1].path);
+	check_textures(game->texture[2].path);
+	check_textures(game->texture[3].path);
 	get_map(game);
 }
