@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 18:57:27 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:21:02 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	check_surrounded_x(t_game *game)
 
 	c1 = 0;
 	c2 = 0;
-	while (game->map[c1][c2])
+	while (game->map[c1])
 	{
 		if (game->map[c1][0] == '0')
 			close_cub3d(-2);
@@ -89,9 +89,11 @@ void	check_surrounded_x(t_game *game)
 		{
 			if (game->map[c1][c2] == ' ' && game->map[c1][c2 +1] == '0')
 				close_cub3d(-2);
-			if (game->map[c1][c2] == '0' && (game->map[c1][c2 + 1] == ' '
-			|| game->map[c1][c2 + 1] == '\n' || game->map[c1][c2 +1] == '\0'))
+			if (game->map[c1][c2] == '0' && (game->map[c1][c2 +1] == ' '
+			|| game->map[c1][c2 +1] == '\n' || game->map[c1][c2 +1] == '\0'))
+			{
 				close_cub3d(-2);
+			}
 			c2++;
 		}
 		c1++;
@@ -111,8 +113,7 @@ void	check_surrounded_y(t_game *game)
 		while (game->map[c1][c2])
 		{
 			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
-			|| game->map[c1 -1][c2] == ' ' || !game->map[c1 +1][c2]
-			|| !game->map[c1 -1][c2]))
+			|| game->map[c1 -1][c2] == ' '))
 				close_cub3d(-2);
 			c2++;
 		}

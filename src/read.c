@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/25 16:51:35 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:02:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	read_cub(t_game *game, int fd, int i)
 	if (!line)
 		return ;
 	game->cub_raw = NULL;
-	game->cub_raw = malloc(sizeof(char) * 8888);
+	game->cub_raw = malloc(sizeof(char) * 1);
+	game->cub_raw[0] = '\0';
 	game->height = ft_strlen(line) - 1;
 	while (line)
 	{
