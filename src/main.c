@@ -6,13 +6,44 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 21:07:01 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:04:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
 // Cub es el archivo que nos dan, con las texturas, los colores y el mapa
+
+// void	init_ray(t_game game, int x)
+// {
+
+// 	pos = malloc(sizeof(t_position));
+// 	pos.camera_x = 2 * x / (double)WIDTH -1;
+
+// 	ray_dirx;
+// 	ray_diry;
+// }
+
+// void	init_raycasting(t_game game)
+// {
+// 	int	x;
+// 	int	y;
+
+// 	x = 0;
+// 	y = 0;
+// 	while (x < WIDTH)
+// 	{
+// 		init_ray(game, x);
+// 		x++;
+// 	}
+// }
+
+void	init_data(t_game *game)
+{
+	// game.pos = malloc(sizeof(t_position));
+	// game->pos.speed_move = 1;
+	(void) game;
+}
 
 /**
  * @brief 
@@ -37,6 +68,7 @@ int	main(int argc, char **argv)
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
 	check_map(&game);
+	init_data(&game);
 	game.mlx_ptr = mlx_init();
 	game.win_ptr = mlx_new_window(game.mlx_ptr, HEIGHT, WIDTH, "ACABAMOS C");
 	put_images(&game);

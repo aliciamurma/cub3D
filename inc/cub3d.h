@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 20:57:02 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:43:40 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,21 @@ typedef struct s_texture
 	int				tex_height;
 }	t_texture;
 
+typedef struct s_position
+{
+	int	speed_move;
+	int	speed_rot;
+	int	pos_x; // pos player
+	int	pos_y; // pos player
+	int	camera_x; // la posicion en el plano de la camara
+	int	camera_y; // la posicion en el plano de la camara
+	int	ray_dirx; //vector de direccion del rayo
+	int	ray_diry; //vector de direccion del rayo
+	int	plane_x;
+	int	plane_y;
+	//la dirección del rayo se puede encontrar como (vector de dirección) + (plano de la cámara x múltiplo) 
+}	t_position;
+
 typedef struct s_game
 {
 	void		*mlx_ptr;
@@ -72,20 +87,8 @@ typedef struct s_game
 	// PLAYER
 	int			player_x;
 	int			player_y;
+	t_position	pos;
 }	t_game;
-
-typedef struct s_position
-{
-	int	pos_x; // pos player
-	int	pos_y; // pos player
-	int	ray_dirx; //vector de direccion del rayo
-	int	ray_diry; //vector de direccion del rayo
-	int	plane_x;
-	int	plane_y;
-	int	camera_x; // la posicion en el plano de la camara
-	int	camera_y; // la posicion en el plano de la camara
-	//la dirección del rayo se puede encontrar como (vector de dirección) + (plano de la cámara x múltiplo) 
-}	t_position;
 
 // IMAGES
 void    put_images(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/27 21:12:42 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:03:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void	get_width(t_game *game, char **map)
 	int	c1;
 
 	c1 = 0;
-	while (map[c1] && map[c1 + 1])
+	game->width = 0;
+	while (map[c1])
 	{
-		if (ft_strlen(map[c1]) > ft_strlen(map[c1 + 1]))
+		if (ft_strlen(map[c1]) > game->width)
 			game->width = ft_strlen(map[c1]);
 		c1++;
 	}
-	game->width++;
 }
 
 /**
