@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/28 18:04:28 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:06:47 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 // Cub es el archivo que nos dan, con las texturas, los colores y el mapa
 
-// void	init_ray(t_game game, int x)
-// {
-
-// 	pos = malloc(sizeof(t_position));
-// 	pos.camera_x = 2 * x / (double)WIDTH -1;
-
-// 	ray_dirx;
-// 	ray_diry;
-// }
+void	init_ray(t_game *game, int x)
+{
+	game->pos.camera_x = 2 * x / (double) WIDTH -1;
+	game->pos.ray_x = game->pos.dir_x + game->pos.plane_x * game->pos.camera_x;
+	game->pos.ray_y = game->pos.dir_y + game->pos.plane_y * game->pos.camera_x;
+	game->pos.map_x = (int)game->pos.pos_x;
+	game->pos.map_y = (int)game->pos.pos_y;
+	game->pos.delta_dist_x = fabs(1 / game->pos.ray_x);
+	game->pos.delta_dist_y = fabs(1 / game->pos.ray_y);
+}
 
 // void	init_raycasting(t_game game)
 // {
@@ -40,9 +41,16 @@
 
 void	init_data(t_game *game)
 {
-	// game.pos = malloc(sizeof(t_position));
-	// game->pos.speed_move = 1;
-	(void) game;
+	game->bits_per_pixel = 6;
+	game->pos.speed_move = 0.04;
+	game->pos.speed_rot = 0.04;
+	game->pos.buffer = NULL;
+	game->pos.dir_x = -1.0;
+	game->pos.dir_y = 0.0;
+	game->pos.plane_x = -1.0;
+	game->pos.plane_y = 0.66;
+	game->pos.time = 0;
+	game->pos.old_time = 0;
 }
 
 /**
@@ -63,8 +71,9 @@ void	init_data(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	game.bits_per_pixel = 6;
+	int		x;
 
+	x = 0;
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
 	check_map(&game);
@@ -75,23 +84,10 @@ int	main(int argc, char **argv)
 	mlx_hook(game.win_ptr, 02, (0L << 0), movements, &game);
 	// mlx_hook(game.win_ptr, 02, (0L << 0), movements, &game);
 	mlx_hook(game.win_ptr, 17, 0, close_x, &game);
-// 	double posX = 22, posY = 12;  //x and y start position
-// 	double dirX = -1, dirY = 0; //initial direction vector
-// 	double planeX = 0, planeY = 0.66; //the 2d raycaster version of camera plane
-
-// 	double time = 0; //time of current frame
-// 	double oldTime = 0; //time of previous frame
-// 	screen(100, 100, 0, "Raycaster");
-// 	while(1)
-//   {
-// 	for(int x = 0; x < 10; x++)
-//     {
-//       //calculate ray position and direction
-//       double cameraX = 2 * x / double(10) - 1; //x-coordinate in camera space
-//       double rayDirX = dirX + planeX * cameraX;
-//       double rayDirY = dirY + planeY * cameraX;
-// 	}
-//   }
+	while (x < WIDTH)
+	{
+		init_ray(&game, x);
+	}
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

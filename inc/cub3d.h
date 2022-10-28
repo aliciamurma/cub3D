@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/28 13:43:40 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:07:11 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@
 # include <stdlib.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <math.h>
 # include "../mlx/mlx.h"
 
 # define BUFFER_SIZE 1
 # define WIDTH 1920
 # define HEIGHT 1080
 # define SIZE_TEXTURE 100
+# define screenWidth 640
+# define screenHeight 480
+# define texWidth 64
+# define texHeight 64
+# define mapWidth 24
+# define mapHeight 24
 
 // typedef struct s_texture
 // {
@@ -49,17 +56,30 @@ typedef struct s_texture
 
 typedef struct s_position
 {
-	int	speed_move;
-	int	speed_rot;
-	int	pos_x; // pos player
-	int	pos_y; // pos player
-	int	camera_x; // la posicion en el plano de la camara
-	int	camera_y; // la posicion en el plano de la camara
-	int	ray_dirx; //vector de direccion del rayo
-	int	ray_diry; //vector de direccion del rayo
-	int	plane_x;
-	int	plane_y;
+	double			pos_x; // pos player
+	double			pos_y; // pos player
+	double			dir_x; // vector de la direccion del jugador
+	double			dir_y; // vector de la direccion del jugador
+	double			ray_dirx; //vector de direccion del rayo
+	double			ray_diry; //vector de direccion del rayo
+	double			plane_x;
+	double			plane_y;
+	double			speed_move;
+	double			speed_rot;
+	double			camera_x; // la posicion en el plano de la camara
+	double			camera_y; // la posicion en el plano de la camara
 	//la dirección del rayo se puede encontrar como (vector de dirección) + (plano de la cámara x múltiplo) 
+	unsigned int	*buffer;
+	double			time; // time of current frame
+	double			old_time; // time of previous frame
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
+	double			ray_x;
+	double			ray_y;
+	double			map_x;
+	double			map_y;
 }	t_position;
 
 typedef struct s_game
