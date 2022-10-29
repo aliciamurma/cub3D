@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:03:35 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/10/28 21:06:47 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:09:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 // Cub es el archivo que nos dan, con las texturas, los colores y el mapa
 
+/**
+ * @brief Calculate the ray position and direction
+ * 
+ * @param game 
+ * @param x 
+ */
 void	init_ray(t_game *game, int x)
 {
 	game->pos.camera_x = 2 * x / (double) WIDTH -1;
