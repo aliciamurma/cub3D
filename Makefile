@@ -43,7 +43,7 @@ NAME 			:= minishell
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/maps src/errors src/builtins src/env src/pipes src/parse src/signal src/history src/init src/input src/commands src/memory src/helpers src/redirections src/path
+vpath %.c src src/assets src/mandatory src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:
 
