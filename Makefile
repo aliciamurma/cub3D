@@ -17,6 +17,7 @@ MAIN			= main.c
 SRCS 			= info_cub.c read.c \
 				check.c check_map.c \
 				helpers_1.c helpers_2.c get_next_line.c memory.c \
+				info_map.c \
 				close.c images.c
 
 # LIBS

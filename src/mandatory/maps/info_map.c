@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:39 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:44:13 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	get_width(t_game *game, char **map)
  * @param game 
  * @param map 
  */
-void	create_empty_map(t_game *game, char **map)
+void	create_empty_map(t_game *game)
 {
 	int	c1;
 	int	c2;
@@ -145,6 +145,6 @@ void	get_map(t_game *game)
 	count = 0;
 	get_width(game, map);
 	game->height = ft_strlen_map(map) + 1;
-	create_empty_map(game, map);
+	create_empty_map(game);
 	refile_map(game, map);
 }
