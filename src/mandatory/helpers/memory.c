@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:39:48 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:43:56 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:23:55 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 
 void    *ft_malloc(size_t size, unsigned int q)
 {
-	malloc()
+	(void) size;
+	(void) q;
+	// malloc(sizeof(size))
+	return (NULL);
 }

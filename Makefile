@@ -12,9 +12,12 @@ FLAGS			:= $(CFLAGS)
 RM 				:= rm -f
 
 # SRC
-MAIN			= main.c 
+MAIN			= main.c
 
-SRCS 			= 
+SRCS 			= info_cub.c read.c \
+				check.c check_map.c \
+				helpers_1.c helpers_2.c get_next_line.c memory.c \
+				close.c images.c
 
 # LIBS
 LIBS_PATH		:= libs
@@ -49,7 +52,7 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
+vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:
 

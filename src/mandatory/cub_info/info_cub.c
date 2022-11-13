@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:16:45 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 void	check_colours(t_game *game)
 {
 	char	**nbrs;
-	char	**raw_nbrs;
 
 	nbrs = ft_my_split(game->floor);
 	if (!nbrs)

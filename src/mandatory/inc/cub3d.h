@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:25:07 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:25:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@
 # define texHeight 64
 # define mapWidth 24
 # define mapHeight 24
-
-// typedef struct s_texture
-// {
-// 	char	*north;
-// 	char	*south;
-// 	char	*east;
-// 	char	*west;
-// }	t_texture;
 
 // 0 for north
 // 1 for south

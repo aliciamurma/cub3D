@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:29:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:11 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:56:22 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,4 @@ void	close_cub3d(int value)
 	if (value == -2)
 		printf("Error\nMap invalid\n");
 	exit (value);
-}
-
-/**
- * @brief Close the Cub3D when people click the X button
- * 
- * @param game 
- * @return int 
- */
-int	close_x(t_game *game)
-{
-	exit(0);
-	return (0);
 }
