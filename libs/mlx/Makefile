@@ -25,5 +25,6 @@ $(NOM):	$(OBJ)
 clean:
 	@rm -f $(NOM) $(OBJ) *~
 	@rm -f mlx_app
+	@echo "$(GREEN)mlx cleaned!$(NC)"
 
 re: clean all

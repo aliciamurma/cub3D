@@ -63,9 +63,11 @@ $(LIBFT): libft_force_make
 	
 $(MLX): mlx_force_make
 	@make -s -C $(LIBS_PATH)/mlx 2> ERRORS
+	@rm ERRORS
 
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
+	@echo "$(BLUE)$(NAME) compiling...$(NC)"
 	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
