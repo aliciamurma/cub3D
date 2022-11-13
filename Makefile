@@ -14,10 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= info_cub.c read.c \
-				check.c check_map.c \
-				helpers_1.c helpers_2.c get_next_line.c memory.c \
-				close.c images.c
+SRCS 			= 
 
 # LIBS
 LIBS_PATH		:= libs
@@ -32,8 +29,9 @@ OBJS_DIR		:= obj
 BIN_DIR			:= bin
 
 #INCLUDES
-INC_PATH		:= src/mandatory/inc
-INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) $(INC_PATH)
+INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
+					src/mandatory/inc
+
 INC 			= $(addprefix -I , $(INCLUDES))
 
 # OBJECTS
@@ -80,22 +78,18 @@ run: all
 leaks: $(BIN)
 	leaks -atExit -- ./$(BIN)
 
-leaks_test: all
-	@echo "$(GREEN)Executing tests...$(NC)"
-	@make leaks -e -C tests/ OBJS_SRC="$(OBJS_SRC)"
-
 test: all
-	@echo "$(GREEN)Executing tests...$(NC)"
+	@echo "$(BLUE)Executing tests...$(NC)"
 	@make run -e -C tests/ OBJS_SRC="$(OBJS_SRC)"
 
 check_ft:
 	@nm -u ./$(BIN)
 
 norm:
-	@norminette src/$(SRC) inc/* | sh tests/norminette.sh
+	@norminette src/$(SRC) $(INCLUDES)  | sh tests/norminette.sh
 
 norm2:
-	@norminette src/$(SRC) inc/*
+	@norminette src/$(SRC) $(INCLUDES) 
 
 clean:
 	@make fclean -C $(LIBS_PATH)/libft
@@ -116,4 +110,4 @@ $(BIN_DIR):
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re leaks run test check_ft norm libft_force_make mlx_force_make
+.PHONY: all clean fclean re leaks run test check_ft norm norm2 libft_force_make mlx_force_make
