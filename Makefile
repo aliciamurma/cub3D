@@ -5,7 +5,7 @@ NC				:= \033[m
 # FLAGS
 CC				:= gcc
 CFLAGS 			:= -Wall -Wextra -Werror
-MLXFLAGS		:= -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS		:= -framework OpenGL -framework AppKit
 FLAGS			:= $(CFLAGS) 
 
 RM 				:= rm -f
@@ -17,7 +17,11 @@ SRCS 			=
 
 # LIBS
 LIBS_PATH		:= libs
-LIBS 			:= $(LIBS_PATH)/libft/bin/libft.a $(LIBS_PATH)/mlx/libmlx.a
+LIBFT			:= bin/libft.a
+LIBFT_PATH		:= libft
+MLX				:= libmlx.a
+MLX_PATH		:= mlx
+LIBS 			:= $(LIBS_PATH)/$(LIBFT_PATH)/$(LIBFT) $(LIBS_PATH)/$(MLX_PATH)/$(MLX)
 
 # FOLDERS
 OBJS_DIR		:= obj
@@ -25,7 +29,7 @@ BIN_DIR			:= bin
 
 #INCLUDES
 INC_PATH		:= src/mandatory/inc
-INCLUDES 		:= $(LIBS_PATH)/libft/ $(LIBS_PATH)/mlx $(INC_PATH)/ 
+INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) $(INC_PATH)
 INC 			= $(addprefix -I , $(INCLUDES))
 
 # OBJECTS
@@ -51,11 +55,11 @@ vpath %.c src src/assets src/mandatory src/mandatory/errors src/mandatory/helper
 all: make_libs $(BIN)
 
 $(OBJS_DIR)/%.o: %.c | $$(@D)
-	@$(CC) $(FLAGS) -Imlx $(INC) -c $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
+	@$(CC) $(FLAGS) -c $(INC)  $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
 
 make_libs:
-	@make -C $(LIBS_PATH)/libft
-	@make -C $(LIBS_PATH)/mlx
+	@make -s -C $(LIBS_PATH)/libft
+	@make -s -C $(LIBS_PATH)/mlx
 	@echo "$(GREEN)mlx compiled!$(NC)"
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
