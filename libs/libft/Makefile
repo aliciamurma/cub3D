@@ -1,6 +1,7 @@
 # COLORS
 GREEN	:=\033[32m
-NC	:=\033[m
+BLUE	:= \033[34m
+NC		:=\033[m
 
 # FLAGS
 CFLAGS 	:= -Wall -Wextra -Werror
@@ -79,8 +80,9 @@ $(OBJS_DIR)/%.o: %.c | $$(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@)
 
 $(BIN):	$(OBJS)
+	@echo "$(BLUE)libt compiling...$(NC)"
 	@ar rc $(BIN) $(OBJS)
-	@echo "$(GREEN)libft compiled!$(NC)"
+	@echo "$(GREEN)libt compiled!$(NC)"
 
 bonus: $(B_OBJS) $(OBJS)
 	@ar rc $(NAME) $(OBJS) $(B_OBJS)

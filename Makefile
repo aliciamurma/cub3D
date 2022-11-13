@@ -1,5 +1,6 @@
 # COLORS
 GREEN			:= \033[32m
+BLUE			:= \033[34m
 NC				:= \033[m
 
 # FLAGS
@@ -17,11 +18,11 @@ SRCS 			=
 
 # LIBS
 LIBS_PATH		:= libs
-LIBFT			:= bin/libft.a
 LIBFT_PATH		:= libft
-MLX				:= libmlx.a
+LIBFT			:= $(LIBS_PATH)/$(LIBFT_PATH)/bin/libft.a
 MLX_PATH		:= mlx
-LIBS 			:= $(LIBS_PATH)/$(LIBFT_PATH)/$(LIBFT) $(LIBS_PATH)/$(MLX_PATH)/$(MLX)
+MLX				:= $(LIBS_PATH)/$(MLX_PATH)/libmlx.a
+LIBS 			:= $(LIBFT) $(MLX)
 
 # FOLDERS
 OBJS_DIR		:= obj
@@ -52,18 +53,20 @@ vpath %.c src src/assets src/mandatory src/mandatory/errors src/mandatory/helper
 
 .SECONDEXPANSION:
 
-all: make_libs $(BIN)
+all: $(LIBFT) $(MLX) $(BIN)
 
 $(OBJS_DIR)/%.o: %.c | $$(@D)
 	@$(CC) $(FLAGS) -c $(INC)  $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
 
-make_libs:
-	@make -s -C $(LIBS_PATH)/libft
-	@make -s -C $(LIBS_PATH)/mlx
-	@echo "$(GREEN)mlx compiled!$(NC)"
+$(LIBFT): libft_force_make
+	@make -C $(LIBS_PATH)/libft
+	
+$(MLX): mlx_force_make
+	@make -s -C $(LIBS_PATH)/mlx 2> ERRORS
+
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
-	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN) $(READ_FLAGS)
+	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 run: all
@@ -108,4 +111,4 @@ $(BIN_DIR):
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re leaks run test check_ft norm
+.PHONY: all clean fclean re leaks run test check_ft norm libft_force_make mlx_force_make
