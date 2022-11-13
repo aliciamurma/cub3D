@@ -74,25 +74,26 @@ void	init_data(t_game *game)
  * @param argv 
  * @return int 
  */
-int	main(int argc, char **argv)
+int	main(void)
+// int	main(int argc, char **argv)
 {
 	t_game	game;
-	int		x;
+	// int		x;
 
-	x = 0;
-	check_parameters(argc, argv);
-	get_cub_info(&game, argv);
-	check_map(&game);
-	init_data(&game);
+	// x = 0;
+	// check_parameters(argc, argv);
+	// get_cub_info(&game, argv);
+	// check_map(&game);
+	// init_data(&game);
 	game.mlx_ptr = mlx_init();
 	game.win_ptr = mlx_new_window(game.mlx_ptr, HEIGHT, WIDTH, "ACABAMOS C");
 	put_images(&game);
 	// mlx_hook(game.win_ptr, 02, (0L << 0), movements, &game);
 	mlx_hook(game.win_ptr, 17, 0, close_x, &game);
-	while (x < WIDTH)
-	{
-		init_ray(&game, x);
-	}
+	// while (x < WIDTH)
+	// {
+	// 	init_ray(&game, x);
+	// }
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

@@ -19,7 +19,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
-# include "../mlx/mlx.h"
+# include "mlx.h"
 
 # define BUFFER_SIZE 1
 # define WIDTH 1920

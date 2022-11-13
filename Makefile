@@ -4,27 +4,28 @@ NC				:= \033[m
 
 # FLAGS
 CC				:= gcc
-CFLAGS 			:= -Wall -Wextra -Werror 
-FLAGS			:= $(CFLAGS)
+CFLAGS 			:= -Wall -Wextra -Werror
+MLXFLAGS		:= -Lmlx -lmlx -framework OpenGL -framework AppKit
+FLAGS			:= $(CFLAGS) 
 
 RM 				:= rm -f
 
 # SRC
 MAIN			= main.c 
 
-SRCS 			= main.c
+SRCS 			= 
 
 # LIBS
 LIBS_PATH		:= libs
-LIBS 			:= $(LIBS_PATH)/libft/bin/libft.a
+LIBS 			:= $(LIBS_PATH)/libft/bin/libft.a $(LIBS_PATH)/mlx/libmlx.a
 
 # FOLDERS
 OBJS_DIR		:= obj
 BIN_DIR			:= bin
 
 #INCLUDES
-INC_PATH		:= inc
-INCLUDES 		:= $(LIBS_PATH)/libft/ $(INC_PATH)/ $(LIBS_PATH)/readline/include
+INC_PATH		:= src/mandatory/inc
+INCLUDES 		:= $(LIBS_PATH)/libft/ $(LIBS_PATH)/mlx $(INC_PATH)/ 
 INC 			= $(addprefix -I , $(INCLUDES))
 
 # OBJECTS
@@ -38,7 +39,7 @@ DEPS				= $(patsubst %.o, %.d, $(OBJS))
 DEPFLAGS			= -MMD -MF
 
 # PROGRAM NAME
-NAME 			:= minishell
+NAME 			:= cub3D
 
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
@@ -50,13 +51,15 @@ vpath %.c src src/assets src/mandatory src/mandatory/errors src/mandatory/helper
 all: make_libs $(BIN)
 
 $(OBJS_DIR)/%.o: %.c | $$(@D)
-	@$(CC) $(FLAGS) $(INC) -c $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
+	@$(CC) $(FLAGS) -Imlx $(INC) -c $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
 
 make_libs:
 	@make -C $(LIBS_PATH)/libft
+	@make -C $(LIBS_PATH)/mlx
+	@echo "$(GREEN)mlx compiled!$(NC)"
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
-	@$(CC) $(FLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN) $(READ_FLAGS)
+	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN) $(READ_FLAGS)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 run: all
@@ -84,6 +87,7 @@ norm2:
 
 clean:
 	@make fclean -C $(LIBS_PATH)/libft
+	@make clean -C $(LIBS_PATH)/mlx
 	@$(RM) $(OBJS) $(DEPS)
 	@echo "$(GREEN)$(NAME) cleaned!$(NC)"
 
