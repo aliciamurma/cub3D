@@ -14,7 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= 
+SRCS 			= code_exit.c exit.c
 
 # LIBS
 LIBS_PATH		:= libs
@@ -30,7 +30,9 @@ BIN_DIR			:= bin
 
 #INCLUDES
 INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
-					src/mandatory/inc
+					src/mandatory/inc \
+					src/mandatory/exit \
+					src/mandatory/inputs
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
@@ -50,7 +52,8 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
+vpath %.c src src/assets src/mandatory src/mandatory/exit src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
+# vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:
 

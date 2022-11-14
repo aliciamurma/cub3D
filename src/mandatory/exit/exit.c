@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 17:39:48 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/14 20:11:48 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/10/24 17:29:44 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/14 20:53:05 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "exit.h"
 #include <stdlib.h>
-#include "errors.h"
 
-void    *ft_malloc(size_t size, unsigned int q)
+/**
+ * @brief Close Cub3D
+ * 
+ * @param value 
+ */
+void	exit_cub3d(int value)
 {
-    void    *pointer;
-
-    pointer = malloc(sizeof(size) * q);
-    if (!pointer)
-        close_cub3d(0);
-	return (pointer);
+	print_error(value);
+	exit(value);
 }

@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   code_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 17:39:48 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/14 20:11:48 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/14 20:33:43 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/14 20:52:20 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "errors.h"
+#include "exit.h"
+#include <stdio.h>
 
-void    *ft_malloc(size_t size, unsigned int q)
+char	*get_error(int code)
 {
-    void    *pointer;
+	char	*errors[3];
 
-    pointer = malloc(sizeof(size) * q);
-    if (!pointer)
-        close_cub3d(0);
-	return (pointer);
+	errors[0] = "Number of arguments incorrect\n";
+	errors[1] = "Not enough memory\n";
+	errors[2] = "Map invalid\n";
+	return (errors[code]);
+}
+
+void	print_error(int code)
+{
+	printf("Error\n");
+	printf("%s", get_error(code));
 }

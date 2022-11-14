@@ -1,5 +1,7 @@
 #include <mlx.h>
 #include <stdio.h>
+#include <math.h>
+#include "exit.h"
 
 typedef struct s_image
 {
@@ -11,6 +13,17 @@ typedef struct s_image
     int endian;
 } t_image;
 
+
+/**
+ * @brief 
+ * mlx_init --> Inicializamos mlx
+ * mlx_new_window --> Abrimos la ventana
+ * mlx_new_image --> PARA QUE??
+ * mlx_xpm_file_to_image y mlx_get_data_addr --> Carga la imagen
+ * mlx_loop --> Crea un bucle para que no se cierre el juego
+ * mlx_put_image_to_window --> Pone la imagen en la ventana
+ * @return int 
+ */
 int main(void)
 {
     void *mlx;
@@ -20,7 +33,7 @@ int main(void)
     dim = 100;
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, 500, 500, "Cub3D");
-
+	exit_cub3d(1);
     t_image img;
     t_image img2;
     void *img_r = mlx_xpm_file_to_image(mlx, "./src/assets/textures/west.xpm", &dim, &dim);
@@ -38,7 +51,7 @@ int main(void)
     {
         for (size_t y = 0; y < 64 * 3; y++)
         {
-            // Extraer el color de la imagen
+            // Extraer el color de la imagen porque luego va a ser distorsionada
             int c = *(unsigned int *)(img2.pixels + (y / 3 * img2.line_size + x / 3 * (img2.bits_per_pixel / 8)));
             
             // OPCION 1 con pixeles
@@ -46,9 +59,10 @@ int main(void)
 
             // OPCION 2 con la imagen
             int pixel = (y * img.line_size) + (x * 4);
-            int color = 0xABCDEF;
-            if (img.bits_per_pixel != 32)
-                color = mlx_get_color_value(mlx, color);
+            int color = 0xABCDEF; // ignoramos esto
+            if (img.bits_per_pixel != 32) // ignoramos esto
+                color = mlx_get_color_value(mlx, color); // ignoramos esto
+				
             if (img.endian == 1) // Most significant (Alpha) byte first
             {
                 img.pixels[pixel + 0] = (c >> 24);
