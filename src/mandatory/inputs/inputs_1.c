@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   inputs_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:40:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:03 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:11:07 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,41 @@ int	movements(int keycode, t_game *game)
 		close_cub3d(0);
 	}
 	return (0);
+}
+
+void	escape(t_game *game)
+{
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	close_cub3d(0);
+}
+
+void	move_forward(t_game *game)
+{
+	
+}
+
+void	move_backward(t_game *game)
+{
+	
+}
+
+void	move_left(t_game *game)
+{
+	
+}
+
+void	move_right(t_game *game)
+{
+	
+}
+
+void	rotate_right(t_game *game)
+{
+	
+}
+
+void	rotate_left(t_game *game)
+{
+	
 }

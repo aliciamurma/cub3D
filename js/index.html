@@ -23,12 +23,13 @@
             document.addEventListener('keydown', this.onKey.bind(this, true), false);
             // este se activa al soltar la tecla, le indica con false que ya no se muevev
             document.addEventListener('keyup', this.onKey.bind(this, false), false);
-            // estos no se que eventos son
+            // estos son eventos para pantallas tactiles
             document.addEventListener('touchstart', this.onTouch.bind(this), false);
             document.addEventListener('touchmove', this.onTouch.bind(this), false);
             document.addEventListener('touchend', this.onTouchEnd.bind(this), false);
         }
 
+        // Ignorar
         Controls.prototype.onTouch = function (e) {
             var t = e.touches[0];
             this.onTouchEnd(e);
@@ -37,6 +38,7 @@
             else if (t.pageY > window.innerWidth * 0.5) this.onKey(true, { keyCode: 39 });
         };
 
+        // Ignorar
         Controls.prototype.onTouchEnd = function (e) {
             this.states = { 'left': false, 'right': false, 'forward': false, 'backward': false };
             e.preventDefault();

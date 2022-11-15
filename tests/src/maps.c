@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inputs.h                                           :+:      :+:    :+:   */
+/*   maps.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 15:58:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/15 16:03:39 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/15 15:25:50 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/15 15:48:19 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUTS_H
-# define INPUTS_H
+#include <assert.h>
 
-typedef enum e_inputs
+void	test_maps(void)
 {
-	M_UP,
-	M_DOWN,
-	M_LEFT,
-	M_RIGHT,
-	R_LEFT,
-	R_RIGHT,
-	ESC,
-}	t_inputs;
-
-#endif
+	
+}
