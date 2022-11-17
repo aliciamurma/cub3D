@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:25:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/16 21:04:50 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 # define SIZE_TEXTURE 100
+
 # define screenWidth 640
 # define screenHeight 480
 # define texWidth 64
 # define texHeight 64
 # define mapWidth 24
 # define mapHeight 24
+
 
 // 0 for north
 // 1 for south
@@ -58,16 +60,18 @@ typedef struct s_rotator
 	double	y;
 }	t_rotator;
 
-typedef struct s_position
+typedef struct s_loc
 {
-	double			pos_x; // pos player
-	double			pos_y; // pos player
+	
+	double			pos_x; // pos player, which box of the map we're in
+	double			pos_y; // pos player, which box of the map we're in
 	double			dir_x; // vector de la direccion del jugador
 	double			dir_y; // vector de la direccion del jugador
 	double			ray_dirx; //vector de direccion del rayo
 	double			ray_diry; //vector de direccion del rayo
 	double			plane_x;
 	double			plane_y;
+	
 	double			speed_move;
 	double			speed_rot;
 	double			camera_x; // la posicion en el plano de la camara
@@ -84,7 +88,7 @@ typedef struct s_position
 	double			ray_y;
 	double			map_x;
 	double			map_y;
-}	t_position;
+}	t_loc;
 
 typedef struct s_game
 {
@@ -98,11 +102,6 @@ typedef struct s_game
 	int			bits_per_pixel;
 	int			endian;
 	char		*data_addr;
-	// TEXTURAS
-	// char		*tnorth;
-	// char		*tsouth;
-	// char		*teast;
-	// char		*twest;
 	t_texture	*texture;
 	// COLORES
 	char		*floor;
@@ -111,7 +110,7 @@ typedef struct s_game
 	// PLAYER
 	int			player_x;
 	int			player_y;
-	t_position	pos;
+	t_loc		loc;
 }	t_game;
 
 // IMAGES

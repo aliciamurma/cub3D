@@ -14,7 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= code_exit.c exit.c
+SRCS 			= 
 
 # LIBS
 LIBS_PATH		:= libs
