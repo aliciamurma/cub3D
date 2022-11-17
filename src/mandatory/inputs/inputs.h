@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:58:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/15 16:03:39 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:14:49 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 typedef enum e_inputs
 {
-	M_UP,
-	M_DOWN,
-	M_LEFT,
-	M_RIGHT,
-	R_LEFT,
-	R_RIGHT,
-	ESC,
+	M_UP=13,
+	M_DOWN=1,
+	M_LEFT=0,
+	M_RIGHT=2,
+	R_LEFT=123,
+	R_RIGHT=124,
+	ESC=53,
 }	t_inputs;
 
 #endif
