@@ -30,7 +30,7 @@
         }
 
         // Ignorar
-        Controls.prototype.onTouch = function (e) {
+         Controls.prototype.onTouch = function (e) { 
             var t = e.touches[0];
             this.onTouchEnd(e);
             if (t.pageY < window.innerHeight * 0.5) this.onKey(true, { keyCode: 38 });
