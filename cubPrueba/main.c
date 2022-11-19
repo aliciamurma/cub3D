@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:28:06 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:52:21 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,12 @@ int  my_loop(t_pos *pos)
         delta_dist_x = fabs(1/ray_dir_x);
         delta_dist_y = fabs(1/ray_dir_y);
         
-        // exit (0);
+        // SEGUN EL VALOR + O - QUE TENGA EL RAYO, SIGNIFICA QUE NUESTRO JUGADOR
+        // SE HA MOVIDO HACIA LA DERECHA O HACIA LA IZQUIERDA
         hit = 0;
         if (ray_dir_x < 0 )
         {
-            step_x = - 1 ;
+            step_x = - 1;
             side_dist_x = (pos->pos_x - map_x) * delta_dist_x;
         }
         else
@@ -99,7 +100,6 @@ int  my_loop(t_pos *pos)
             step_x = 1;
             side_dist_x = (map_x + 1.0 - pos->pos_x) * delta_dist_x;
         }
-        // printf("side dist x is %f\n", side_dist_x);
         // si la dirección del rayo en el eje Y es MENOR a 0, significa que nuestro personaje ha tirado un paso para atrás
         if (ray_dir_y < 0 )
         {
@@ -112,7 +112,6 @@ int  my_loop(t_pos *pos)
             step_y = 1;
             side_dist_y = (map_y + 1.0 - pos->pos_y) * delta_dist_y;
         }
-        // printf("the ray dir is %f\n", ray_dir_x);
     // LO QUE VAMOS A HACER AHORA ES SOLAMENTE EN CASO DE QUE CUANDO NUESTRO
     // PERSONAJE SE MUEVA, NO SE CHOQUE CONTRA LA PARED. SI NO, NO LE VAMOS A PERMITIR MOVERSE
     // ESTE BUCLE SIRVE PARA MOVERTE A OTRA POSICIÓN DEL MAPA, TANTO EN X COMO EN Y
@@ -137,10 +136,6 @@ int  my_loop(t_pos *pos)
             if (pos->map[map_x][map_y] == '1')
                 hit = 1;
         }
-        // printf("map_x is %d\n and map_y %d\n", map_x, map_y);
-        // printf("step_x is %d\n and step_y is %d\n", step_x, step_y);
-        // printf("posx is %f\n and pos_y is %f\n", pos->pos_x, pos->pos_y);
-        // printf("ray_dir_x is %f\n and ray_dir_y is %f\n", ray_dir_x, ray_dir_y);
 
         // vamos a indicar la distancia a la que el jugador se va a quedar de una pared
         if (side == 0)
@@ -149,17 +144,14 @@ int  my_loop(t_pos *pos)
             perp_wall_dist = (map_y - pos->pos_y + (1 - step_y) / 2) / ray_dir_y;
 
         line_h = ( int )(pos->hei/ perp_wall_dist);
-        // printf("perp_wall_dist is %f\n", perp_wall_dist);
 
         // Calculamos desde qué pixel hasta qué otro tenemos que pintar
         // Es como coger un trapecio y decir de dónde a dónde va
         start_draw = -line_h / 2 + pos->hei / 2;
         if (start_draw < 0)
-            start_draw = 0 ;
+            start_draw = 0;
         end_draw = line_h / 2 + pos->hei / 2;
-        // printf("END DRAW IS %d\n", end_draw);
-        // printf("LINE_H IS %d\n", line_h);
-        // printf("HEIGHT IS %d\n", pos->hei);
+
         if (end_draw >= pos->hei)
             end_draw = pos->hei - 1;
         
@@ -191,15 +183,15 @@ int  main (int argc, char **argv)
     pos.dir_y = 0;
     pos.move_speed = 0.05 ;
     pos.rot_speed = 0.05 ;
-    pos.wid = 640;
-    pos.hei = 480;
+    pos.wid = 600;
+    pos.hei = 200;
     pos.map = game.map;
     pos.plane_x = 0;
     pos.plane_y = 0.66;
     pos.mlx_ptr = mlx_init();
     pos.map = game.map;
     // printf(" WIDTH IS %d\n AND H IS %d\n", game.width, game.height);
-    pos.win_ptr = mlx_new_window(pos.mlx_ptr , 640, 480, "MYCUB3D");
+    pos.win_ptr = mlx_new_window(pos.mlx_ptr , 600, 200, "MYCUB3D");
     mlx_loop_hook(pos.mlx_ptr, &my_loop, &pos);
     mlx_loop(pos.mlx_ptr);
     return (0);
