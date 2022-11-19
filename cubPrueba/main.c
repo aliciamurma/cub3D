@@ -6,12 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/18 08:30:39 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 09:22:13 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testing.h"
-
+#include <math.h>
 
 void    ft_porfin_printamos(t_pos *pos, int x, int start_draw, int end_draw, int colour)
 {
@@ -70,19 +70,10 @@ int  my_loop(t_pos *pos)
     int end_draw;
 
     int colour;
-    int colour_n;
-    int colour_s;
-    int colour_e;
-    int colour_w;
-
 
     int x;
  
-    x = 0 ;
-    colour_n = 0xFF000;
-    colour_s = 0x0FF00;
-    colour_e = 0x00FF0;
-    colour_w = 0xFFFFF;
+    x = 0;
     while (x < pos->wid)
     {
         // Cogemos la dirección del rayo
@@ -94,8 +85,11 @@ int  my_loop(t_pos *pos)
         map_y = (int)pos->pos_y;
 
         // fabs devuelve el valor absoluto de lo que le pasamos, porque no puede ser una distancia negativa
-        delta_dist_x = fabs(1 / ray_dir_x);
-        delta_dist_y = fabs(1 / ray_dir_y);
+        delta_dist_x = fabs(1/ray_dir_x);
+        delta_dist_y = fabs(1/ray_dir_y);
+        printf("delta is %f\n", delta_dist_x);
+        delta_dist_x = 1.000000;
+        delta_dist_y = 1.519901;
         hit = 0;
         if (ray_dir_x < 0 )
         {
@@ -104,22 +98,23 @@ int  my_loop(t_pos *pos)
         }
         else
         {
-            step_x = 1 ;
+            step_x = 1;
             side_dist_x = (map_x + 1.0 - pos->pos_x) * delta_dist_x;
         }
+        printf("side dist x is %f\n", side_dist_x);
         // si la dirección del rayo en el eje Y es MENOR a 0, significa que nuestro personaje ha tirado un paso para atrás
         if (ray_dir_y < 0 )
         {
-            step_y = - 1 ;
+            step_y = - 1;
             side_dist_y = (pos->pos_y - map_y) * delta_dist_y;
         }
         // si la dirección del rayo en el eje Y es MAYOR a 0, significa que nuestro personaje ha tirado un paso para adelante
         else
         {
-            step_y = 1 ;
+            step_y = 1;
             side_dist_y = (map_y + 1.0 - pos->pos_y) * delta_dist_y;
         }
-
+        printf("the ray dir is %f\n", ray_dir_x);
     // LO QUE VAMOS A HACER AHORA ES SOLAMENTE EN CASO DE QUE CUANDO NUESTRO
     // PERSONAJE SE MUEVA, NO SE CHOQUE CONTRA LA PARED. SI NO, NO LE VAMOS A PERMITIR MOVERSE
     // ESTE BUCLE SIRVE PARA MOVERTE A OTRA POSICIÓN DEL MAPA, TANTO EN X COMO EN Y
@@ -128,27 +123,33 @@ int  my_loop(t_pos *pos)
         {
             if (side_dist_x < side_dist_y)
             {
-                side_dist_x += side_dist_x;
+                side_dist_x += delta_dist_x;
                 map_x += step_x;
                 side = 0;
             }
             else
             {
-                side_dist_y += side_dist_y;
+                side_dist_y += delta_dist_y;
                 map_y += step_y;
                 side = 1;
             }
 
             // NUESTRO JUGADOR SE HA CHOCADO CONTRA UNA PARED?
             // SI LA RESPUESTA ES SÍ, NO PUEDE MOVERSE, NO PUEDE ENTRAR EN EL BUCLE
-            if (pos->map[map_x][map_y] > 1)
+            if (pos->mapita[map_x][map_y] > 0)
                 hit = 1;
         }
+        printf("map_x is %d\n and map_y %d\n", map_x, map_y);
+        printf("step_x is %d\n and step_y is %d\n", step_x, step_y);
+        printf("posx is %f\n and pos_y is %f\n", pos->pos_x, pos->pos_y);
+        printf("ray_dir_x is %f\n and ray_dir_y is %f\n", ray_dir_x, ray_dir_y);
+
         // vamos a indicar la distancia a la que el jugador se va a quedar de una pared
         if (side == 0)
             perp_wall_dist = (map_x - pos->pos_x + (1 - step_x) / 2) / ray_dir_x;
         else
             perp_wall_dist = (map_y - pos->pos_y + (1 - step_y) / 2) / ray_dir_y;
+
         line_h = ( int )(pos->hei/ perp_wall_dist);
         printf("perp_wall_dist is %f\n", perp_wall_dist);
 
@@ -184,14 +185,17 @@ int  main (int argc, char **argv)
 	check_map(&game);
     pos.pos_x = game.player_x;
     pos.pos_y = game.player_y;
-    pos.dir_x = -1;
-    pos.dir_y = 0;
+    pos.dir_x = 0;
+    pos.dir_y = -1;
     pos.move_speed = 0.05 ;
     pos.rot_speed = 0.05 ;
     pos.wid = game.width;
     pos.hei = game.height;
     pos.map = game.map;
+    pos.plane_x = 0;
+    pos.plane_y = 0.66;
     pos.mlx_ptr = mlx_init();
+    pos.mapita = (int **)game.map;
     // printf(" WIDTH IS %d\n AND H IS %d\n", game.width, game.height);
     pos.win_ptr = mlx_new_window(pos.mlx_ptr , game.width * 50, game.height * 50, "MYCUB3D");
     mlx_loop_hook(pos.mlx_ptr, &my_loop, &pos);
