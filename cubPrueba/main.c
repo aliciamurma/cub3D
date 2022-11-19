@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:19:33 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:10:45 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,16 +180,16 @@ int  main (int argc, char **argv)
     pos.pos_y = 5;
     pos.dir_x = -1;
     pos.dir_y = 0;
-    pos.move_speed = 0.05 ;
-    pos.rot_speed = 0.05 ;
-    pos.wid = 600;
-    pos.hei = 200;
+    pos.move_speed = 0.05;
+    pos.rot_speed = 0.05;
+    pos.wid = 800;
+    pos.hei = 800;
     pos.map = game.map;
     pos.plane_x = 0;
     pos.plane_y = 0.66;
     pos.mlx_ptr = mlx_init();
     pos.map = game.map;
-    pos.win_ptr = mlx_new_window(pos.mlx_ptr , 600, 200, "MYCUB3D");
+    pos.win_ptr = mlx_new_window(pos.mlx_ptr , 800, 800, "MYCUB3D");
     mlx_loop_hook(pos.mlx_ptr, &my_loop, &pos);
     mlx_loop(pos.mlx_ptr);
     return (0);
