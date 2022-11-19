@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/16 21:04:50 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:45:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include "mlx.h"
+# include "map.h"
+# 
 
 # define BUFFER_SIZE 1
 # define WIDTH 1920

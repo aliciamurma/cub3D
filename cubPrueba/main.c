@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:52:21 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:19:33 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void    ft_porfin_printamos(t_pos *pos, int x, int start_draw, int end_draw, int
 {
     int y;
  
-    // printf("START DRAW IS %d\nAND END DRAW %d\n", start_draw, end_draw);
     y = start_draw;
     while (y <= end_draw)
     {
@@ -80,16 +79,15 @@ int  my_loop(t_pos *pos)
         ray_dir_x = pos->dir_x + pos->plane_x * camera_x;
         ray_dir_y = pos->dir_y + pos->plane_y * camera_x;
 
-        map_x = (int)pos->pos_x;
-        map_y = (int)pos->pos_y;
 
         // fabs devuelve el valor absoluto de lo que le pasamos, porque no puede ser una distancia negativa
         delta_dist_x = fabs(1/ray_dir_x);
         delta_dist_y = fabs(1/ray_dir_y);
-        
+
+        map_x = (int)pos->pos_x;
+        map_y = (int)pos->pos_y;
         // SEGUN EL VALOR + O - QUE TENGA EL RAYO, SIGNIFICA QUE NUESTRO JUGADOR
         // SE HA MOVIDO HACIA LA DERECHA O HACIA LA IZQUIERDA
-        hit = 0;
         if (ray_dir_x < 0 )
         {
             step_x = - 1;
@@ -116,6 +114,7 @@ int  my_loop(t_pos *pos)
     // PERSONAJE SE MUEVA, NO SE CHOQUE CONTRA LA PARED. SI NO, NO LE VAMOS A PERMITIR MOVERSE
     // ESTE BUCLE SIRVE PARA MOVERTE A OTRA POSICIÓN DEL MAPA, TANTO EN X COMO EN Y
     // ES COMO COGER TU X Y SUMARLE LA DISTANCIA QUE TE HAS MOVIDO
+        hit = 0;
         while (hit == 0 )
         {
             if (side_dist_x < side_dist_y)
@@ -190,7 +189,6 @@ int  main (int argc, char **argv)
     pos.plane_y = 0.66;
     pos.mlx_ptr = mlx_init();
     pos.map = game.map;
-    // printf(" WIDTH IS %d\n AND H IS %d\n", game.width, game.height);
     pos.win_ptr = mlx_new_window(pos.mlx_ptr , 600, 200, "MYCUB3D");
     mlx_loop_hook(pos.mlx_ptr, &my_loop, &pos);
     mlx_loop(pos.mlx_ptr);

@@ -6,14 +6,101 @@
 
 typedef struct s_image
 {
-    void *pointer;
-    // t_vector  size;
-    char *pixels;
-    int bits_per_pixel;
-    int line_size;
-    int endian;
+	void *pointer;
+	// t_vector  size;
+	char *pixels;
+	int bits_per_pixel;
+	int line_size;
+	int endian;
 } t_image;
 
+void    ft_print(t_game *game, int x, int start_draw, int end_draw, int colour)
+{
+    int y;
+ 
+    y = start_draw;
+    while (y <= end_draw)
+    {
+        mlx_pixel_put(pos->mlx_ptr, pos->win_ptr , x, y, colour);
+        y++;
+    }
+}  
+
+/**
+ * @brief Recogemos la dirección del rayo
+ * 
+ * @param game 
+ * @param x 
+ * @return t_vector 
+ */
+t_vector	ft_get_ray_dir(t_player *player, int x)
+{
+    double		camera_x;
+	t_vector	ray;
+
+	camera_x = 2 * x / (double)WIDTH - 1 ;
+	ray.x = player->dir.x + player->plane.x * camera_x;
+	ray.y = player->dir.y + player->plane.y * camera_x;
+	return (ray);
+}
+
+t_vector	ft_get_ray_abs_distance(t_vector ray)
+{
+	t_vector	delta;
+
+å	delta.x = fabs(1/ray.x);
+	delta.y = fabs(1/ray.y);
+}
+
+t_vector	*ft_get_real_distance(t_vector ray, t_vector delta, t_vector map)
+{
+	t_vector	step;
+	t_vector	side;
+	t_vector	distance[2];
+
+	if (ray.x < 0)
+	{
+		distance[0].x = -1;
+		distance[1].x = (player->pos.x - map.x) * delta.x;
+	}
+	else
+	{
+		distance[0].x = 1;
+		distance[1].x = (map.x + 1.0 - player->pos.x) * delta.x;
+	}
+	if (ray.y < 0)
+	{
+		distance[0].y = -1;
+		distance[1].y = (player->pos.y - map.y) * delta.y;
+	}
+	else
+	{
+		distance[0].y = 1;
+		distance[1].y = (map.y + 1.0 - player->pos.y) * delta.y;
+	}
+	return (distance);
+}
+
+int	ft_render_map(t_game *game)
+{
+	int	x;
+	t_vector	delta;
+	t_vector	ray;
+	t_vector	distance[2];
+	t_vector	map;
+
+	x = 0;
+	while (x < WIDTH)
+	{
+		ray = ft_get_ray_dir(game->player, x);
+		delta = ft_get_ray_abs_distance(ray);
+		map.x = (int)player->pos.x;
+		map.y = (int)player->pos.y;
+		distance = ft_get_real_distance(ray, delta, map);
+		ft_
+	}
+	return (0);
+}
 
 /**
  * @brief 
@@ -29,129 +116,23 @@ typedef struct s_image
  */
 int main(void)
 {
-    int *texture[8];
-    int worldMap[mapWidth][mapHeight]=
-    {
-    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,2,2,2,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-    {1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,3,0,0,0,3,0,0,0,1},
-    {1,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,2,2,0,2,2,0,0,0,0,3,0,3,0,3,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,0,0,0,0,5,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,0,4,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,0,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-    };
-
-    double posX_x = 22, pos_y = 12;  //x and y start position
-    double dir_x = -1, dir_y = 0; //initial direction vector
-    double planeX = 0, planeY = 0.66; //the 2d raycaster version of camera plane
-
-    double time = 0; //time of current frame
-    double oldTime = 0; //time of previous frame
-    screen(screenWidth, screenHeight, 0, "Raycaster"); //la pantalla se crea especificando la resolución con la función screen()
-
-    while(!done())
-  {
-        for(int x = 0; x < w; x++)
-        {
-            //calculate ray position and direction
-            double cameraX = 2 * x / double(w) - 1; //x-coordinate in camera space
-            double rayDirX = dir_x + planeX * cameraX;
-            double rayDirY = dir_y + planeY * cameraX;
-        }
-    }
+    mlx_loop_hook(window.mlx_ptr, &ft_render_map, &game);
+	return (0);
 }
 
-// void	my_mlx_pixel_put(t_info *info, int x, int y, int color)
+
+
+
+// int	main(int argc, char **argv)
 // {
-// 	char	*dst;
+// 	void	*mlx;
+// 	t_game	game;
 
-// 	dst = (char *)info->global.addr
-// 		+ (y * info->global.line_length + x * (info->global.bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
+// 	check_parameters(argc, argv);
+// 	get_cub_info(&game, argv);
+// 	check_map(&game);
+// 	mlx = mlx_init();
+// 	mlx_new_window(mlx, 500, 500, "Hello world!");
+// 	mlx_loop(mlx);
+//     return (0);
 // }
-
-
-//     dim = 100;
-//     mlx = mlx_init();
-//     mlx_win = mlx_new_window(mlx, 500, 500, "Cub3D");
-//     t_image img;
-//     t_image img2;
-//     void *img_r = mlx_xpm_file_to_image(mlx, "./src/assets/textures/west.xpm", &dim, &dim);
-//     img.pointer = mlx_new_image(mlx, 64 * 3, 64 * 3);
-//     img.pixels = mlx_get_data_addr(img.pointer, &img.bits_per_pixel, &img.line_size, &img.endian);
-//     img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel, &img2.line_size, &img2.endian);
-
-//     printf("%s\n", img.pixels);
-//     printf("%i\n", img.bits_per_pixel);
-//     printf("%i\n", img.line_size);
-//     printf("%i\n", img.endian);
-//     mlx_put_image_to_window(mlx, mlx_win, img_r, 5, 5);
-
-//     for (size_t x = 0; x < 64 * 3; x++)
-//     {
-//         for (size_t y = 0; y < 64 * 3; y++)
-//         {
-//             // Extraer el color de la imagen porque luego va a ser distorsionada
-//             int c = *(unsigned int *)(img2.pixels + (y / 3 * img2.line_size + x / 3 * (img2.bits_per_pixel / 8)));
-            
-//             // OPCION 1 con pixeles
-//             mlx_pixel_put(mlx, mlx_win, 100 + x, 100 + y, c);
-
-//             // OPCION 2 con la imagen
-//             int pixel = (y * img.line_size) + (x * 4);
-//             int color = 0xABCDEF; // ignoramos esto
-//             if (img.bits_per_pixel != 32) // ignoramos esto
-//                 color = mlx_get_color_value(mlx, color); // ignoramos esto
-				
-//             if (img.endian == 1) // Most significant (Alpha) byte first
-//             {
-//                 img.pixels[pixel + 0] = (c >> 24);
-//                 img.pixels[pixel + 1] = (c >> 16) & 0xFF;
-//                 img.pixels[pixel + 2] = (c >> 8) & 0xFF;
-//                 img.pixels[pixel + 3] = (c)&0xFF;
-//             }
-//             else if (img.endian == 0) // Least significant (Blue) byte first
-//             {
-//                 img.pixels[pixel + 0] = (c)&0xFF;
-//                 img.pixels[pixel + 1] = (c >> 8) & 0xFF;
-//                 img.pixels[pixel + 2] = (c >> 16) & 0xFF;
-//                 img.pixels[pixel + 3] = (c >> 24);
-//             }
-//         }
-//     }
-//     mlx_put_image_to_window(mlx, mlx_win, img.pointer, 0, 70);
-
-//     mlx_loop(mlx);
-//     return 0;
-// }
-
-// // int	main(int argc, char **argv)
-// // {
-// // 	void	*mlx;
-// // 	t_game	game;
-
-// // 	check_parameters(argc, argv);
-// // 	get_cub_info(&game, argv);
-// // 	check_map(&game);
-// // 	mlx = mlx_init();
-// // 	mlx_new_window(mlx, 500, 500, "Hello world!");
-// // 	mlx_loop(mlx);
-// //     return (0);
-// // }

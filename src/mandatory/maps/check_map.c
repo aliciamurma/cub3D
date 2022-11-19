@@ -6,12 +6,13 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/14 20:39:28 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:38:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "exit.h"
+#include "maps.h"
 
 /**
  * @brief Check if there is only 1 player

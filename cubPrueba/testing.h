@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:37 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:16:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:23:43 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,18 @@
 #define mapHeight 24
 # define BUFFER_SIZE 1
 
+
+
 typedef  struct s_pos
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	
     double  pos_x;
     double  pos_y;
     double	dir_x;
     double	dir_y;
     double	plane_x;
     double	plane_y;
-    void	*mlx;
-    void	*win;
     double	move_speed;
     double	rot_speed;
 	double	wid;
@@ -49,6 +48,14 @@ typedef  struct s_pos
 // 1 for south
 // 2 for west
 // 3 for east
+
+// mlx
+// player {
+	// x, y, angle
+// }
+// map{map}
+
+
 typedef struct s_texture
 {
 	void			*texture;

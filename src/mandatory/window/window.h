@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps.h                                             :+:      :+:    :+:   */
+/*   window.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:36:43 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/19 11:40:28 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/19 11:43:13 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPS_H
-# define MAPS_H
+#ifndef WINDOW_H
+# define WINDOW_H
+# define WIDTH 800
+# define HEIGHT 600
+# define NAME_W "MY CUB3D"
 
-typedef struct s_map
+typedef struct s_window
 {
-	char	**map;
-}	t_map;
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_window;
 
 #endif
