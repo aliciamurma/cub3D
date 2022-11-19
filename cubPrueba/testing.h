@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:37 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/18 21:08:18 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:16:20 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ typedef  struct s_pos
     void	*win;
     double	move_speed;
     double	rot_speed;
-	int		wid;
-	int		hei;
-	int		**mapita;
+	double	wid;
+	double		hei;
 	char	**map;
 }   t_pos;
 
