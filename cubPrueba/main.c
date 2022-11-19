@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:27:33 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:28:06 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void    ft_porfin_printamos(t_pos *pos, int x, int start_draw, int end_draw, int
     y = start_draw;
     while (y <= end_draw)
     {
-        printf("entro\n");
         mlx_pixel_put(pos->mlx_ptr, pos->win_ptr , x, y, colour);
         y++;
     }
@@ -87,10 +86,7 @@ int  my_loop(t_pos *pos)
         // fabs devuelve el valor absoluto de lo que le pasamos, porque no puede ser una distancia negativa
         delta_dist_x = fabs(1/ray_dir_x);
         delta_dist_y = fabs(1/ray_dir_y);
-        printf("ray_dir_x is %f\n", ray_dir_x);
-        printf("ray_dir_y is %f\n", ray_dir_y);
-
-        printf("delta is %f\n", delta_dist_x);
+        
         // exit (0);
         hit = 0;
         if (ray_dir_x < 0 )
@@ -178,7 +174,6 @@ int  my_loop(t_pos *pos)
         // PARA CADA X VAMOS A PRINTAR TODOS LOS ESPACIOS DE LA Y
         ft_porfin_printamos(pos, x, start_draw, end_draw, colour);        
         x++;
-        printf("MI X ES %d\n", x);
     }
     return (0);
 }
