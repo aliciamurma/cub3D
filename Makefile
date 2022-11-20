@@ -32,7 +32,10 @@ BIN_DIR			:= bin
 INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/inc \
 					src/mandatory/exit \
-					src/mandatory/inputs
+					src/mandatory/inputs \
+					src/mandatory/maps \
+					src/mandatory/player \
+					src/mandatory/window \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 

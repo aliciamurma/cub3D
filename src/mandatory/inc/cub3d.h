@@ -20,12 +20,14 @@
 # include <fcntl.h>
 # include <math.h>
 # include "mlx.h"
-# include "map.h"
-# 
+# include "maps.h"
+# include "player.h"
+# include "window.h"
+
 
 # define BUFFER_SIZE 1
-# define WIDTH 1920
-# define HEIGHT 1080
+// # define WIDTH 1920
+// # define HEIGHT 1080
 # define SIZE_TEXTURE 100
 
 # define screenWidth 640
@@ -50,11 +52,11 @@ typedef struct s_texture
 	int				tex_height;
 }	t_texture;
 
-typedef struct s_vector
-{
-	double	x;
-	double	y;
-}		t_vector;
+// typedef struct s_vector
+// {
+// 	double	x;
+// 	double	y;
+// }		t_vector;
 
 typedef struct s_rotator
 {
@@ -163,5 +165,14 @@ char	**ft_split(char *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memmove(void *dst, void *src, size_t len);
+
+
+typedef struct s_game2
+{
+    t_player    player;
+    t_map       map;
+    t_window    mlx;
+}	t_game2;
+
 
 #endif

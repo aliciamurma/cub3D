@@ -135,7 +135,7 @@ int  my_loop(t_pos *pos)
             if (pos->map[map_x][map_y] == '1')
                 hit = 1;
         }
-
+        hit = 1;
         // vamos a indicar la distancia a la que el jugador se va a quedar de una pared
         if (side == 0)
             perp_wall_dist = (map_x - pos->pos_x + (1 - step_x) / 2) / ray_dir_x;
@@ -176,6 +176,12 @@ int  main (int argc, char **argv)
 	check_parameters(argc, argv);
 	get_cub_info(&game, argv);
 	check_map(&game);
+    int n = 0;
+    while(game.map[n])
+    {
+        printf("%s\n", game.map[n]);
+        n++;
+    }
     pos.pos_x = 12;
     pos.pos_y = 5;
     pos.dir_x = -1;
