@@ -1,12 +1,15 @@
 #include <mlx.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 #include <math.h>
 #include "exit.h"
-#include "cub3d.h"
+// #include "cub3d.h"
 #include "raycast.h"
 #include "window.h"
 #include "game.h"
 #include "inputs.h"
+#include "player.h"
 
 typedef struct s_image
 {
@@ -70,6 +73,13 @@ int main(void)
     game.player.plane.y = 0.66;
     game.mlx.mlx_ptr = mlx_init();
     game.mlx.win_ptr = mlx_new_window(game.mlx.mlx_ptr, WIDTH, HEIGHT, NAME_WIN);
+    game.player.movement.forward = false;
+    game.player.movement.backward = false;
+    game.player.movement.right = false;
+    game.player.movement.left = false;
+    game.player.rotation.right = false;
+    game.player.rotation.left = false;
+   
     mlx_loop_hook(game.mlx.mlx_ptr, &ft_game_loop, &game);
     mlx_hook(game.mlx.win_ptr, 2, 0, handle_keydown, &game);
     mlx_hook(game.mlx.win_ptr, 3, 0, handle_keyup, &game);
