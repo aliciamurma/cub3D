@@ -209,7 +209,7 @@ int  main_loop (t_info *info)
 //  if (!worldMap[( int )(info-> posX )][( int )(info-> posY - info-> dirY * info-> moveSpeed)])
 // info-> posY -= info-> dirY * info-> moveSpeed;
 // }
-//  // rotate to the right
+ // rotate to the right
 //  if (key == K_D)
 // {
 //  // both camera direction and camera plane must be rotated

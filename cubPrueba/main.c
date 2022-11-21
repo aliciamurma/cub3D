@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:56:01 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 17:10:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:15:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ int  my_loop(t_pos *pos)
         if (pos->map[map_x][map_y] == '1')
             colour = 0xFF0000;
         else
-            colour = 0xFFFF00 ;
+            colour = 0xFFFF00;
         // EL SIDE = 1 ES HACIA QUE LADO HA ENCONTRADO EL MURO
         // ES DECIR, NOS VAMOS A ENCONTRAR EL MURO EN DIRECCION X O EN DIRECCION Y?
         if (side == 1)
