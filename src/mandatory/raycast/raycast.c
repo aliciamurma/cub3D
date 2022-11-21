@@ -2,6 +2,8 @@
 #include <math.h>
 #include <mlx.h>
 #include "raycast.h"
+#include "window.h"
+#include "game.h"
 
 /**
  * @brief Recogemos la dirección del rayo
@@ -45,7 +47,7 @@ static t_vector ft_get_step_distance(t_vector ray)
     return (distance);
 }
 
-static t_vector ft_get_side_distance(t_player player, t_vector ray, t_vector delta, t_vector map)
+static t_vector ft_get_side_distance(t_player player, t_vector ray, t_vector delta, t_int_vector map)
 {
     t_vector distance;
 
@@ -60,7 +62,7 @@ static t_vector ft_get_side_distance(t_player player, t_vector ray, t_vector del
     return (distance);
 }
 
-static void ft_set_distance(t_game2 *game, t_raycast *raycast)
+static void ft_set_distance(t_game *game, t_raycast *raycast)
 {
     int hit;
 
@@ -82,7 +84,7 @@ static void ft_set_distance(t_game2 *game, t_raycast *raycast)
 
         // NUESTRO JUGADOR SE HA CHOCADO CONTRA UNA PARED?
         // SI LA RESPUESTA ES SÍ, NO PUEDE MOVERSE, NO PUEDE ENTRAR EN EL BUCLE
-        if (game->map.map[(int)raycast->map.x][(int)raycast->map.y] == '1')
+        if (game->map.map[raycast->map.x][raycast->map.y] == '1')
             hit = 1;
     }
 }
@@ -92,12 +94,11 @@ double ft_calc_perp_wall_dist(double pos, int map, double step, double ray)
     return (map - pos + (1 - step) / 2) / ray;
 }
 
-// TODO cambiar 800 por height ventana
 static int ft_get_start_draw(int line_h)
 {
     int start_draw;
 
-    start_draw = -line_h / 2 + 800 / 2;
+    start_draw = -line_h / 2 + WIDTH / 2;
     if (start_draw < 0)
         return (0);
     return (start_draw);
@@ -108,9 +109,9 @@ static int ft_get_end_draw(int line_h)
 {
     int end_draw;
 
-    end_draw = line_h / 2 + 800 / 2;
-    if (end_draw >= 800)
-        return (800 - 1);
+    end_draw = line_h / 2 + WIDTH / 2;
+    if (end_draw >= WIDTH)
+        return (WIDTH - 1);
     return (end_draw);
 }
 
@@ -129,7 +130,7 @@ static int ft_get_color(char object, int side_2)
     return (colour);
 }
 
-t_raycast ft_get_ray(t_game2 *game, int x)
+t_raycast ft_get_ray(t_game *game, int x)
 {
     t_raycast raycast;
 
@@ -145,10 +146,10 @@ t_raycast ft_get_ray(t_game2 *game, int x)
         raycast.perp_wall_dist = ft_calc_perp_wall_dist(game->player.pos.x, raycast.map.x, raycast.step.x, raycast.ray.x);
     else
         raycast.perp_wall_dist = ft_calc_perp_wall_dist(game->player.pos.y, raycast.map.y, raycast.step.y, raycast.ray.y);
-    raycast.line_h = (int)(800 / raycast.perp_wall_dist);
+    raycast.line_h = (int)(WIDTH / raycast.perp_wall_dist);
     raycast.start_draw = ft_get_start_draw(raycast.line_h);
     raycast.end_draw = ft_get_end_draw(raycast.line_h);
-    raycast.colour = ft_get_color(game->map.map[(int)raycast.map.x][(int)raycast.map.y], raycast.side_2);
+    raycast.colour = ft_get_color(game->map.map[raycast.map.x][raycast.map.y], raycast.side_2);
     return (raycast);
 }
 
@@ -164,15 +165,14 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw, int colour)
     }
 }
 
-int ft_render_map(t_game2 *game)
+int ft_render_map(t_game *game)
 {
     int         x;
     t_raycast   raycast;
 
     mlx_clear_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
     x = 1;
-    while (x < 800)
-    // while (x < WIDTH)
+    while (x < WIDTH)
     {
         raycast = ft_get_ray(game, x);
         ft_print_ray(game->mlx, x, raycast.start_draw, raycast.end_draw, raycast.colour);

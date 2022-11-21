@@ -23,6 +23,7 @@
 # include "maps.h"
 # include "player.h"
 # include "window.h"
+# include "game.h"
 
 
 # define BUFFER_SIZE 1
@@ -94,28 +95,28 @@ typedef struct s_loc
 	double			map_y;
 }	t_loc;
 
-typedef struct s_game
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		**img_ptr;
-	char		**cub;
-	char		*cub_raw;
-	int			width;
-	int			height;
-	int			bits_per_pixel;
-	int			endian;
-	char		*data_addr;
-	t_texture	*texture;
-	// COLORES
-	char		*floor;
-	char		*ceiling;
-	char		**map;
-	// PLAYER
-	int			player_x;
-	int			player_y;
-	t_loc		loc;
-}	t_game;
+// typedef struct s_game
+// {
+// 	void		*mlx_ptr;
+// 	void		*win_ptr;
+// 	void		**img_ptr;
+// 	char		**cub;
+// 	char		*cub_raw;
+// 	int			width;
+// 	int			height;
+// 	int			bits_per_pixel;
+// 	int			endian;
+// 	char		*data_addr;
+// 	t_texture	*texture;
+// 	// COLORES
+// 	char		*floor;
+// 	char		*ceiling;
+// 	char		**map;
+// 	// PLAYER
+// 	int			player_x;
+// 	int			player_y;
+// 	t_loc		loc;
+// }	t_game;
 
 // IMAGES
 void    put_images(t_game *game);
@@ -167,12 +168,7 @@ void	ft_bzero(void *str, size_t n);
 void	*ft_memmove(void *dst, void *src, size_t len);
 
 
-typedef struct s_game2
-{
-    t_player    player;
-    t_map       map;
-    t_window    mlx;
-}	t_game2;
+
 
 
 #endif

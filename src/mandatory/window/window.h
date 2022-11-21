@@ -14,7 +14,7 @@
 # define WINDOW_H
 # define WIDTH 800
 # define HEIGHT 600
-# define NAME_W "MY CUB3D"
+# define NAME_WIN "MY CUB3D"
 
 typedef struct s_window
 {
