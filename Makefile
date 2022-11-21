@@ -17,7 +17,8 @@ MAIN			= main.c
 SRCS 			= raycast.c \
 				game.c \
 				inputs.c \
-				player.c
+				player.c \
+				exit.c code_exit.c \
 
 # LIBS
 LIBS_PATH		:= libs

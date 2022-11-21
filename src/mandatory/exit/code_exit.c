@@ -15,11 +15,12 @@
 
 char	*get_error(int code)
 {
-	char	*errors[3];
+	char	*errors[4];
 
 	errors[0] = "Number of arguments incorrect\n";
 	errors[1] = "Not enough memory\n";
 	errors[2] = "Map invalid\n";
+	errors[3] = "";
 	return (errors[code]);
 }
 
