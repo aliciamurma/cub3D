@@ -14,11 +14,7 @@
 # define PLAYER_H
 # define SPEED 0.05
 
-typedef struct t_vector
-{
-	double	x;
-	double	y;
-}	t_vector;
+# include "vector.h"
 
 typedef struct s_player
 {

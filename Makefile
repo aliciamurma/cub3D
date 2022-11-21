@@ -14,7 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= 
+SRCS 			= raycast.c
 
 # LIBS
 LIBS_PATH		:= libs
@@ -36,6 +36,8 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/maps \
 					src/mandatory/player \
 					src/mandatory/window \
+					src/mandatory/types \
+					src/mandatory/raycast \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
@@ -55,7 +57,7 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/exit src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
+vpath %.c src src/assets src/mandatory src/mandatory/exit src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps src/mandatory/raycast
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/errors src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:
