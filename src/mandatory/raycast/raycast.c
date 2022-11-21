@@ -104,7 +104,6 @@ static int ft_get_start_draw(int line_h)
     return (start_draw);
 }
 
-// TODO cambiar 800 por height ventana
 static int ft_get_end_draw(int line_h)
 {
     int end_draw;
@@ -121,12 +120,10 @@ static int ft_get_color(char object, int side_2)
 
     if (object == '1')
         colour = 0xFF0000;
-    else
-        colour = 0xFFFF00;
     // EL SIDE = 1 ES HACIA QUE LADO HA ENCONTRADO EL MURO
     // ES DECIR, NOS VAMOS A ENCONTRAR EL MURO EN DIRECCION X O EN DIRECCION Y?
     if (side_2 == 1)
-        colour = 0xCC0000;
+        colour = 0xAA0000;
     return (colour);
 }
 
@@ -136,7 +133,6 @@ t_raycast ft_get_ray(t_game *game, int x)
 
     raycast.ray = ft_get_ray_dir(game->player, x);
     raycast.delta = ft_get_ray_abs_distance(raycast.ray);
-    // TODO refactorizar a struct vector int o dos variables
     raycast.map.x = (int)game->player.pos.x;
     raycast.map.y = (int)game->player.pos.y;
     raycast.step = ft_get_step_distance(raycast.ray);
