@@ -12,7 +12,8 @@
 
 #ifndef PLAYER_H
 # define PLAYER_H
-# define SPEED 0.05
+# define SPEED 0.2
+# define ROT_SPEED 0.05
 
 # include "vector.h"
 
