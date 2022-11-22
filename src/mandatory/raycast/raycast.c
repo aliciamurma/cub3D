@@ -153,34 +153,38 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw, int colour,
 {
     int y;
     int pixel;
+    (void)win;
 
     y = 0;
-    pixel = (y * game->img.line_size) + (x * 4);
+
     while (y < start_draw)
     {
-        game->img.pixels[pixel + 0] = (0x0000FF)&0xFF;
-        game->img.pixels[pixel + 1] = (0x0000FF >> 8) & 0xFF;
-        game->img.pixels[pixel + 2] = (0x0000FF >> 16) & 0xFF;
-        game->img.pixels[pixel + 3] = (0x0000FF >> 24);
+        pixel = (y * game->img.line_size) + (x * 4);
+        game->img.pixels[pixel + 0] = (unsigned int)(0x0000FF) & 0xFF;
+        game->img.pixels[pixel + 1] = (unsigned int)(0x0000FF >> 8) & 0xFF;
+        game->img.pixels[pixel + 2] = (unsigned int)(0x0000FF >> 16) & 0xFF;
+        game->img.pixels[pixel + 3] = (unsigned int)(0x0000FF >> 24);
         // mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x0000FF);
         y++;
     }
     y = start_draw;
     while (y <= end_draw)
     {
-        game->img.pixels[pixel + 0] = (colour)&0xFF;
-        game->img.pixels[pixel + 1] = (colour >> 8) & 0xFF;
-        game->img.pixels[pixel + 2] = (colour >> 16) & 0xFF;
-        game->img.pixels[pixel + 3] = (colour >> 24);
+        pixel = (y * game->img.line_size) + (x * 4);
+        game->img.pixels[pixel + 0] = (unsigned int)(colour)&0xFF;
+        game->img.pixels[pixel + 1] = (unsigned int)(colour >> 8) & 0xFF;
+        game->img.pixels[pixel + 2] = (unsigned int)(colour >> 16) & 0xFF;
+        game->img.pixels[pixel + 3] = (unsigned int)(colour >> 24);
         // mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, colour);
         y++;
     }
     while (y < HEIGHT)
     {
-        game->img.pixels[pixel + 0] = (0x00FF00 >> 24);
-        game->img.pixels[pixel + 1] = (0x00FF00 >> 16) & 0xFF;
-        game->img.pixels[pixel + 2] = (0x00FF00 >> 8) & 0xFF;
-        game->img.pixels[pixel + 3] = (0x00FF00)&0xFF;
+        pixel = (y * game->img.line_size) + (x * 4);
+        game->img.pixels[pixel + 0] = (unsigned int)(0x00FF00) & 0xFF;
+        game->img.pixels[pixel + 1] = (unsigned int)(0x00FF00 >> 8) & 0xFF;
+        game->img.pixels[pixel + 2] = (unsigned int)(0x00FF00 >> 16) & 0xFF;
+        game->img.pixels[pixel + 3] = (unsigned int)(0x00FF00 >> 24);
         // mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x00FF00);
         y++;
     }
@@ -198,16 +202,16 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw, int colour,
 
 int ft_render_map(t_game *game)
 {
-    int         x;
-    t_raycast   raycast;
+    int x;
+    t_raycast raycast;
     static int a = 0;
 
     if (a != 0)
-        mlx_destroy_image(game->mlx.mlx_ptr, a);
+        mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
     mlx_clear_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
-    game->img.pointer = mlx_new_image(mlx, HEIGHT, WIDTH);
-	game->img.pixels = mlx_get_data_addr(game->img.pointer, &game->img.bits_per_pixel,
-			&game->img.line_size, &game->img.endian);
+    game->img.pointer = mlx_new_image(game->mlx.mlx_ptr, WIDTH, HEIGHT);
+    game->img.pixels = mlx_get_data_addr(game->img.pointer, &game->img.bits_per_pixel,
+                                         &game->img.line_size, &game->img.endian);
     x = 1;
     while (x < WIDTH)
     {
@@ -215,7 +219,7 @@ int ft_render_map(t_game *game)
         ft_print_ray(game->mlx, x, raycast.start_draw, raycast.end_draw, raycast.colour, game);
         x++;
     }
-    mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr, img.pointer, 0, 0);
+    mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr, game->img.pointer, 0, 0);
     a = 1;
     return (0);
 }
