@@ -153,10 +153,21 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw, int colour)
 {
     int y;
 
+    y = 0;
+    while (y < start_draw)
+    {
+        mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x00FF00);
+        y++;
+    }
     y = start_draw;
     while (y <= end_draw)
     {
         mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, colour);
+        y++;
+    }
+    while (y < HEIGHT)
+    {
+        mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x0000FF);
         y++;
     }
 }
