@@ -2,6 +2,7 @@
 #include <math.h>
 #include <mlx.h>
 #include <stdio.h>
+#include <stdio.h>
 
 typedef struct s_image
 {

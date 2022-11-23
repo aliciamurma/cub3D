@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:02:52 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/15 15:25:05 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:53:35 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int		check_parameters(int argc, char **argv);
 void	open_map(t_game *game, char **argv);
 
 // CLOSE
-void	close_cub3d(int value);
+// void	close_cub3d(int value);
 int		close_x(t_game *game);
 
 // GET_NEXT_LINE
