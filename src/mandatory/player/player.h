@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:29:31 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:58:36 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:34:46 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_H
 # define PLAYER_H
-# define SPEED 0.05
+# define SPEED 0.06
 # define ROT_SPEED 0.02
 
 # include <stdbool.h>

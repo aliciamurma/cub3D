@@ -1,6 +1,7 @@
 
 #include <stdbool.h>
 #include <math.h>
+#include <stdio.h>
 #include "game.h"
 #include "player.h"
 
