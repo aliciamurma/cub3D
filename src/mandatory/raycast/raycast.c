@@ -161,10 +161,21 @@ t_raycast	ft_get_ray(t_game *game, int x)
 void	ft_print_ray(t_window win, int x, int start_draw, int end_draw,
 		int colour, t_game *game)
 {
-	int	y;
-	int	pixel;
+	int		y;
+	int		pixel;
+	int		d;
+	void	*img_r;
+	t_image	img2;
 
+	d = 64;
+	img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
+									"./src/assets/textures/south.xpm",
+									&d,
+									&d);
+	img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel,
+			&img2.line_size, &img2.endian);
 	(void)win;
+	(void)colour;
 	y = 0;
 	while (y < start_draw)
 	{
@@ -181,12 +192,20 @@ void	ft_print_ray(t_window win, int x, int start_draw, int end_draw,
 	{
 		if (y >= HEIGHT)
 			return ;
+			// colour = (WIDTH * HEIGHT + 64);
+		colour = *(int *)(img2.pixels + (y 
+					* img2.line_size / (end_draw - start_draw) + x 
+					* (img2.bits_per_pixel / 8)));
 		pixel = (y * game->img.line_size) + (x * 4);
-		game->img.pixels[pixel + 0] = (unsigned int)(colour);
-		game->img.pixels[pixel + 1] = (unsigned int)(colour >> 8);
-		game->img.pixels[pixel + 2] = (unsigned int)(colour >> 16);
-		game->img.pixels[pixel + 3] = (unsigned int)(colour >> 24);
-		// mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, colour);
+		game->img.pixels[pixel + 0] = (int)(colour);
+		game->img.pixels[pixel + 1] = (int)(colour >> 8);
+		game->img.pixels[pixel + 2] = (int)(colour >> 16);
+		game->img.pixels[pixel + 3] = (int)(colour >> 24);
+		// game->img.pixels[pixel + 0] = (unsigned int)(colour);
+		// game->img.pixels[pixel + 1] = (unsigned int)(colour >> 8);
+		// game->img.pixels[pixel + 2] = (unsigned int)(colour >> 16);
+		// game->img.pixels[pixel + 3] = (unsigned int)(colour >> 24);
+		// mlx_pixel_put(img2.mlx_ptr, win.win_ptr, x, y, colour);
 		y++;
 	}
 	while (y < HEIGHT)
@@ -199,6 +218,7 @@ void	ft_print_ray(t_window win, int x, int start_draw, int end_draw,
 		// mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x00FF00);
 		y++;
 	}
+	// free(img_r);
 }
 
 // void	ft_create_image(void)
