@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:04:11 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:44:13 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:37:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 #include <fcntl.h>
 #include "exit.h"
 
-void	ft_check_nbr_arguments(int argc)
+/**
+ * @brief Check that the parameters be 2: executable + map
+ * 
+ * @param argc 
+ */
+static void	ft_check_nbr_arguments(int argc)
 {
 	if (argc != 2)
-		exit_cub3d(0);
+		ft_exit_cub3d(0);
 }
 
-// pasar argv[1]
-void	ft_check_extension(char *map)
+/**
+ * @brief Check if the map has the correct extension
+ * 
+ * @param map 
+ */
+static void	ft_check_extension(char *map)
 {
 	int	len;
 
@@ -29,7 +38,7 @@ void	ft_check_extension(char *map)
 	if (!ft_strnstr(&map[len - 4], ".cub", 4))
 	{
 		printf("Error\nExtension incorrecta\n");
-		exit_cub3d(0);
+		ft_exit_cub3d(0);
 	}
 }
 
@@ -40,28 +49,8 @@ void	ft_check_extension(char *map)
  * @param argv 
  * @return int 
  */
-void	ft_check_parameters(int argc, char **argv)
+void	ft_check_parameters(int argc, char *map)
 {
-	int		fd;
-	size_t	len;
-
-	len = 0;
-	// TODO gestor de errores con enum
-	// validate el numero de argumentos
-	if (argc != 2)
-		exit_cub3d(0);
-	// TODO validate filemap
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error\nNo se puede leer\n");
-		exit_cub3d(0);
-	}
-	// TODO serparar en otra funcion de validate extension
-	len = ft_strlen(argv[1]);
-	if (!ft_strnstr(&argv[1][len - 4], ".cub", 4))
-	{
-		printf("Error\nExtension incorrecta\n");
-		exit_cub3d(0);
-	}
+	ft_check_nbr_arguments(argc);
+	ft_check_extension(map);
 }

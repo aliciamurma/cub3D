@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:12:24 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:13:01 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:13:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_atoi(char *str)
 	return (sign * n);
 }
 
-void	free_matrix(char **str)
+void	ft_free_matrix(char **str)
 {
 	int	count;
 

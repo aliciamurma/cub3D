@@ -34,12 +34,12 @@
  *  FOV = 2 * atan(0.66/1.0)=66.8 es adecuado para tiradores en primera persona
  * @return int
  */
-int main(void)
+int main(int argc, char **argv)
 {
     t_game game;
 
-    // check_parameters(argc, argv);
-	// get_cub_info(&game, argv);
+    ft_check_parameters(argc, argv[1]);
+	ft_set_cub_info(&game, argv[1]);
 	// check_map(&game);
     game.map.map = malloc(sizeof(char *) * 25);
 

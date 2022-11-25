@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:38:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:32:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_one_player(t_game *game)
 		cont1++;
 	}
 	if (player != 1)
-		exit_cub3d(-2);
+		ft_exit_cub3d(-2);
 }
 
 /**
@@ -73,7 +73,7 @@ void	check_map_letters(t_game *game)
 				&& game->map[cont1][cont2] != '\t'
 				&& game->map[cont1][cont2] != '\n')
 			{
-				exit_cub3d(2);
+				ft_exit_cub3d(2);
 			}
 			cont2++;
 		}
@@ -105,7 +105,7 @@ void	check_surrounded_x(t_game *game)
 			if (game->map[c1][c2] == '0' && (game->map[c1][c2 +1] == ' '
 			|| game->map[c1][c2 +1] == '\n' || game->map[c1][c2 +1] == '\0'))
 			{
-				exit_cub3d(2);
+				ft_exit_cub3d(2);
 			}
 			c2++;
 		}
@@ -132,7 +132,7 @@ void	check_surrounded_y(t_game *game)
 		{
 			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
 			|| game->map[c1 -1][c2] == ' '))
-				exit_cub3d(2);
+				ft_exit_cub3d(2);
 			c2++;
 		}
 		c1++;
