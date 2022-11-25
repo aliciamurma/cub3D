@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:16:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:37:35 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	check_textures(char *str)
  * @param index 
  * @param pos 
  */
-void	get_texture_path(t_game *game, int index, int pos)
+void	ft_get_texture_path(t_game *game, int index, int pos)
 {
 	char	**path;
 
@@ -70,12 +70,37 @@ void	get_texture_path(t_game *game, int index, int pos)
 	game->texture[index].path = path[1];
 }
 
+
+// TODO 
+// noth_texture
+	// -get_path
+	// -check_path
+	// -load_texture
+// south_texture
+	// -get_path
+	// -check_path
+	// -load_texture
+// east_texture
+	// -get_path
+	// -check_path
+	// -load_texture
+// west_texture
+	// -get_path
+	// -check_path
+	// -load_texture
+// ceil_color
+	// -check_path
+// floor_color
+	// -check_path
+	// -load_color
+// 
+
 /**
  * @brief Get the textures and colours object
  * 
  * @param game 
  */
-void	get_textures_colours(t_game *game)
+void	ft_get_textures_colours(t_game *game)
 {
 	int		count1;
 	int		count2;
@@ -91,36 +116,36 @@ void	get_textures_colours(t_game *game)
 				count2++;
 			else if (ft_strnstr(game->cub[count1], "NO", 2))
 			{
-				get_texture_path(game, 0, count1);
+				ft_get_texture_path(game, 0, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "SO", 2))
 			{
-				get_texture_path(game, 1, count1);
+				ft_get_texture_path(game, 1, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "WE", 2))
 			{
-				get_texture_path(game, 2, count1);
+				ft_get_texture_path(game, 2, count1);
 				break ;
 			}
 			else if (ft_strnstr(game->cub[count1], "EA", 2))
 			{
-				get_texture_path(game, 3, count1);
+				ft_get_texture_path(game, 3, count1);
 				break ;
 			}
-			else if (ft_strnstr(game->cub[count1], "F", 2))
+			else if (ft_strnstr(game->cub[count1], "F", 1))
 			{
 				game->floor = game->cub[count1];
 				break ;
 			}
-			else if (ft_strnstr(game->cub[count1], "C", 2))
+			else if (ft_strnstr(game->cub[count1], "C", 1))
 			{
 				game->ceiling = game->cub[count1];
 				break ;
 			}
 			else
-				close_cub3d(-2);
+				exit_cub3d(2);
 		}
 		count1++;
 	}

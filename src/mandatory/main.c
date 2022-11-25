@@ -38,6 +38,9 @@ int main(void)
 {
     t_game game;
 
+    // check_parameters(argc, argv);
+	// get_cub_info(&game, argv);
+	// check_map(&game);
     game.map.map = malloc(sizeof(char *) * 25);
 
     game.map.map[0] = "111111111111111111111111";

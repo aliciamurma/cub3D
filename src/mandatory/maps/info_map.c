@@ -6,21 +6,29 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:39 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:47:46 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include "cub3d.h"
+
+bool ft_check_dir(char pos)
+{
+	if (pos == 'N' || pos == 'S' || pos == 'E' || pos == 'W')
+		return (true);
+	return (false);
+}
 
 /**
  * @brief Get the player position
- * 
- * @param game 
+ *
+ * @param game
  */
-void	get_player_pos(t_game *game)
+void get_player_pos(t_game *game)
 {
-	int	c1;
-	int	c2;
+	int c1;
+	int c2;
 
 	c1 = 0;
 	c2 = 0;
@@ -29,8 +37,7 @@ void	get_player_pos(t_game *game)
 		c2 = 0;
 		while (game->map[c1][c2])
 		{
-			if (game->map[c1][c2] == 'N' || game->map[c1][c2] == 'S'
-				|| game->map[c1][c2] == 'E' || game->map[c1][c2] == 'W')
+			if (ft_check_dir(game->map[c1][c2]))
 			{
 				game->player_x = c1;
 				game->player_y = c2;
@@ -43,13 +50,13 @@ void	get_player_pos(t_game *game)
 
 /**
  * @brief Get the width of our map
- * 
- * @param game 
- * @param map 
+ *
+ * @param game
+ * @param map
  */
-void	get_width(t_game *game, char **map)
+void get_width(t_game *game, char **map)
 {
-	int	c1;
+	int c1;
 
 	c1 = 0;
 	game->width = 0;
@@ -69,14 +76,14 @@ void	get_width(t_game *game, char **map)
  * 11111
  * And if we don't have an space up and down the 0,
  * we won't check the uncorrect map
- * 
- * @param game 
- * @param map 
+ *
+ * @param game
+ * @param map
  */
-void	create_empty_map(t_game *game, char **map)
+void create_empty_map(t_game *game, char **map)
 {
-	int	c1;
-	int	c2;
+	int c1;
+	int c2;
 
 	c1 = 0;
 	c2 = 0;
@@ -96,14 +103,14 @@ void	create_empty_map(t_game *game, char **map)
 
 /**
  * @brief Refile a new bidimensional array with only the map (1, 0 and player)
- * 
- * @param game 
- * @param map 
+ *
+ * @param game
+ * @param map
  */
-void	refile_map(t_game *game, char **map)
+void refile_map(t_game *game, char **map)
 {
-	int	c1;
-	int	c2;
+	int c1;
+	int c2;
 
 	c1 = 0;
 	c2 = 0;
@@ -121,14 +128,14 @@ void	refile_map(t_game *game, char **map)
 
 /**
  * @brief Get the map
- * 
- * @param game 
+ *
+ * @param game
  */
-void	get_map(t_game *game)
+void get_map(t_game *game)
 {
-	int		count;
-	int		countmap;
-	char	**map;
+	int count;
+	int countmap;
+	char **map;
 
 	count = 6;
 	countmap = 0;

@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps.h                                             :+:      :+:    :+:   */
+/*   textures.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:51:10 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/25 13:38:01 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPS_H
-# define MAPS_H
-
-typedef enum s_map_info {
-	NO='NO',
-	SO='SO',
-	WE='WE',
-	EA='EA',
-	C='C',
-	F='F'
-}	t_map_info;
-
-typedef struct s_map
+#ifndef TEXTURES_H
+# define TEXTU
+typedef struct s_textures
 {
-	char	**map;
-}	t_map;
+	void	*north;
+	void	*south;
+	void	*east;
+	void	*west;
+	int	    floor;
+	int 	cell;
+}			t_textures;
 
 #endif

@@ -4,8 +4,74 @@
 #include "window.h"
 #include <math.h>
 #include <mlx.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 
+# define HEI_TEX 64
+# define WID_TEX 64
+
+typedef struct s_img
+{
+	void	*pointer;
+	// t_vector  size;
+	int		bits_per_pixel;
+	char	*pixels;
+	int		line_size;
+    int     width;
+    int     height;
+	int		endian;
+}			t_img;
+
+void    ft_upload_image(t_game *game, int *texture, char *path)
+{
+    t_img   img;
+    int     count1;
+    int     count2;
+
+    count1 = 0;
+    count2 = 0;
+    img.pointer = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
+        path, &img.width, &img.height);
+    img.pixels = mlx_get_data_addr(img.pointer, &img.bits_per_pixel,
+        &img.line_size, &img.endian);
+    while(count1 < img.height)
+    {
+        while(count2 < img.width)
+        {
+            texture[img.width * count1 + count2] = img.pixels [img.width * count1 + count2];
+            count2++;
+        }
+        count1++;
+    }
+    mlx_destroy_image(game->mlx.mlx_ptr, game->mlx.win_ptr);
+}
+
+
+void    ft_create_texture(t_game *game)
+{
+    int count1;
+    int count2;
+
+    count1 = 0;
+    count2 = 0;
+    game->texture = (int **)malloc(sizeof(int *) *8);
+    while (count1 < 8)
+    {
+        game->texture[count1] = (int *)malloc(sizeof(int) * HEI_TEX * WID_TEX);
+        count1++;
+    }
+    count1 = 0;
+    while (count1 < 8)
+    {
+        while (count2 < HEI_TEX * WID_TEX)
+        {
+            game->texture[count1][count2] = 0;
+            count2++;
+        }
+        count1++;
+    }
+}
 /**
  * @brief Recogemos la dirección del rayo
  *
@@ -169,11 +235,9 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw,
 
     d = 64;
     img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
-                                  "./src/assets/textures/west.xpm",
-                                  &d,
-                                  &d);
+        "./src/assets/textures/west.xpm", &d, &d);
     img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel,
-                                    &img2.line_size, &img2.endian);
+        &img2.line_size, &img2.endian);
     (void)win;
     (void)colour;
     (void)raycast;

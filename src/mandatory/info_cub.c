@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:16:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:52:23 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_textures(char *str)
 
 	fd = open(str, R_OK);
 	if (fd == -1)
-		close_cub3d(-2);
+		exit_cub3d(1);
 	close(fd);
 }
 

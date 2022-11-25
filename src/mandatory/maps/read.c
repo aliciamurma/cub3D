@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:46 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:25:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param fd 
  * @param i 
  */
-static void	read_cub(t_game *game, int fd, int i)
+static void	ft_read_cub(t_game *game, int fd, int i)
 {
 	char	*line;
 
@@ -45,9 +45,9 @@ static void	read_cub(t_game *game, int fd, int i)
  * 
  * @param game 
  */
-static void	matrix_map(t_game *game)
+static char	**ft_matrix_map(t_game *game)
 {
-	game->cub = ft_split(game->cub_raw, '\n');
+	return (ft_split(game->cub_raw, '\n'));
 }
 
 /**
@@ -56,7 +56,7 @@ static void	matrix_map(t_game *game)
  * @param game 
  * @param argv 
  */
-static void	open_cub(t_game *game, char **argv)
+static void	ft_open_cub(t_game *game, char **argv)
 {
 	int		fd;
 	size_t	i;
@@ -68,8 +68,8 @@ static void	open_cub(t_game *game, char **argv)
 		printf("Error\nNo se puede abrir\n");
 		exit(1);
 	}
-	read_cub(game, fd, i);
-	matrix_map(game);
+	ft_read_cub(game, fd, i);
+	game->map = ft_matrix_map(game);
 	close(fd);
 }
 
@@ -79,14 +79,15 @@ static void	open_cub(t_game *game, char **argv)
  * @param game 
  * @param argv 
  */
-void	get_cub_info(t_game *game, char **argv)
+// TODO Change the name. SET
+void	ft_get_cub_info(t_game *game, char **argv)
 {
-	open_cub(game, argv);
-	get_textures_colours(game);
-	check_colours(game);
-	check_textures(game->texture[0].path);
-	check_textures(game->texture[1].path);
-	check_textures(game->texture[2].path);
-	check_textures(game->texture[3].path);
-	get_map(game);
+	ft_open_cub(game, argv);
+	ft_get_textures_colours(game);
+	ft_check_colours(game);
+	ft_check_textures(game->texture[0].path);
+	ft_check_textures(game->texture[1].path);
+	ft_check_textures(game->texture[2].path);
+	ft_check_textures(game->texture[3].path);
+	ft_get_map(game);
 }
