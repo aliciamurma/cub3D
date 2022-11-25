@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 20:32:57 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 22:03:30 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * 
  * @param game 
  */
-void	check_one_player(t_game *game)
+void	ft_check_one_player(t_map map)
 {
 	int	player;
 	int	cont1;
@@ -29,14 +29,14 @@ void	check_one_player(t_game *game)
 	cont1 = 0;
 	cont2 = 0;
 	player = 0;
-	while (game->map[cont1])
+	while (map.map[cont1])
 	{
 		cont2 = 0;
-		while (game->map[cont1][cont2])
+		while (map.map[cont1][cont2])
 		{
-			if (game->map[cont1][cont2] == 'N' || game->map[cont1][cont2] == 'S'
-				|| game->map[cont1][cont2] == 'E'
-				|| game->map[cont1][cont2] == 'W')
+			if (map.map[cont1][cont2] == 'N' || map.map[cont1][cont2] == 'S'
+				|| map.map[cont1][cont2] == 'E'
+				|| map.map[cont1][cont2] == 'W')
 				player++;
 			cont2++;
 		}
@@ -51,27 +51,27 @@ void	check_one_player(t_game *game)
  * 
  * @param game 
  */
-void	check_map_letters(t_game *game)
+void	ft_check_map_letters(t_map map)
 {
 	int	cont1;
 	int	cont2;
 
 	cont1 = 0;
 	cont2 = 0;
-	while (game->map[cont1])
+	while (map.map[cont1])
 	{
 		cont2 = 0;
-		while (game->map[cont1][cont2])
+		while (map.map[cont1][cont2])
 		{
-			if (game->map[cont1][cont2] != '1' && game->map[cont1][cont2] != '0'
-				&& game->map[cont1][cont2] != 'N'
-				&& game->map[cont1][cont2] != 'S'
-				&& game->map[cont1][cont2] != 'E'
-				&& game->map[cont1][cont2] != 'W'
-				&& game->map[cont1][cont2] != '\0'
-				&& game->map[cont1][cont2] != ' '
-				&& game->map[cont1][cont2] != '\t'
-				&& game->map[cont1][cont2] != '\n')
+			if (map.map[cont1][cont2] != '1' && map.map[cont1][cont2] != '0'
+				&& map.map[cont1][cont2] != 'N'
+				&& map.map[cont1][cont2] != 'S'
+				&& map.map[cont1][cont2] != 'E'
+				&& map.map[cont1][cont2] != 'W'
+				&& map.map[cont1][cont2] != '\0'
+				&& map.map[cont1][cont2] != ' '
+				&& map.map[cont1][cont2] != '\t'
+				&& map.map[cont1][cont2] != '\n')
 			{
 				ft_exit_cub3d(2);
 			}
@@ -86,24 +86,24 @@ void	check_map_letters(t_game *game)
  * 
  * @param game 
  */
-void	check_surrounded_x(t_game *game)
+void	ft_check_surrounded_x(t_map map)
 {
 	int	c1;
 	int	c2;
 
 	c1 = 0;
 	c2 = 0;
-	while (game->map[c1])
+	while (map.map[c1])
 	{
-		if (game->map[c1][0] == '0')
+		if (map.map[c1][0] == '0')
 			close_cub3d(-2);
 		c2 = 0;
-		while (game->map[c1][c2])
+		while (map.map[c1][c2])
 		{
-			if (game->map[c1][c2] == ' ' && game->map[c1][c2 +1] == '0')
+			if (map.map[c1][c2] == ' ' && map.map[c1][c2 +1] == '0')
 				close_cub3d(-2);
-			if (game->map[c1][c2] == '0' && (game->map[c1][c2 +1] == ' '
-			|| game->map[c1][c2 +1] == '\n' || game->map[c1][c2 +1] == '\0'))
+			if (map.map[c1][c2] == '0' && (map.map[c1][c2 +1] == ' '
+			|| map.map[c1][c2 +1] == '\n' || map.map[c1][c2 +1] == '\0'))
 			{
 				ft_exit_cub3d(2);
 			}
@@ -118,20 +118,20 @@ void	check_surrounded_x(t_game *game)
  * 
  * @param game 
  */
-void	check_surrounded_y(t_game *game)
+void	ft_check_surrounded_y(t_map map)
 {
 	int	c1;
 	int	c2;
 
 	c1 = 0;
 	c2 = 0;
-	while (game->map[c1])
+	while (map.map[c1])
 	{
 		c2 = 0;
-		while (game->map[c1][c2])
+		while (map.map[c1][c2])
 		{
-			if (game->map[c1][c2] == '0' && (game->map[c1 +1][c2] == ' '
-			|| game->map[c1 -1][c2] == ' '))
+			if (map.map[c1][c2] == '0' && (map.map[c1 +1][c2] == ' '
+			|| map.map[c1 -1][c2] == ' '))
 				ft_exit_cub3d(2);
 			c2++;
 		}
@@ -144,10 +144,10 @@ void	check_surrounded_y(t_game *game)
  * 
  * @param game 
  */
-void	check_map(t_game *game)
+void	ft_check_map(t_map map)
 {
-	check_map_letters(game);
-	check_one_player(game);
-	check_surrounded_x(game);
-	check_surrounded_y(game);
+	ft_check_map_letters(map);
+	ft_check_one_player(map);
+	ft_check_surrounded_x(map);
+	ft_check_surrounded_y(map);
 }

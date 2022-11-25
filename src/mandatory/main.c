@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 
     ft_check_parameters(argc, argv[1]);
 	ft_set_cub_info(&game, argv[1]);
-	// check_map(&game);
+	ft_check_map(&game.map);
     game.map.map = malloc(sizeof(char *) * 25);
 
     game.map.map[0] = "111111111111111111111111";
