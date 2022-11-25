@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:17:31 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:34:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	ft_check_parameters(int argc, char *map);
 void	ft_set_cub_info(t_game *game, char *cub);
 
 // HELPERS
-char	**ft_my_split(char *str);
+char	**ft_colour_split(char *str);
+char	**ft_words_split(char *str);
 void	ft_free_matrix(char **str);
 
 // INFO CUB

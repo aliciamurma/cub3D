@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:26:14 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:40:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,7 @@
 #include "maps.h"
 #include "textures.h"
 
-/**
- * @brief Check if the given number for the colours is correct
- * 
- * @param game 
- */
-void	check_colours(t_game *game)
-{
-	char	**nbrs;
-
-	nbrs = ft_my_split(game->floor);
-	if (!nbrs)
-		close_cub3d(-1);
-	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
-		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
-		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
-		close_cub3d(-2);
-	free (nbrs);
-	nbrs = ft_my_split(game->ceiling);
-	if (!nbrs)
-		close_cub3d(-2);
-	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
-		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
-		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
-		close_cub3d(-2);
-	free (nbrs);
-}
-
-
-
-// TODO me cago en la puta
+// TODO
 // noth_texture
 	// -get_path
 	// -check_path
@@ -92,48 +63,102 @@ void	set_north_texture(t_texture texture, char *str)
 {
 	char	**north;
 	
-	north = ft_my_split(str);
+	north = ft_words_split(str);
 	if (ft_strnstr(north[0], "NO"))
+	{
 		ft_get_path(texture.north, north[1]);
+		ft_check_textures(texture.north);
+		// LOAD
+	}
 	ft_free_matrix(north);
-	ft_check_textures(texture.north);
-	// LOAD
 }
 
 void	set_south_texture(t_texture texture, char *str)
 {
 	char	**south;
 	
-	south = ft_my_split(str);
+	south = ft_words_split(str);
 	if (ft_strnstr(south[0], "SO"))
+	{
 		ft_get_path(texture.south, south[1]);
+		ft_check_textures(texture.south);
+		// LOAD
+	}
 	ft_free_matrix(south);
-	ft_check_textures(texture.south);
-	// LOAD
 }
 
 void	set_east_texture(t_texture texture, char *str)
 {
 	char	**east;
 	
-	east = ft_my_split(str);
+	east = ft_words_split(str);
 	if (ft_strnstr(east[0], "EA"))
-		ft_get_path(texture.east, east[1]);
+	{	ft_get_path(texture.east, east[1]);
+		ft_check_textures(texture.east);
+		// LOAD
+	}
 	ft_free_matrix(east);
-	ft_check_textures(texture.east);
-	// LOAD
 }
 
 void	set_west_texture(t_texture texture, char *str)
 {
 	char	**west;
 	
-	west = ft_my_split(str);
+	west = ft_words_split(str);
 	if (ft_strnstr(west[0], "WE"))
+	{
 		ft_get_path(texture.west, west[1]);
+		ft_check_textures(texture.west);
+		// LOAD
+	}
 	ft_free_matrix(west);
-	ft_check_textures(texture.west);
+}
+
+/**
+ * @brief Check if the given number for the colours is correct
+ * 
+ * @param game 
+ */
+void	ft_check_colours(char *str)
+{
+	char	**nbrs;
+
+	nbrs = ft_words_split(str);
+	if (!nbrs)
+		close_cub3d(1);
+	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
+		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
+		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
+		close_cub3d(-2);
+	ft_free_matrix(nbrs);
+}
+
+void	set_ceil_colour(t_texture texture, char *str)
+{
+	char	*ceil;
+
+	ceil = ft_words_split(str);
+	if (ft_strnstr(ceil[0], "C"))
+	{
+		ft_get_path(texture.ceil, ceil[1]);
+		ft_check_colours(texture.ceil);
+		// LOAD
+	}
+	ft_free_matrix(ceil);
+}
+
+void	set_floor_colour(t_texture texture, char *str)
+{
+	char	*floor;
+
+	floor = ft_words_split(str);
+	if (ft_strnstr(floor[0], "F"))
+	{
+		ft_get_path(texture.floor, floor[1]);
+		ft_check_colours(texture.floor);
 	// LOAD
+	}
+	ft_free_matrix(floor);
 }
 
 void	ft_get_textures_colours(t_map map, t_texture texture)
@@ -147,6 +172,8 @@ void	ft_get_textures_colours(t_map map, t_texture texture)
 		set_south_texture(texture, map.map[count]);
 		set_west_texture(texture, map.map[count]);
 		set_east_texture(texture, map.map[count]);
+		set_floor_colour(texture, map.map[count]);
+		set_ceil_colour(texture, map.map[count]);
 		count++;
 	}
 }

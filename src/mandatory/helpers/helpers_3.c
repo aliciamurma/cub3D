@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers_1.c                                        :+:      :+:    :+:   */
+/*   helpers_3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 17:12:26 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:34:55 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/25 21:34:49 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/25 21:36:42 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "cub3d.h"
+#include <time.h>
 
 static size_t	ft_len_word(char *str, int start)
 {
-	while (str[start] && str[start] != ' '
-		&& str[start] != '\t' && str[start] != ',')
+	while (str[start] && str[start] != ' ' && str[start] != '\t')
 		start++;
 	return (start);
 }
@@ -47,16 +45,15 @@ static char	**ft_refile(char **array, char *str)
 
 	cont = 0;
 	cont_w = 0;
-	while (str[cont] == ' ' || str[cont] == '\t' || str[cont] == ',')
+	while (str[cont] == ' ' || str[cont] == '\t')
 		cont++;
 	while (str[cont] != '\0')
 	{
 		array[cont_w] = ft_bidimensional(str, cont);
 		cont_w++;
-		while (str[cont] && str[cont] != ' '
-			&& str[cont] != '\t' && str[cont] != ',')
+		while (str[cont] && str[cont] != ' ' && str[cont] != '\t')
 			cont++;
-		while (str[cont] == ' ' || str[cont] == '\t' || str[cont] == ',')
+		while (str[cont] == ' ' || str[cont] == '\t')
 			cont++;
 	}
 	return (array);
@@ -69,21 +66,20 @@ static size_t	ft_count_words(char *str)
 
 	words = 0;
 	cont = 0;
-	while (str[cont] == ' ' || str[cont] == '\t' || str[cont] == ',')
+	while (str[cont] == ' ' || str[cont] == '\t')
 		cont++;
 	while (str[cont])
 	{
-		while (str[cont] && str[cont] != ' '
-			&& str[cont] != '\t' && str[cont] != ',')
+		while (str[cont] && str[cont] != ' ' && str[cont] != '\t')
 			cont++;
-		while (str[cont] == ' ' || str[cont] == '\t' || str[cont] == ',')
+		while (str[cont] == ' ' || str[cont] == '\t')
 			cont++;
 		words++;
 	}
 	return (words);
 }
 
-char	**ft_colour_split(char *str)
+char	**ft_words_split(char *str)
 {
 	char	**array;
 	size_t	words;
