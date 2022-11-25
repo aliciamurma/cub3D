@@ -6,12 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:47:46 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:59:24 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
-#include "cub3d.h"
+#include "game.h"
+#include "maps.h"
+#include "player.h"
 
 bool ft_check_dir(char pos)
 {
@@ -25,22 +27,22 @@ bool ft_check_dir(char pos)
  *
  * @param game
  */
-void get_player_pos(t_game *game)
+void ft_get_player_pos(t_map map, t_player player)
 {
 	int c1;
 	int c2;
 
 	c1 = 0;
 	c2 = 0;
-	while (game->map[c1])
+	while (map.map[c1])
 	{
 		c2 = 0;
-		while (game->map[c1][c2])
+		while (map.map[c1][c2])
 		{
-			if (ft_check_dir(game->map[c1][c2]))
+			if (ft_check_dir(map.map[c1][c2]))
 			{
-				game->player_x = c1;
-				game->player_y = c2;
+				player.pos.x = c1;
+				player.pos.y = c2;
 			}
 			c2++;
 		}
@@ -54,16 +56,16 @@ void get_player_pos(t_game *game)
  * @param game
  * @param map
  */
-void get_width(t_game *game, char **map)
+void ft_get_map_width(t_map map)
 {
 	int c1;
 
 	c1 = 0;
-	game->width = 0;
-	while (map[c1])
+	map.width = 0;
+	while (map.map[c1])
 	{
-		if (ft_strlen(map[c1]) > game->width)
-			game->width = ft_strlen(map[c1]);
+		if (ft_strlen(map.map[c1]) > map.width)
+			map.width = ft_strlen(map.map[c1]);
 		c1++;
 	}
 }
@@ -80,21 +82,21 @@ void get_width(t_game *game, char **map)
  * @param game
  * @param map
  */
-void create_empty_map(t_game *game, char **map)
+void ft_create_empty_map(t_map map)
 {
 	int c1;
 	int c2;
 
 	c1 = 0;
 	c2 = 0;
-	game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
-	while (c1 < game->height)
+	map.map = (char **)malloc(sizeof(char *) * (map.height + 1));
+	while (c1 < map.height)
 	{
-		game->map[c1] = (char *)malloc(sizeof(char) * game->width + 1);
+		map.map[c1] = (char *)malloc(sizeof(char) * map.width + 1);
 		c2 = 0;
-		while (c2 < game->width)
+		while (c2 < map.width)
 		{
-			game->map[c1][c2] = ' ';
+			map.map[c1][c2] = ' ';
 			c2++;
 		}
 		c1++;
@@ -104,22 +106,22 @@ void create_empty_map(t_game *game, char **map)
 /**
  * @brief Refile a new bidimensional array with only the map (1, 0 and player)
  *
- * @param game
  * @param map
+ * @param e_map
  */
-void refile_map(t_game *game, char **map)
+void ft_refile_map(t_map map, char **e_map)
 {
 	int c1;
 	int c2;
 
 	c1 = 0;
 	c2 = 0;
-	while (map[c1])
+	while (e_map[c1])
 	{
 		c2 = 0;
-		while (map[c1][c2])
+		while (e_map[c1][c2])
 		{
-			game->map[c1][c2] = map[c1][c2];
+			map.map[c1][c2] = e_map[c1][c2];
 			c2++;
 		}
 		c1++;
@@ -131,7 +133,7 @@ void refile_map(t_game *game, char **map)
  *
  * @param game
  */
-void get_map(t_game *game)
+void ft_get_map(t_game *game)
 {
 	int count;
 	int countmap;
@@ -140,18 +142,18 @@ void get_map(t_game *game)
 	count = 6;
 	countmap = 0;
 	map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->cub) + 1);
-	map[ft_strlen_map(game->cub)] = NULL;
-	while (game->cub[count])
+	map[ft_strlen_map(game->map.cub)] = NULL;
+	while (game->map.cub[count])
 	{
-		map[countmap] = malloc(sizeof(char) * ft_strlen(game->cub[count]));
-		map[countmap][ft_strlen(game->cub[count])] = '\0';
-		map[countmap] = game->cub[count];
+		map[countmap] = malloc(sizeof(char) * ft_strlen(game->map.cub[count]));
+		map[countmap][ft_strlen(game->map.cub[count])] = '\0';
+		map[countmap] = game->map.cub[count];
 		count++;
 		countmap++;
 	}
 	count = 0;
-	get_width(game, map);
-	game->height = ft_strlen_map(map) + 1;
-	create_empty_map(game, map);
-	refile_map(game, map);
+	ft_get_map_width(game->map);
+	game->map.height = ft_strlen_map(game->map.map) + 1;
+	create_empty_map(game->map);
+	ft_refile_map(game->map, map);
 }

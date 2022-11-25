@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:47:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:48:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	set_south_texture(t_texture texture, char *str)
 void	set_east_texture(t_texture texture, char *str)
 {
 	char	**east;
-	
+
 	east = ft_words_split(str);
 	if (!east)
 		ft_exit_cub3d(1);
