@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:49:20 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/25 16:54:06 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:01:18 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,37 +80,25 @@ void	ft_move_right(t_player *player, char **map)
 		player->pos.y += new_pos_y;
 }
 
-// static double ft_calc_dir_rotation()
-// {
+t_vector	ft_get_new_rotation(float dir_x, float dir_y, float rot_speed)
+{
+	t_vector	dir;
 
-// }
+	dir.x = dir_x * cos(rot_speed) - dir_y * sin(rot_speed);
+	dir.y = dir_x * sin(rot_speed) + dir_y * cos(rot_speed);
+	return (dir);
+}
 
-// static double ft_calc_plane_rotation()
-// {
-
-// }
 void	ft_rotate_left(t_player *player)
 {
-	double	actual_dir_x;
-	double	actual_plane_x;
-
-	actual_dir_x = player->dir.x;
-	actual_plane_x = player->plane.x;
-	player->dir.x = player->dir.x * cos(-ROT_SPEED) - player->dir.y * sin(-ROT_SPEED);
-	player->dir.y = actual_dir_x * sin(-ROT_SPEED) + player->dir.y * cos(-ROT_SPEED);
-	player->plane.x = player->plane.x * cos(-ROT_SPEED) - player->plane.y * sin(-ROT_SPEED);
-	player->plane.y = actual_plane_x * sin(-ROT_SPEED) + player->plane.y * cos(-ROT_SPEED);
+	player->dir = ft_get_new_rotation(player->dir.x, player->dir.y, -ROT_SPEED);
+	player->plane = ft_get_new_rotation(
+			player->plane.x, player->plane.y, -ROT_SPEED);
 }
 
 void	ft_rotate_right(t_player *player)
 {
-	double	actual_dir_x;
-	double	actual_plane_x;
-
-	actual_dir_x = player->dir.x;
-	actual_plane_x = player->plane.x;
-	player->dir.x = player->dir.x * cos(ROT_SPEED) - player->dir.y * sin(ROT_SPEED);
-	player->dir.y = actual_dir_x * sin(ROT_SPEED) + player->dir.y * cos(ROT_SPEED);
-	player->plane.x = player->plane.x * cos(ROT_SPEED) - player->plane.y * sin(ROT_SPEED);
-	player->plane.y = actual_plane_x * sin(ROT_SPEED) + player->plane.y * cos(ROT_SPEED);
+	player->dir = ft_get_new_rotation(player->dir.x, player->dir.y, ROT_SPEED);
+	player->plane = ft_get_new_rotation(
+			player->plane.x, player->plane.y, ROT_SPEED);
 }
