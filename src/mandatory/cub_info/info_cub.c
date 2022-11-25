@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:42:36 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:43:43 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	set_north_texture(t_texture texture, char *str)
 	char	**north;
 	
 	north = ft_words_split(str);
+	if (!north)
+		ft_exit_cub3d(1);
 	if (ft_strnstr(north[0], "NO"))
 	{
 		ft_get_path(texture.north, north[1]);
@@ -79,6 +81,8 @@ void	set_south_texture(t_texture texture, char *str)
 	char	**south;
 	
 	south = ft_words_split(str);
+	if (!south)
+		ft_exit_cub3d(1);
 	if (ft_strnstr(south[0], "SO"))
 	{
 		ft_get_path(texture.south, south[1]);
@@ -93,6 +97,8 @@ void	set_east_texture(t_texture texture, char *str)
 	char	**east;
 	
 	east = ft_words_split(str);
+	if (!east)
+		ft_exit_cub3d(1);
 	if (ft_strnstr(east[0], "EA"))
 	{	ft_get_path(texture.east, east[1]);
 		ft_check_textures(texture.east);
@@ -157,6 +163,8 @@ void	set_floor_colour(t_texture texture, char *str)
 	char	*floor;
 
 	floor = ft_words_split(str);
+	if (!floor)
+		ft_exit_cub3d(1);
 	if (ft_strnstr(floor[0], "F"))
 	{
 		ft_get_path(texture.floor, floor[1]);
