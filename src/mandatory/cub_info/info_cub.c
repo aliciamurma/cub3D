@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:43:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:45:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,14 +138,22 @@ void	ft_check_colours(char *str)
 	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
 		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
 		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
-		close_cub3d(-2);
+		ft_exit_cub3d(2);
 	ft_free_matrix(nbrs);
 }
 
 void	set_ceil_colour(t_texture texture, char *str)
 {
 	char	*ceil;
+	int		count;
 
+	count = 0;
+	while (str[count] && str[count + 1])
+	{
+		if(str[count] == ',' && str[count + 1] == ',')
+		    ft_exit_cub3d(2);
+		count++;
+	}
 	ceil = ft_words_split(str);
 	if (!ceil)
 	    ft_exit_cub3d(1);
