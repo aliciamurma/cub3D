@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:40:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/25 21:42:36 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include "maps.h"
 #include "textures.h"
+#include "exit.h"
 
 // TODO
 // noth_texture
@@ -49,7 +50,7 @@ void	ft_check_textures(char *str)
 
 	fd = open(str, R_OK);
 	if (fd == -1)
-		close_cub3d(-2);
+	    ft_exit_cub3d(1);
 	close(fd);
 }
 
@@ -105,6 +106,8 @@ void	set_west_texture(t_texture texture, char *str)
 	char	**west;
 	
 	west = ft_words_split(str);
+	if (!west)
+		ft_exit_cub3d(1);
 	if (ft_strnstr(west[0], "WE"))
 	{
 		ft_get_path(texture.west, west[1]);
@@ -123,9 +126,9 @@ void	ft_check_colours(char *str)
 {
 	char	**nbrs;
 
-	nbrs = ft_words_split(str);
+	nbrs = ft_my_split(str);
 	if (!nbrs)
-		close_cub3d(1);
+	    ft_exit_cub3d(1);
 	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
 		|| (ft_atoi(nbrs[1]) < 0 || ft_atoi(nbrs[1]) > 255)
 		|| (ft_atoi(nbrs[2]) < 0 || ft_atoi(nbrs[2]) > 255))
@@ -138,6 +141,8 @@ void	set_ceil_colour(t_texture texture, char *str)
 	char	*ceil;
 
 	ceil = ft_words_split(str);
+	if (!ceil)
+	    ft_exit_cub3d(1);
 	if (ft_strnstr(ceil[0], "C"))
 	{
 		ft_get_path(texture.ceil, ceil[1]);
