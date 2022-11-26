@@ -6,11 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:59:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:11:43 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+#include "libft.h"
 #include "game.h"
 #include "maps.h"
 #include "player.h"
@@ -58,13 +59,13 @@ void ft_get_player_pos(t_map map, t_player player)
  */
 void ft_get_map_width(t_map map)
 {
-	int c1;
+	unsigned int c1;
 
 	c1 = 0;
 	map.width = 0;
 	while (map.map[c1])
 	{
-		if (ft_strlen(map.map[c1]) > map.width)
+		if (ft_strlen(map.map[c1]) > (unsigned int)map.width)
 			map.width = ft_strlen(map.map[c1]);
 		c1++;
 	}
@@ -141,7 +142,7 @@ void ft_get_map(t_game *game)
 
 	count = 6;
 	countmap = 0;
-	map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->cub) + 1);
+	map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->map.cub) + 1);
 	map[ft_strlen_map(game->map.cub)] = NULL;
 	while (game->map.cub[count])
 	{
@@ -154,6 +155,6 @@ void ft_get_map(t_game *game)
 	count = 0;
 	ft_get_map_width(game->map);
 	game->map.height = ft_strlen_map(game->map.map) + 1;
-	create_empty_map(game->map);
+	ft_create_empty_map(game->map);
 	ft_refile_map(game->map, map);
 }

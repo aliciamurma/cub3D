@@ -6,10 +6,11 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:48:25 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:12:01 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "game.h"
 #include "maps.h"
 #include "exit.h"
@@ -96,12 +97,12 @@ void	ft_check_surrounded_x(t_map map)
 	while (map.map[c1])
 	{
 		if (map.map[c1][0] == '0')
-			close_cub3d(-2);
+			ft_exit_cub3d(2);
 		c2 = 0;
 		while (map.map[c1][c2])
 		{
 			if (map.map[c1][c2] == ' ' && map.map[c1][c2 +1] == '0')
-				close_cub3d(-2);
+				ft_exit_cub3d(2);
 			if (map.map[c1][c2] == '0' && (map.map[c1][c2 +1] == ' '
 			|| map.map[c1][c2 +1] == '\n' || map.map[c1][c2 +1] == '\0'))
 			{

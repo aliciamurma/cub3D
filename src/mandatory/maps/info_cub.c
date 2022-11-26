@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:49:44 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 19:00:48 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ void	ft_set_west_texture(t_texture texture, char *str)
 	ft_free_matrix(west);
 }
 
-void	ft_get_colour_id(int id, char *nbrs)
+int	ft_get_colour_id(char **nbrs)
 {
-
+	return ((ft_atoi(nbrs[1]) & 0xff) << 16) + ((ft_atoi(nbrs[2]) & 0xff) << 8) + (ft_atoi(nbrs[3]) & 0xff);
 }
 
 /**
@@ -112,7 +112,7 @@ void	ft_get_colour_id(int id, char *nbrs)
  * 
  * @param game 
  */
-void	ft_check_colours(char *str)
+void	ft_check_nbrs(char *str)
 {
 	char	**nbrs;
 
@@ -149,8 +149,8 @@ void	ft_set_ceil_colour(t_texture texture, char *str)
 	if (ft_strnstr(ceil[0], "C", 1))
 	{
 		ft_check_format_colour(ceil[1]);
-		ft_get_colour_id(texture.ceil, ceil[1]);
-		ft_check_colours(texture.ceil);
+		ft_check_nbrs(ceil[1]);
+		texture.ceil = ft_get_colour_id(ceil);
 		// LOAD
 		/*
 		img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
@@ -172,8 +172,8 @@ void	ft_set_floor_colour(t_texture texture, char *str)
 	if (ft_strnstr(floor[0], "F", 1))
 	{
 		ft_check_format_colour(floor[1]);
-		ft_get_colour_id(texture.floor, floor[1]);
-		ft_check_colours(texture.floor);
+		ft_check_nbrs(floor[1]);
+		texture.floor = ft_get_colour_id(floor);
 	// LOAD
 	}
 	ft_free_matrix(floor);
