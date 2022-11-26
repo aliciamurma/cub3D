@@ -173,7 +173,7 @@ void ft_print_ray(t_window win, int x, int start_draw, int end_draw,
     t_image img2;
 
     d = 64;
-    img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
+    img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,//cargamos la textur ay la guardamos en img2
         "./src/assets/textures/west.xpm", &d, &d);
     img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel,
         &img2.line_size, &img2.endian);

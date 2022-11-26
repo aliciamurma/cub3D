@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:48:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:33:26 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_get_path(char *texture, char *path)
 	texture = path;
 }
 
-void	set_north_texture(t_texture texture, char *str)
+void	ft_set_north_texture(t_texture texture, char *str)
 {
 	char	**north;
 	
@@ -76,7 +76,7 @@ void	set_north_texture(t_texture texture, char *str)
 	ft_free_matrix(north);
 }
 
-void	set_south_texture(t_texture texture, char *str)
+void	ft_set_south_texture(t_texture texture, char *str)
 {
 	char	**south;
 	
@@ -92,7 +92,7 @@ void	set_south_texture(t_texture texture, char *str)
 	ft_free_matrix(south);
 }
 
-void	set_east_texture(t_texture texture, char *str)
+void	ft_set_east_texture(t_texture texture, char *str)
 {
 	char	**east;
 
@@ -142,7 +142,7 @@ void	ft_check_colours(char *str)
 	ft_free_matrix(nbrs);
 }
 
-void	set_ceil_colour(t_texture texture, char *str)
+void	ft_set_ceil_colour(t_texture texture, char *str)
 {
 	char	*ceil;
 	int		count;
@@ -162,11 +162,17 @@ void	set_ceil_colour(t_texture texture, char *str)
 		ft_get_path(texture.ceil, ceil[1]);
 		ft_check_colours(texture.ceil);
 		// LOAD
+		/*
+		img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
+        	"./src/assets/textures/west.xpm", &d, &d);
+		img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel,
+			&img2.line_size, &img2.endian);
+		*/
 	}
 	ft_free_matrix(ceil);
 }
 
-void	set_floor_colour(t_texture texture, char *str)
+void	ft_set_floor_colour(t_texture texture, char *str)
 {
 	char	*floor;
 
@@ -189,12 +195,12 @@ void	ft_get_textures_colours(t_map map, t_texture texture)
 	count = 0;
 	while (count < 6)
 	{
-		set_north_texture(texture, map.map[count]);
-		set_south_texture(texture, map.map[count]);
-		set_west_texture(texture, map.map[count]);
-		set_east_texture(texture, map.map[count]);
-		set_floor_colour(texture, map.map[count]);
-		set_ceil_colour(texture, map.map[count]);
+		ft_set_north_texture(texture, map.map[count]);
+		ft_set_south_texture(texture, map.map[count]);
+		ft_set_west_texture(texture, map.map[count]);
+		ft_set_east_texture(texture, map.map[count]);
+		ft_set_floor_colour(texture, map.map[count]);
+		ft_set_ceil_colour(texture, map.map[count]);
 		count++;
 	}
 }
