@@ -6,12 +6,13 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:12:32 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:21:47 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAPS_H
 # define MAPS_H
+# include "game.h"
 
 // typedef enum s_map_info {
 // 	NO='NO',

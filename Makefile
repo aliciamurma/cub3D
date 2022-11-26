@@ -64,7 +64,8 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/exit src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps src/mandatory/raycast src/mandatory/game src/mandatory/player
+vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/cub_info src/mandatory/helpers \
+			src/mandatory/inputs src/mandatory/maps src/mandatory/raycast src/mandatory/player
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:

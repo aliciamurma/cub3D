@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:12:19 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:19:42 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ static void	ft_open_cub(t_map map, char *cub)
  */
 void	ft_set_cub_info(t_game *game, char *cub)
 {
-
 	ft_open_cub(game->map, cub);
 	ft_get_textures_colours(game->map, game->texture);
 	ft_get_map(game);
