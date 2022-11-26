@@ -6,10 +6,11 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:53:25 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:58:33 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:33:11 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include "game.h"
 #include "maps.h"

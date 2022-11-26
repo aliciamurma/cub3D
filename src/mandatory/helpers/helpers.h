@@ -6,14 +6,15 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:45:02 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:33:32 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HELPERS_H
 # define HELPERS_H
-
 # define BUFFER_SIZE 1
+
+#include "game.h"
 
 void	*ft_malloc(size_t size, unsigned int q);
 char	*get_next_line(int fd);

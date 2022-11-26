@@ -6,12 +6,13 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:48:42 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:49:44 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
+#include "libft.h"
 #include "game.h"
 #include "maps.h"
 #include "textures.h"
@@ -32,7 +33,7 @@ void	ft_check_textures(char *str)
 	close(fd);
 }
 
-void	ft_get_path(char *texture, char *path)
+void	ft_get_texture_path(char *texture, char *path)
 {
 	texture = malloc(sizeof(char) * ft_strlen(path));
 	texture = path;
@@ -45,9 +46,9 @@ void	ft_set_north_texture(t_texture texture, char *str)
 	north = ft_words_split(str);
 	if (!north)
 		ft_exit_cub3d(1);
-	if (ft_strnstr(north[0], "NO"))
+	if (ft_strnstr(north[0], "NO", 2))
 	{
-		ft_get_path(texture.north, north[1]);
+		ft_get_texture_path(texture.north, north[1]);
 		ft_check_textures(texture.north);
 		// LOAD
 	}
@@ -61,9 +62,9 @@ void	ft_set_south_texture(t_texture texture, char *str)
 	south = ft_words_split(str);
 	if (!south)
 		ft_exit_cub3d(1);
-	if (ft_strnstr(south[0], "SO"))
+	if (ft_strnstr(south[0], "SO", 2))
 	{
-		ft_get_path(texture.south, south[1]);
+		ft_get_texture_path(texture.south, south[1]);
 		ft_check_textures(texture.south);
 		// LOAD
 	}
@@ -77,28 +78,33 @@ void	ft_set_east_texture(t_texture texture, char *str)
 	east = ft_words_split(str);
 	if (!east)
 		ft_exit_cub3d(1);
-	if (ft_strnstr(east[0], "EA"))
-	{	ft_get_path(texture.east, east[1]);
+	if (ft_strnstr(east[0], "EA", 2))
+	{	ft_get_texture_path(texture.east, east[1]);
 		ft_check_textures(texture.east);
 		// LOAD
 	}
 	ft_free_matrix(east);
 }
 
-void	set_west_texture(t_texture texture, char *str)
+void	ft_set_west_texture(t_texture texture, char *str)
 {
 	char	**west;
 	
 	west = ft_words_split(str);
 	if (!west)
 		ft_exit_cub3d(1);
-	if (ft_strnstr(west[0], "WE"))
+	if (ft_strnstr(west[0], "WE", 2))
 	{
-		ft_get_path(texture.west, west[1]);
+		ft_get_texture_path(texture.west, west[1]);
 		ft_check_textures(texture.west);
 		// LOAD
 	}
 	ft_free_matrix(west);
+}
+
+void	ft_get_colour_id(int id, char *nbrs)
+{
+
 }
 
 /**
@@ -110,7 +116,7 @@ void	ft_check_colours(char *str)
 {
 	char	**nbrs;
 
-	nbrs = ft_my_split(str);
+	nbrs = ft_colour_split(str);
 	if (!nbrs)
 	    ft_exit_cub3d(1);
 	if ((ft_atoi(nbrs[3]) < 0 || ft_atoi(nbrs[3]) > 255)
@@ -120,9 +126,8 @@ void	ft_check_colours(char *str)
 	ft_free_matrix(nbrs);
 }
 
-void	ft_set_ceil_colour(t_texture texture, char *str)
+void	ft_check_format_colour(char *str)
 {
-	char	*ceil;
 	int		count;
 
 	count = 0;
@@ -132,12 +137,19 @@ void	ft_set_ceil_colour(t_texture texture, char *str)
 		    ft_exit_cub3d(2);
 		count++;
 	}
+}
+
+void	ft_set_ceil_colour(t_texture texture, char *str)
+{
+	char	**ceil;
+
 	ceil = ft_words_split(str);
 	if (!ceil)
 	    ft_exit_cub3d(1);
-	if (ft_strnstr(ceil[0], "C"))
+	if (ft_strnstr(ceil[0], "C", 1))
 	{
-		ft_get_path(texture.ceil, ceil[1]);
+		ft_check_format_colour(ceil[1]);
+		ft_get_colour_id(texture.ceil, ceil[1]);
 		ft_check_colours(texture.ceil);
 		// LOAD
 		/*
@@ -152,14 +164,15 @@ void	ft_set_ceil_colour(t_texture texture, char *str)
 
 void	ft_set_floor_colour(t_texture texture, char *str)
 {
-	char	*floor;
+	char	**floor;
 
 	floor = ft_words_split(str);
 	if (!floor)
 		ft_exit_cub3d(1);
-	if (ft_strnstr(floor[0], "F"))
+	if (ft_strnstr(floor[0], "F", 1))
 	{
-		ft_get_path(texture.floor, floor[1]);
+		ft_check_format_colour(floor[1]);
+		ft_get_colour_id(texture.floor, floor[1]);
 		ft_check_colours(texture.floor);
 	// LOAD
 	}

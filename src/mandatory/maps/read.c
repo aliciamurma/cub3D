@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:00 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:34:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*ft_read_cub(t_map *map, int fd, char *cub_raw)
 	cub_raw = NULL;
 	cub_raw = malloc(sizeof(char) * 1);
 	cub_raw[0] = '\0';
-	map.height = ft_strlen(line) - 1;
+	map->height = ft_strlen(line) - 1;
 	while (line)
 	{
 		cub_raw = ft_strjoin(cub_raw, line);
@@ -76,7 +76,7 @@ static void	ft_open_cub(t_map *map, char *cub)
 		ft_exit_cub3d(1);
 	}
 	cub_raw = ft_read_cub(map, fd, cub_raw);
-	map.cub = ft_matrix_map(cub_raw);
+	map->cub = ft_matrix_map(cub_raw);
 	close(fd);
 }
 
@@ -88,7 +88,7 @@ static void	ft_open_cub(t_map *map, char *cub)
  */
 void	ft_set_cub_info(t_game *game, char *cub)
 {
-	ft_open_cub(game->map, cub);
+	ft_open_cub(&game->map, cub);
 	ft_get_textures_colours(game->map, game->texture);
 	ft_get_map(game);
 }
