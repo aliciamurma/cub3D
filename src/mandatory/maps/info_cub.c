@@ -6,38 +6,16 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 16:33:26 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:48:42 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
+#include "game.h"
 #include "maps.h"
 #include "textures.h"
 #include "exit.h"
-
-// TODO
-// noth_texture
-	// -get_path
-	// -check_path
-	// -load_texture
-// south_texture
-	// -get_path
-	// -check_path
-	// -load_texture
-// east_texture
-	// -get_path
-	// -check_path
-	// -load_texture
-// west_texture
-	// -get_path
-	// -check_path
-	// -load_texture
-// ceil_color
-	// -check_path
-// floor_color
-	// -check_path
-	// -load_color
 
 /**
  * @brief Check if the texture path can be opened

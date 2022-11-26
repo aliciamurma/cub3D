@@ -21,7 +21,7 @@ SRCS 			= game.c \
 				textures.c \
 				inputs.c \
 				player.c \
-				exit.c code_exit.c 
+				exit.c code_exit.c \
 
 # LIBS
 LIBS_PATH		:= libs
@@ -47,7 +47,7 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/raycast \
 					src/mandatory/player \
 					src/mandatory/textures \
-					src/mandatory/helpers
+					src/mandatory/helpers \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
