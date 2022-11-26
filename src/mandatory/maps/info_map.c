@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 19:11:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:38:59 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include "game.h"
 #include "maps.h"
-#include "player.h"
 
 bool ft_check_dir(char pos)
 {
@@ -28,27 +27,30 @@ bool ft_check_dir(char pos)
  *
  * @param game
  */
-void ft_get_player_pos(t_map map, t_player player)
+t_vector ft_get_player_pos(char **map)
 {
+	t_vector	vector_pos;
 	int c1;
 	int c2;
 
 	c1 = 0;
 	c2 = 0;
-	while (map.map[c1])
+	while (map[c1])
 	{
 		c2 = 0;
-		while (map.map[c1][c2])
+		while (map[c1][c2])
 		{
-			if (ft_check_dir(map.map[c1][c2]))
+			if (ft_check_dir(map[c1][c2]))
 			{
-				player.pos.x = c1;
-				player.pos.y = c2;
+				vector_pos.x = c1;
+				vector_pos.y = c2;
+				break ;
 			}
 			c2++;
 		}
 		c1++;
 	}
+	return (vector_pos);
 }
 
 /**
@@ -57,18 +59,20 @@ void ft_get_player_pos(t_map map, t_player player)
  * @param game
  * @param map
  */
-void ft_get_map_width(t_map map)
+unsigned int ft_get_map_width(char **map)
 {
 	unsigned int c1;
+	unsigned int width;
 
 	c1 = 0;
-	map.width = 0;
-	while (map.map[c1])
+	width = 0;
+	while (map[c1])
 	{
-		if (ft_strlen(map.map[c1]) > (unsigned int)map.width)
-			map.width = ft_strlen(map.map[c1]);
+		if (ft_strlen(map[c1]) > width)
+			width = ft_strlen(map[c1]);
 		c1++;
 	}
+	return (width);
 }
 
 /**
@@ -153,8 +157,9 @@ void ft_get_map(t_game *game)
 		countmap++;
 	}
 	count = 0;
-	ft_get_map_width(game->map);
+	game->map.width = ft_get_map_width(game->map.map);
 	game->map.height = ft_strlen_map(game->map.map) + 1;
 	ft_create_empty_map(game->map);
 	ft_refile_map(game->map, map);
+	game->player.pos = ft_get_player_pos(game->map.map);
 }

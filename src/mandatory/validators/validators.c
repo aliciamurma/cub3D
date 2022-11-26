@@ -1,18 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   validators.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 16:04:11 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:04:50 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/26 20:07:17 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/26 20:08:58 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdio.h>
 #include "libft.h"
 #include "exit.h"
 
@@ -38,10 +35,7 @@ static void	ft_check_extension(char *map)
 
 	len = ft_strlen(map);
 	if (!ft_strnstr(&map[len - 4], ".cub", 4))
-	{
-		printf("Error\nExtension incorrecta\n");
 		ft_exit_cub3d(0);
-	}
 }
 
 /**

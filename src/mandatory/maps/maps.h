@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:16:35 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:47:37 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MAPS_H
 
 # include "game.h"
-# include "textures.h"
 
 // typedef enum s_map_info {
 // 	NO='NO',
@@ -33,10 +32,7 @@ typedef struct s_map
 	int		height;
 }	t_map;
 
-// CHECK
-void	ft_check_parameters(int argc, char *map);
-
-
-
+void	ft_check_map(t_map map);
+void	ft_get_map(t_game *game);
 
 #endif

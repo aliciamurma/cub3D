@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 19:00:48 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:27:58 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,10 @@ int	ft_get_colour_id(char **nbrs)
 /**
  * @brief Check if the given number for the colours is correct
  * 
+ * 
  * @param game 
  */
+// TODO CHECK SI ES NECESARIO
 void	ft_check_nbrs(char *str)
 {
 	char	**nbrs;
@@ -179,7 +181,7 @@ void	ft_set_floor_colour(t_texture texture, char *str)
 	ft_free_matrix(floor);
 }
 
-void	ft_get_textures_colours(t_map map, t_texture texture)
+void	ft_get_textures(t_map map, t_texture texture)
 {
 	int count;
 

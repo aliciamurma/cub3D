@@ -1,15 +1,16 @@
-#include <mlx.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+// #include <mlx.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <math.h>
 
 #include "game.h"
-#include "maps.h"
-#include "exit.h"
-#include "raycast.h"
-#include "window.h"
-#include "inputs.h"
-#include "player.h"
+#include "validators.h"
+// #include "exit.h"
+// #include "raycast.h"
+// #include "window.h"
+// #include "inputs.h"
+// #include "player.h"
+#include "helpers.h"
 
 // typedef struct s_image
 // {
@@ -34,8 +35,8 @@
  *  FOV = 2 * atan(0.66/1.0)=66.8 es adecuado para tiradores en primera persona
  * @return int
  */
-int main(int argc, char **argv)
 // int main(void)
+int main(int argc, char **argv)
 {
     t_game  game;
 

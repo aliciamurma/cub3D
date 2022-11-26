@@ -15,12 +15,14 @@ RM 				:= rm -f
 MAIN			= main.c
 
 SRCS 			= game.c \
-				get_next_line.c ft_malloc.c helpers_1.c helpers_2.c helpers_3.c \
-				check.c read.c info_cub.c info_map.c check_map.c \
+				validators.c \
+				cub.c info_cub.c get_next_line.c ft_malloc.c helpers_1.c helpers_2.c helpers_3.c \
+				info_map.c check_map.c \
 				raycast.c \
 				textures.c \
 				inputs.c \
 				player.c \
+				validators.c \
 				exit.c code_exit.c \
 
 # LIBS
@@ -48,6 +50,8 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/player \
 					src/mandatory/textures \
 					src/mandatory/helpers \
+					src/mandatory/validators \
+					src/mandatory/cub \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
@@ -67,7 +71,10 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps src/mandatory/raycast src/mandatory/player src/mandatory/textures
+vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit \
+	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps \
+	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
+	src/mandatory/validators src/mandatory/cub
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:

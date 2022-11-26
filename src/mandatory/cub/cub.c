@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   cub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:34:31 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/26 20:13:32 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/26 20:27:08 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "libft.h"
 #include "game.h"
-#include "maps.h"
-#include "exit.h"
 #include "helpers.h"
+#include "exit.h"
 
 /**
  * @brief Read the map and put it in a unidimentional array
@@ -26,7 +23,7 @@
  * @param game 
  * @param fd
  */
-static char	*ft_read_cub(t_map *map, int fd, char *cub_raw)
+static char	*ft_read_cub(int height, int fd, char *cub_raw)
 {
 	char	*line;
 
@@ -36,7 +33,7 @@ static char	*ft_read_cub(t_map *map, int fd, char *cub_raw)
 	cub_raw = NULL;
 	cub_raw = malloc(sizeof(char) * 1);
 	cub_raw[0] = '\0';
-	map->height = ft_strlen(line) - 1;
+	height = ft_strlen(line) - 1;
 	while (line)
 	{
 		cub_raw = ft_strjoin(cub_raw, line);
@@ -63,7 +60,7 @@ static char	**ft_matrix_map(char *cub_raw)
  * @param game 
  * @param argv 
  */
-static void	ft_open_cub(t_map *map, char *cub)
+static char **ft_open_cub(int height, char *cub)
 {
 	int		fd;
 	char	*cub_raw;
@@ -71,13 +68,10 @@ static void	ft_open_cub(t_map *map, char *cub)
 	cub_raw = NULL;
 	fd = open(cub, O_RDONLY);
 	if (fd == -1)
-	{
-		printf("Error\nNo se puede abrir\n");
 		ft_exit_cub3d(1);
-	}
-	cub_raw = ft_read_cub(map, fd, cub_raw);
-	map->cub = ft_matrix_map(cub_raw);
+	cub_raw = ft_read_cub(height, fd, cub_raw);
 	close(fd);
+	return (ft_matrix_map(cub_raw));
 }
 
 /**
@@ -88,7 +82,7 @@ static void	ft_open_cub(t_map *map, char *cub)
  */
 void	ft_set_cub_info(t_game *game, char *cub)
 {
-	ft_open_cub(&game->map, cub);
-	ft_get_textures_colours(game->map, game->texture);
+	game->map.cub = ft_open_cub(game->map.height, cub);
+	ft_get_textures(game->map, game->texture);
 	ft_get_map(game);
 }
