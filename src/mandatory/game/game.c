@@ -1,8 +1,6 @@
 #include "game.h"
 #include "player.h"
-#include "raycast.h"
-
-#include <stdio.h>
+#include "render.h"
 
 int ft_game_loop(t_game *game)
 {

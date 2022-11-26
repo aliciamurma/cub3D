@@ -1,10 +1,9 @@
 
+#include <math.h>
+#include "mlx.h"
 #include "game.h"
 #include "raycast.h"
 #include "window.h"
-#include <math.h>
-#include <mlx.h>
-#include <stdio.h>
 
 /**
  * @brief Recogemos la dirección del rayo
@@ -85,7 +84,8 @@ static void	ft_set_distance(t_game *game, t_raycast *raycast)
 		}
 		// NUESTRO JUGADOR SE HA CHOCADO CONTRA UNA PARED?
 		// SI LA RESPUESTA ES SÍ, NO PUEDE MOVERSE, NO PUEDE ENTRAR EN EL BUCLE
-		if (game->map.map[raycast->map.x][raycast->map.y] == '1')
+		// TODO comprobar con que impacta y retornar el tipo
+        if (game->map.map[raycast->map.x][raycast->map.y] == '1')
 			hit = 1;
 	}
 }
@@ -115,18 +115,18 @@ static int	ft_get_end_draw(int line_h)
 	return (end_draw);
 }
 
-static int	ft_get_color(char object, int side_2)
-{
-	int	colour;
+// static int	ft_get_color(char object, int side_2)
+// {
+// 	int	colour;
 
-	if (object == '1')
-		colour = 0xFF0000;
-	// EL SIDE = 1 ES HACIA QUE LADO HA ENCONTRADO EL MURO
-	// ES DECIR, NOS VAMOS A ENCONTRAR EL MURO EN DIRECCION X O EN DIRECCION Y?
-	if (side_2 == 1)
-		colour = 0xAA0000;
-	return (colour);
-}
+// 	if (object == '1')
+// 		colour = 0xFF0000;
+// 	// EL SIDE = 1 ES HACIA QUE LADO HA ENCONTRADO EL MURO
+// 	// ES DECIR, NOS VAMOS A ENCONTRAR EL MURO EN DIRECCION X O EN DIRECCION Y?
+// 	if (side_2 == 1)
+// 		colour = 0xAA0000;
+// 	return (colour);
+// }
 
 t_raycast	ft_get_ray(t_game *game, int x)
 {
@@ -153,128 +153,8 @@ t_raycast	ft_get_ray(t_game *game, int x)
 	raycast.line_h = (int)(WIDTH / raycast.perp_wall_dist);
 	raycast.start_draw = ft_get_start_draw(raycast.line_h);
 	raycast.end_draw = ft_get_end_draw(raycast.line_h);
-	raycast.colour = ft_get_color(game->map.map[raycast.map.x][raycast.map.y],
-									raycast.side_2);
+    // ? es necesario?
+	// raycast.colour = ft_get_color(game->map.map[raycast.map.x][raycast.map.y],
+	// 								raycast.side_2);
 	return (raycast);
-}
-
-void	ft_print_ray(t_window win, int x, int start_draw, int end_draw,
-		int colour, t_game *game, t_raycast raycast, void *img_r)
-{
-	int		y;
-	int		pixel;
-	t_image	img2;
-	double	wallX;
-	int		textX;
-	double	step;
-	double	textPos;
-	int		textY;
-
-	img2.pixels = mlx_get_data_addr(img_r, &img2.bits_per_pixel,
-			&img2.line_size, &img2.endian);
-	(void)win;
-	(void)colour;
-	(void)raycast;
-	y = 0;
-	if (raycast.side_2 == 0)
-		wallX = game->player.pos.y + raycast.perp_wall_dist * raycast.ray.y;
-	else
-		wallX = game->player.pos.x + raycast.perp_wall_dist * raycast.ray.x;
-	wallX -= floor((wallX));
-	textX = (int)(wallX * (double)64);
-	if (raycast.side_2 == 0 && raycast.ray.x > 0)
-		textX = 64 - textX - 1;
-	if (raycast.side_2 == 1 && raycast.ray.y < 0)
-		textX = 64 - textX - 1;
-	while (y < start_draw)
-	{
-		pixel = (y * game->img.line_size) + (x * 4);
-		game->img.pixels[pixel + 0] = (unsigned int)(0x0000FF) & 0xFF;
-		game->img.pixels[pixel + 1] = (unsigned int)(0x0000FF >> 8) & 0xFF;
-		game->img.pixels[pixel + 2] = (unsigned int)(0x0000FF >> 16) & 0xFF;
-		game->img.pixels[pixel + 3] = (unsigned int)(0x0000FF >> 24);
-		// mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x0000FF);
-		y++;
-	}
-	// y = start_draw;
-	//int line_height = (int)(HEIGHT / raycast.perp_wall_dist);
-	step = 1.0 * 64 / raycast.line_h;
-	textPos = (start_draw - WIDTH / 2 + raycast.line_h / 2) * step;
-	while (y < end_draw)
-	{
-		if (y >= HEIGHT)
-			return ;
-		// colour = (WIDTH * HEIGHT + 64);
-		textY = (int)textPos & (64 - 1);
-		textPos += step;
-		colour = *(int *)(img2.pixels + ((64 * textY + textX)
-					* (img2.bits_per_pixel / 8)));
-		pixel = (y * game->img.line_size) + (x * 4);
-		game->img.pixels[pixel + 0] = (int)(colour);
-		game->img.pixels[pixel + 1] = (int)(colour >> 8);
-		game->img.pixels[pixel + 2] = (int)(colour >> 16);
-		game->img.pixels[pixel + 3] = (int)(colour >> 24);
-		// game->img.pixels[pixel + 0] = (unsigned int)(colour);
-		// game->img.pixels[pixel + 1] = (unsigned int)(colour >> 8);
-		// game->img.pixels[pixel + 2] = (unsigned int)(colour >> 16);
-		// game->img.pixels[pixel + 3] = (unsigned int)(colour >> 24);
-		// mlx_pixel_put(img2.mlx_ptr, win.win_ptr, x, y, colour);
-		y++;
-	}
-	while (y < HEIGHT)
-	{
-		pixel = (y * game->img.line_size) + (x * 4);
-		game->img.pixels[pixel + 0] = (unsigned int)(0x00FF00) & 0xFF;
-		game->img.pixels[pixel + 1] = (unsigned int)(0x00FF00 >> 8) & 0xFF;
-		game->img.pixels[pixel + 2] = (unsigned int)(0x00FF00 >> 16) & 0xFF;
-		game->img.pixels[pixel + 3] = (unsigned int)(0x00FF00 >> 24);
-		// mlx_pixel_put(win.mlx_ptr, win.win_ptr, x, y, 0x00FF00);
-		y++;
-	}
-	// free(img_r);
-}
-
-// void	ft_create_image(void)
-// {
-// 	t_image	img;
-
-// 	img.pointer = mlx_new_image(mlx, HEIGHT, WIDTH);
-// 	img.pixels = mlx_get_data_addr(img.pointer, &img.bits_per_pixel,
-// 			&img.line_size, &img.endian);
-//     return ();
-// }
-
-int	ft_render_map(t_game *game)
-{
-	int			x;
-	t_raycast	raycast;
-	static int	a;
-	int			d;
-
-	d = 0;
-	a = 0;
-	if (a != 0)
-		mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
-	mlx_clear_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
-	game->img.pointer = mlx_new_image(game->mlx.mlx_ptr, WIDTH, HEIGHT);
-	game->img.pixels = mlx_get_data_addr(game->img.pointer,
-											&game->img.bits_per_pixel,
-											&game->img.line_size,
-											&game->img.endian);
-	x = 1;
-	void *img_r = mlx_xpm_file_to_image(game->mlx.mlx_ptr,
-										"./src/assets/textures/north.xpm",
-										&d,
-										&d);
-	while (x < WIDTH)
-	{
-		raycast = ft_get_ray(game, x);
-		ft_print_ray(game->mlx, x, raycast.start_draw, raycast.end_draw,
-				raycast.colour, game, raycast, img_r);
-		x++;
-	}
-	mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr,
-			game->img.pointer, 0, 0);
-	a = 1;
-	return (0);
 }
