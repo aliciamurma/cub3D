@@ -6,18 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:39 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:44:58 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:14:06 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "maps.h"
 # include "player.h"
+# include "maps.h"
 # include "window.h"
 # include "textures.h"
-# include "helpers.h"
 
 typedef struct s_image
 {

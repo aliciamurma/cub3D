@@ -6,12 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:31:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:39:17 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:00:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "helpers.h"
+#include "libft.h"
 
 // return 0 if EOF has been reached
 // return -1 if an error happens

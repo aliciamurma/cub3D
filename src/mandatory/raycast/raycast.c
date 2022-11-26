@@ -6,13 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:29:05 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:56:54 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "raycast.h"
 #include "window.h"
+#include "maps.h"
 #include <math.h>
 #include <mlx.h>
 #include <stdlib.h>

@@ -6,12 +6,15 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:39:35 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:08:00 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "libft.h"
 #include "game.h"
 #include "maps.h"
 #include "exit.h"
@@ -23,13 +26,13 @@
  * @param game 
  * @param fd
  */
-static char	*ft_read_cub(t_map map, int fd, char *cub_raw)
+static char	*ft_read_cub(t_map *map, int fd, char *cub_raw)
 {
 	char	*line;
 
 	line = get_next_line(fd);
 	if (!line)
-		return ;
+		return (NULL);
 	cub_raw = NULL;
 	cub_raw = malloc(sizeof(char) * 1);
 	cub_raw[0] = '\0';
@@ -60,11 +63,12 @@ static char	**ft_matrix_map(char *cub_raw)
  * @param game 
  * @param argv 
  */
-static void	ft_open_cub(t_map map, char *cub)
+static void	ft_open_cub(t_map *map, char *cub)
 {
 	int		fd;
 	char	*cub_raw;
 
+	cub_raw = NULL;
 	fd = open(cub, O_RDONLY);
 	if (fd == -1)
 	{

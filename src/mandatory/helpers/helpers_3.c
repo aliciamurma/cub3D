@@ -6,10 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:34:49 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 21:36:42 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:01:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 static size_t	ft_len_word(char *str, int start)

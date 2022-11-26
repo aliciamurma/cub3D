@@ -6,11 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:12:26 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:17:24 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:00:48 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <time.h>
+#include <stdlib.h>
 #include "cub3d.h"
 
 static size_t	ft_len_word(char *str, int start)

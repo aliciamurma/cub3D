@@ -6,10 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:12:24 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:18:02 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:01:08 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "cub3d.h"
 
 // int	ft_isdigit(int c)

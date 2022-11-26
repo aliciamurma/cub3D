@@ -1,13 +1,13 @@
 #include <mlx.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <math.h>
+
+#include "game.h"
+#include "maps.h"
 #include "exit.h"
-// #include "cub3d.h"
 #include "raycast.h"
 #include "window.h"
-#include "game.h"
 #include "inputs.h"
 #include "player.h"
 
@@ -35,8 +35,9 @@
  * @return int
  */
 int main(int argc, char **argv)
+// int main(void)
 {
-    t_game game;
+    t_game  game;
 
     ft_check_parameters(argc, argv[1]);
 	ft_set_cub_info(&game, argv[1]);
