@@ -6,14 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/14 20:52:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:05:32 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exit.h"
 #include <stdio.h>
 
-char	*get_error(int code)
+char	*ft_get_error(int code)
 {
 	char	*errors[4];
 
@@ -24,8 +24,8 @@ char	*get_error(int code)
 	return (errors[code]);
 }
 
-void	print_error(int code)
+void	ft_print_error(int code)
 {
 	printf("Error\n");
-	printf("%s", get_error(code));
+	printf("%s", ft_get_error(code));
 }

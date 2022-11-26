@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/21 21:05:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:05:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int handle_keydown(int key, t_game *game)
     if (key == ROT_RIGHT)
         game->player.rotation.right = true;
     if (key == ESC)
-        exit_cub3d(3);
+        ft_exit_cub3d(3);
     return 0;
 }
 
@@ -56,6 +56,6 @@ int handle_keyup(int key, t_game *game)
 int handle_close(t_game *game)
 {
     (void)game;
-    exit_cub3d(3);
+    ft_exit_cub3d(3);
     return 0;
 }

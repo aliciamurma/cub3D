@@ -6,12 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:04:11 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/25 20:37:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:04:50 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include "libft.h"
 #include "exit.h"
 
 /**
