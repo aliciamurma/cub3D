@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:33:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:05:32 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:06:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*ft_get_error(int code)
 {
 	char	*errors[4];
 
-	errors[0] = "Number of arguments incorrect\n";
-	errors[1] = "Not enough memory\n";
-	errors[2] = "Map invalid\n";
-	errors[3] = "";
+	errors[0] = "ERROR 0\n";
+	errors[1] = "ERROR 1\n";
+	errors[2] = "ERROR 2\n";
+	errors[3] = "ERROR 3\n";
 	return (errors[code]);
 }
 

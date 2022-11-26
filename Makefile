@@ -14,7 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= check.c \
+SRCS 			= check.c read.c info_cub.c info_map.c check_map.c \
 				raycast.c \
 				game.c \
 				inputs.c \

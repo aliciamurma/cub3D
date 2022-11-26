@@ -36,10 +36,10 @@
  */
 int main(int argc, char **argv)
 {
-    // t_game game;
+    t_game game;
 
     ft_check_parameters(argc, argv[1]);
-	// ft_set_cub_info(&game, argv[1]);
+	ft_set_cub_info(&game, argv[1]);
 	// ft_check_map(&game.map);
     // game.map.map = malloc(sizeof(char *) * 25);
 
