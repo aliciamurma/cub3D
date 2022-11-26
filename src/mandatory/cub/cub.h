@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:13:16 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:21:37 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:03:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 #include "textures.h"
 
 void	ft_set_cub_info(t_game *game, char *cub);
-void	ft_get_textures(t_map map, t_texture texture);
+void	ft_get_textures(t_map *map, t_texture *texture);
 
 #endif

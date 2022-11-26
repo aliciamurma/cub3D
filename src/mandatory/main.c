@@ -1,10 +1,11 @@
 // #include <mlx.h>
-// #include <stdio.h>
+#include <stdio.h>
 // #include <stdlib.h>
 // #include <math.h>
 
 #include "game.h"
 #include "validators.h"
+#include "cub.h"
 // #include "exit.h"
 // #include "raycast.h"
 // #include "window.h"
@@ -42,7 +43,7 @@ int main(int argc, char **argv)
 
     ft_check_parameters(argc, argv[1]);
 	ft_set_cub_info(&game, argv[1]);
-	// ft_check_map(&game.map);
+	ft_check_map(&game.map);
     // game.map.map = malloc(sizeof(char *) * 25);
 
     // game.map.map[0] = "111111111111111111111111";

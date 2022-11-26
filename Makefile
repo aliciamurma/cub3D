@@ -22,7 +22,6 @@ SRCS 			= game.c \
 				textures.c \
 				inputs.c \
 				player.c \
-				validators.c \
 				exit.c code_exit.c \
 
 # LIBS

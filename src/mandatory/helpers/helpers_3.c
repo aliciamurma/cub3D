@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:34:49 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:01:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:53:05 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static char	**ft_refile(char **array, char *str)
 	while (str[cont] != '\0')
 	{
 		array[cont_w] = ft_bidimensional(str, cont);
+		// printf("ARRAY IN POS %d IS %s\n", array[1]);
 		cont_w++;
 		while (str[cont] && str[cont] != ' ' && str[cont] != '\t')
 			cont++;
@@ -92,5 +93,6 @@ char	**ft_words_split(char *str)
 		return (NULL);
 	array[words] = NULL;
 	array = ft_refile(array, str);
+	// printf("ARRAY IN SEC POS IS %s\n", array[1]);
 	return (array);
 }

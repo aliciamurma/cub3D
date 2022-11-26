@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:03:32 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:15:54 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 # include <stdlib.h>
 # include "game.h"
-
-void	ft_set_cub_info(t_game *game, char *cub);
 
 void	*ft_malloc(size_t size, unsigned int q);
 char	*get_next_line(int fd);

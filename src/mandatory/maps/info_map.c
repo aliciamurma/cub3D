@@ -6,14 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:38:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 22:17:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
 #include "game.h"
 #include "maps.h"
+#include "helpers.h"
 
 bool ft_check_dir(char pos)
 {
@@ -87,21 +90,21 @@ unsigned int ft_get_map_width(char **map)
  * @param game
  * @param map
  */
-void ft_create_empty_map(t_map map)
+void ft_create_empty_map(t_map *map)
 {
 	int c1;
 	int c2;
 
 	c1 = 0;
 	c2 = 0;
-	map.map = (char **)malloc(sizeof(char *) * (map.height + 1));
-	while (c1 < map.height)
+	map->map = (char **)malloc(sizeof(char *) * (map->height + 1));
+	while (c1 < map->height)
 	{
-		map.map[c1] = (char *)malloc(sizeof(char) * map.width + 1);
+		map->map[c1] = (char *)malloc(sizeof(char) * map->width + 1);
 		c2 = 0;
-		while (c2 < map.width)
+		while (c2 < map->width)
 		{
-			map.map[c1][c2] = ' ';
+			map->map[c1][c2] = ' ';
 			c2++;
 		}
 		c1++;
@@ -114,7 +117,7 @@ void ft_create_empty_map(t_map map)
  * @param map
  * @param e_map
  */
-void ft_refile_map(t_map map, char **e_map)
+void ft_refile_map(char **map, char **e_map)
 {
 	int c1;
 	int c2;
@@ -126,7 +129,7 @@ void ft_refile_map(t_map map, char **e_map)
 		c2 = 0;
 		while (e_map[c1][c2])
 		{
-			map.map[c1][c2] = e_map[c1][c2];
+			map[c1][c2] = e_map[c1][c2];
 			c2++;
 		}
 		c1++;
@@ -138,28 +141,28 @@ void ft_refile_map(t_map map, char **e_map)
  *
  * @param game
  */
-void ft_get_map(t_game *game)
+void ft_get_map(t_map *map, t_player *player)
 {
 	int count;
 	int countmap;
-	char **map;
+	char **bid_map;
 
 	count = 6;
 	countmap = 0;
-	map = (char **)malloc(sizeof(char *) * ft_strlen_map(game->map.cub) + 1);
-	map[ft_strlen_map(game->map.cub)] = NULL;
-	while (game->map.cub[count])
+	bid_map = (char **)malloc(sizeof(char *) * ft_strlen_map(map->cub) + 1);
+	bid_map[ft_strlen_map(map->cub)] = NULL;
+	while (map->cub[count])
 	{
-		map[countmap] = malloc(sizeof(char) * ft_strlen(game->map.cub[count]));
-		map[countmap][ft_strlen(game->map.cub[count])] = '\0';
-		map[countmap] = game->map.cub[count];
+		bid_map[countmap] = malloc(sizeof(char) * ft_strlen(map->cub[count]));
+		bid_map[countmap][ft_strlen(map->cub[count])] = '\0';
+		bid_map[countmap] = map->cub[count];
 		count++;
 		countmap++;
 	}
 	count = 0;
-	game->map.width = ft_get_map_width(game->map.map);
-	game->map.height = ft_strlen_map(game->map.map) + 1;
-	ft_create_empty_map(game->map);
-	ft_refile_map(game->map, map);
-	game->player.pos = ft_get_player_pos(game->map.map);
+	map->width = ft_get_map_width(bid_map);
+	map->height = ft_strlen_map(bid_map) + 1;
+	ft_create_empty_map(map);
+	ft_refile_map(map->map, bid_map);
+	player->pos = ft_get_player_pos(map->map);
 }

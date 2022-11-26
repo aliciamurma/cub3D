@@ -6,13 +6,15 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:13:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:27:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:28:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/stat.h>
+#include <stdio.h>
 #include <fcntl.h>
 #include "libft.h"
+#include "cub.h"
 #include "game.h"
 #include "helpers.h"
 #include "exit.h"
@@ -83,6 +85,6 @@ static char **ft_open_cub(int height, char *cub)
 void	ft_set_cub_info(t_game *game, char *cub)
 {
 	game->map.cub = ft_open_cub(game->map.height, cub);
-	ft_get_textures(game->map, game->texture);
-	ft_get_map(game);
+	ft_get_textures(&game->map, &game->texture);
+	ft_get_map(&game->map, &game->player);
 }
