@@ -6,13 +6,12 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:39 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 16:59:41 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:24:06 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
-
 
 # include "maps.h"
 # include "player.h"
@@ -29,8 +28,6 @@ typedef struct s_image
 	int		endian;
 }			t_image;
 
-
-
 typedef struct s_game
 {
     t_player    player;
@@ -40,6 +37,6 @@ typedef struct s_game
 	t_texture	texture;
 }	t_game;
 
-int ft_game_loop(t_game *game);
+int		ft_game_loop(t_game *game);
 
 #endif

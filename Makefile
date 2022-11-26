@@ -16,6 +16,7 @@ MAIN			= main.c
 
 SRCS 			= check.c read.c info_cub.c info_map.c check_map.c \
 				raycast.c \
+				textures.c \
 				game.c \
 				inputs.c \
 				player.c \
@@ -65,7 +66,7 @@ NAME 			:= cub3D
 BIN = $(BIN_DIR)/$(NAME)
 
 vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/cub_info src/mandatory/helpers \
-			src/mandatory/inputs src/mandatory/maps src/mandatory/raycast src/mandatory/player
+			src/mandatory/inputs src/mandatory/maps src/mandatory/raycast src/mandatory/player src/mandatory/textures
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycast.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 17:29:10 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/26 17:29:31 by amurcia-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RAYCAST_H
 # define RAYCAST_H
 
-# include "vector.h"
 # include "game.h"
+# include "vector.h"
 
 typedef struct s_raycast
 {
