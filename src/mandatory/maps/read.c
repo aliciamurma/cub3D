@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:25:32 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:31:44 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:39:35 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "game.h"
 #include "maps.h"
 #include "exit.h"
+#include "helpers.h"
 
 /**
  * @brief Read the map and put it in a unidimentional array

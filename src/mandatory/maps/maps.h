@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:35:43 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:30:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:44:02 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ typedef struct s_map
 // CHECK
 void	ft_check_parameters(int argc, char *map);
 
-// HELPERS
-char	**ft_colour_split(char *str);
-char	**ft_words_split(char *str);
-void	ft_free_matrix(char **str);
 
 // READ
 void	ft_set_cub_info(t_game *game, char *cub);

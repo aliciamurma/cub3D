@@ -6,16 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:31:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/12 17:36:13 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:39:17 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <time.h>
+#include "helpers.h"
 
 // return 0 if EOF has been reached
 // return -1 if an error happens
 // return 1 if you read one line
-char	*ft_cutword(char *prt)
+static char	*ft_cutword(char *prt)
 {
 	int		i;
 	int		j;
@@ -42,7 +43,7 @@ char	*ft_cutword(char *prt)
 	return (dest);
 }
 
-char	*ft_read(int fd, char *ptr)
+static char	*ft_read(int fd, char *ptr)
 {
 	int		bytes;
 	char	*temp;
