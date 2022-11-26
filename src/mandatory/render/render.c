@@ -90,8 +90,8 @@ int ft_render_map(t_game *game)
     while (x < WIDTH)
     {
         raycast = ft_get_ray(game, x);
-        ft_render_floor(&game->img, x, raycast.start_draw, 0x0000FF);
-        ft_render_ceil(&game->img, x, raycast.end_draw, 0x00FF00);
+        ft_render_floor(&game->img, x, raycast.start_draw, 0x87CEEB);
+        ft_render_ceil(&game->img, x, raycast.end_draw, 0x7EC850);
         ft_render_walls(raycast, game->player, x, &game->img, img2);
         x++;
     }
