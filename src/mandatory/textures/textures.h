@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 16:34:17 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:00:02 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ typedef struct s_texture
 	void	*south;
 	void	*east;
 	void	*west;
-	int	    floor;
-	int 	ceil;
+	int		floor;
+	int		ceil;
 }			t_texture;
 
 #endif
