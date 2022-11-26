@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 22:13:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/26 22:24:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	ft_check_textures(char *str)
 
 	fd = open(str, R_OK);
 	if (fd == -1)
-	{ printf("no puedo leer: %s\n", str);
-		   ft_exit_cub3d(1);
+	{
+		printf("no puedo leer: %s\n", str);
+		ft_exit_cub3d(1);
 	}
 	close(fd);
 }
@@ -176,15 +177,6 @@ void	ft_set_ceil_colour(t_texture *texture, char *str)
 	ft_free_matrix(ceil);
 }
 
-// int    ft_find_number()
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	while (str[count] && str[count + 1])
-// )
-// }
-
 void	ft_set_floor_colour(t_texture *texture, char *str)
 {
 	int		count;
@@ -211,7 +203,6 @@ void	ft_set_floor_colour(t_texture *texture, char *str)
 		texture->floor = ft_get_colour_id(floor);
 	// LOAD
 	}
-	// printf("floor is %s\n", floor[1]);
 	ft_free_matrix(floor);
 }
 
@@ -222,13 +213,11 @@ void	ft_get_textures(t_map *map, t_texture *texture)
 	count = 0;
 	while (count < 6)
 	{
-		printf("count is %d\n", count);
 		ft_set_north_texture(texture, map->cub[count]);
 		ft_set_south_texture(texture, map->cub[count]);
 		ft_set_west_texture(texture, map->cub[count]);
 		ft_set_east_texture(texture, map->cub[count]);
 		// ft_set_floor_colour(texture, map->cub[count]);
-		// printf("2\n");
 		// ft_set_ceil_colour(texture, map->cub[count]);
 		count++;
 	}
