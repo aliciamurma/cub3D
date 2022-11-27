@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   images.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 13:20:13 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/27 17:27:10 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/27 18:19:39 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
-# define BUFFER_SIZE 1000
+#ifndef IMAGES_H
+# define IMAGES_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-// # include "game.h"
+typedef struct s_image
+{
+	void	*pointer;
+	char	*pixels;
+	int		bits_per_pixel;
+	int		line_size;
+	int		endian;
+	int		width;
+	int		height;
+}			t_image;
 
-char	*get_next_line(int fd);
-char	**ft_colour_split(char *str);
-void	ft_free_matrix(char **str);
-int		ft_strlen_map(char **str);
-char	**ft_words_split(char *str);
+t_image	ft_create_img(void *mlx, char *path);
 
 #endif

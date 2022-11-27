@@ -16,13 +16,15 @@ MAIN			= main.c
 
 SRCS 			= game.c \
 				validators.c \
-				cub.c info_cub.c get_next_line.c ft_malloc.c helpers_1.c helpers_2.c helpers_3.c \
-				info_map.c check_map.c \
+				get_next_line.c strings.c memory.c helpers_1.c helpers_2.c helpers_3.c \
+				cub.c cub_read.c cub_textures.c \
 				raycast.c \
 				textures.c \
 				inputs.c \
 				player.c \
-				exit.c code_exit.c \
+				exit.c \
+				images.c \
+				errors.c
 
 # LIBS
 LIBS_PATH		:= libs
@@ -38,11 +40,10 @@ BIN_DIR			:= bin
 
 #INCLUDES
 INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
-					src/mandatory/inc \
 					src/mandatory/game \
 					src/mandatory/exit \
 					src/mandatory/inputs \
-					src/mandatory/maps \
+					src/mandatory/map \
 					src/mandatory/window \
 					src/mandatory/types \
 					src/mandatory/raycast \
@@ -51,6 +52,8 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/helpers \
 					src/mandatory/validators \
 					src/mandatory/cub \
+					src/mandatory/images \
+					src/mandatory/errors \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
@@ -71,9 +74,9 @@ NAME 			:= cub3D
 BIN = $(BIN_DIR)/$(NAME)
 
 vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit \
-	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps \
+	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/map \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
-	src/mandatory/validators src/mandatory/cub
+	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:
@@ -97,7 +100,7 @@ $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 run: all
-	@./$(BIN)
+	@./$(BIN) ./src/assets/maps/map.cub
 
 leaks: $(BIN)
 	leaks -atExit -- ./$(BIN)

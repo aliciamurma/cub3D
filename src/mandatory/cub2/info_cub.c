@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   info_cub.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 22:24:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:49:04 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include "libft.h"
 #include "game.h"
-#include "maps.h"
+#include "cub.h"
 #include "textures.h"
 #include "helpers.h"
 #include "exit.h"
@@ -42,6 +42,7 @@ void	ft_get_texture_path(char *texture, char *path)
 {
 	texture = malloc(sizeof(char) * ft_strlen(path));
 	texture = path;
+    (void)texture;
 }
 
 void	ft_set_north_texture(t_texture *texture, char *str)
@@ -105,9 +106,6 @@ void	ft_set_west_texture(t_texture *texture, char *str)
 		ft_exit_cub3d(1);
 	if (ft_strncmp(west[0], "WE", 2) == 0)
 	{
-		printf("str is %s\n", str);
-		printf("fst pos is %s\n", west[0]);
-		printf("sec pos is %s\n", west[1]);
 		texture->west = ft_strdup(west[1]);
 		ft_check_textures(west[1]);
 		// LOAD
@@ -181,9 +179,10 @@ void	ft_set_floor_colour(t_texture *texture, char *str)
 {
 	int		count;
 	char	**floor;
-	// char	*aux;
+	char	*aux;
 
 	count = 0;
+    (void)count;
 	floor = ft_split(str, ' ');
 	if (!floor)
 		ft_exit_cub3d(1);
@@ -191,22 +190,24 @@ void	ft_set_floor_colour(t_texture *texture, char *str)
 	{
 		ft_free_matrix(floor);
 		floor = ft_split(str, ',');
-		// while (floor[count])
-		// {
-		// 	aux = ft_strtrim(floor[count], " ");
-		// 	free(floor[count]);
-		// 	floor[count] = aux;
-		// 	count++;
-		// }
+		while (floor[count])
+		{
+			aux = ft_strtrim(floor[count], " ");
+			free(floor[count]);
+			floor[count] = aux;
+            printf("c: %s\n", aux);
+			count++;
+		}
 		ft_check_format_colour(floor[1]);
 		ft_check_nbrs(floor[1]);
-		texture->floor = ft_get_colour_id(floor);
+		// texture->floor = ft_get_colour_id(floor);
+        (void)texture;
 	// LOAD
 	}
 	ft_free_matrix(floor);
 }
 
-void	ft_get_textures(t_map *map, t_texture *texture)
+void	ft_get_textures(t_cub *map, t_texture *texture)
 {
 	int count;
 
@@ -217,7 +218,7 @@ void	ft_get_textures(t_map *map, t_texture *texture)
 		ft_set_south_texture(texture, map->cub[count]);
 		ft_set_west_texture(texture, map->cub[count]);
 		ft_set_east_texture(texture, map->cub[count]);
-		// ft_set_floor_colour(texture, map->cub[count]);
+		ft_set_floor_colour(texture, map->cub[count]);
 		// ft_set_ceil_colour(texture, map->cub[count]);
 		count++;
 	}

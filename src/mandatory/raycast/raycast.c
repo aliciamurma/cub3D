@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:56:54 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:49:04 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "raycast.h"
 #include "window.h"
-#include "maps.h"
+#include "cub.h"
 #include <math.h>
 #include <mlx.h>
 #include <stdlib.h>

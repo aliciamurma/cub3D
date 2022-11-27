@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   images.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 13:20:13 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/27 17:42:49 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/27 18:20:24 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
-# define BUFFER_SIZE 1000
+#include "mlx.h"
+#include "window.h"
+#include "images.h"
+#include "exit.h"
+#include "errors.h"
 
-# include <stdlib.h>
-# include <stdbool.h>
-// # include "game.h"
+t_image	ft_create_img(void *mlx, char *path)
+{
+	t_image	img;
 
-char	*get_next_line(int fd);
-char	**ft_colour_split(char *str);
-void	ft_free_matrix(char **str);
-int		ft_strlen_map(char **str);
-char	**ft_words_split(char *str);
-
-#endif
+	img.pointer = mlx_xpm_file_to_image(mlx, path, &img.width, &img.height);
+	if (!img.pointer)
+		ft_exit_cub3d(TEXT_NOTFOUND);
+	img.pixels = mlx_get_data_addr(img.pointer, &img.bits_per_pixel,
+			&img.line_size, &img.endian);
+	return (img);
+}

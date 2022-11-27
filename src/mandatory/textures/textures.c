@@ -3,33 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:28:07 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:46:36 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "textures.h"
-#include "window.h"
+#include "helpers.h"
+#include <stdio.h>
 
-// void    *ft_get_texture(char *path, void *mlx_ptr)
-// {
-//     void *img;
-//     int d;
-    
-//     d = 0;
-//     img = mlx_xpm_file_to_image(mlx_ptr, path, &d, &d);
-//     if (!img) exit(0);
-//     return img;
-//     // ft_upload_image(game, game->texture[0], "./src/assets/textures/north.xpm");
-//     // ft_upload_image(game, game->texture[1], "./src/assets/textures/south.xpm");
-//     // ft_upload_image(game, game->texture[2], "./src/assets/textures/east.xpm");
-//     // ft_upload_image(game, game->texture[3], "./src/assets/textures/west.xpm");
-// }
+unsigned int	create_rgb(t_color color)
+{
+	return (((color.r & 0xff) << 16) + ((color.g & 0xff) << 8) + (color.b & 0xff));
+}
 
+// TODO valorar si seria necesario que el atoi mirase si no enviamos un numero y dar un error
+unsigned int	ft_parse_color(char *input)
+{
+	char	**color_arr;
+	char	*aux;
+	t_color	color;
+	int		i;
 
-// void ft_load_textures(t_textures *texture, char **textures)
-// {
-    
-// }
+	color_arr = ft_split(input, ',');
+	i = 0;
+	while (color_arr[i])
+	{
+		aux = ft_strtrim(color_arr[i], " ");
+		if (i == 0)
+			color.r = ft_atoi(aux);
+		if (i == 1)
+			color.g = ft_atoi(aux);
+		if (i == 2)
+			color.b = ft_atoi(aux);
+		free(aux);
+		i++;
+	}
+	ft_free_matrix(color_arr);
+	return (create_rgb(color));
+}

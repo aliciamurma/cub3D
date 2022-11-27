@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   validators.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:07:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:08:58 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:12:11 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include "libft.h"
 #include "exit.h"
+#include "errors.h"
 
 /**
  * @brief Check that the parameters be 2: executable + map
  * 
  * @param argc 
  */
-static void	ft_check_nbr_arguments(int argc)
+static bool	ft_check_nbr_arguments(int argc)
 {
 	if (argc != 2)
-		ft_exit_cub3d(0);
+		return (false);
+	return (true);
 }
 
 /**
@@ -29,13 +32,14 @@ static void	ft_check_nbr_arguments(int argc)
  * 
  * @param map 
  */
-static void	ft_check_extension(char *map)
+static bool	ft_check_extension(char *map)
 {
 	int	len;
 
 	len = ft_strlen(map);
-	if (!ft_strnstr(&map[len - 4], ".cub", 4))
-		ft_exit_cub3d(0);
+	if (len < 4 || !ft_strnstr(&map[len - 4], ".cub", 4))
+		return (false);
+	return (true);
 }
 
 /**
@@ -45,8 +49,10 @@ static void	ft_check_extension(char *map)
  * @param argv 
  * @return int 
  */
-void	ft_check_parameters(int argc, char *map)
+void	ft_check_parameters(int argc, char **argv)
 {
-	ft_check_nbr_arguments(argc);
-	ft_check_extension(map);
+	if (!ft_check_nbr_arguments(argc))
+		ft_exit_cub3d(INV_ARGS);
+	if (!ft_check_extension(argv[1]))
+		ft_exit_cub3d(INV_CUB_EXT);
 }

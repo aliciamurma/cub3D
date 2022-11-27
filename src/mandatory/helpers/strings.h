@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   strings.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 13:20:13 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/27 13:10:12 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/27 16:49:51 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
-# define BUFFER_SIZE 1000
+#ifndef STRINGS_H
+# define STRINGS_H
 
-# include <stdlib.h>
 # include <stdbool.h>
-// # include "game.h"
 
-char	*get_next_line(int fd);
-char	**ft_colour_split(char *str);
-void	ft_free_matrix(char **str);
-int		ft_strlen_map(char **str);
-char	**ft_words_split(char *str);
+char	**ft_push_str(char **arr, char *str);
+int		ft_strlen_arr(char	**arr);
+bool	ft_strcmp(const char *s1, const char *s2, bool strict);
+bool	ft_str_includes(const char *haystack, const char *needle);
 
 #endif

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 13:20:13 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/26 20:13:16 by amurcia-          #+#    #+#             */
+/*   Updated: 2022/11/27 12:49:04 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
-# define BUFFER_SIZE 1000
+#ifndef CUB_H
+# define CUB_H
 
-# include <stdlib.h>
-# include <stdbool.h>
-// # include "game.h"
+#include "game.h"
+#include "cub.h"
+#include "textures.h"
 
-char	*get_next_line(int fd);
-char	**ft_colour_split(char *str);
-void	ft_free_matrix(char **str);
-int		ft_strlen_map(char **str);
-char	**ft_words_split(char *str);
+void	ft_set_cub_info(t_game *game, char *cub);
+void	ft_get_textures(t_cub *map, t_texture *texture);
 
 #endif

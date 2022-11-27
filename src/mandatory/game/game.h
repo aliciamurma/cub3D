@@ -3,37 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:39 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 20:54:22 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:28:33 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "textures.h"
 # include "player.h"
-# include "maps.h"
+# include "cub.h"
 # include "window.h"
-
-typedef struct s_image
-{
-	void	*pointer;
-	// t_vector  size;
-	char	*pixels;
-	int		bits_per_pixel;
-	int		line_size;
-	int		endian;
-}			t_image;
+# include "textures.h"
 
 typedef struct s_game
 {
-    t_player    player;
-    t_map       map;
-    t_window    mlx;
-    t_image     img;
+	t_player	player;
+	t_cub		map;
+	t_window	mlx;
+	t_image		img;
 	t_texture	texture;
 }	t_game;
 

@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   memory.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 17:39:48 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:52:58 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/27 13:11:38 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/27 13:16:59 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "exit.h"
+#ifndef MEMORY_H
+# define MEMORY_H
 
-void    *ft_malloc(size_t size, unsigned int q)
-{
-    void    *pointer;
+void	*ft_malloc(size_t size);
+void	*ft_realloc(void *ptr, size_t size);
 
-    pointer = malloc(sizeof(size) * q);
-    if (!pointer)
-        ft_exit_cub3d(0);
-	return (pointer);
-}
+#endif

@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   exit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 20:16:51 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 17:02:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 11:20:05 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXIT_H
 # define EXIT_H
 
-void	ft_exit_cub3d(int value);
-void	ft_print_error(int code);
+# include "errors.h"
+
+void	ft_exit_cub3d(t_errors code);
 
 #endif

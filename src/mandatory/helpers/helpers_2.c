@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   helpers_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:12:24 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:01:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 00:28:56 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "cub3d.h"
 
 // int	ft_isdigit(int c)
 // {

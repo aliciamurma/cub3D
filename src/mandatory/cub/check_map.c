@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 22:20:30 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 12:49:04 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 #include "game.h"
-#include "maps.h"
+#include "cub.h"
 #include "exit.h"
 
 /**
@@ -146,7 +146,7 @@ void	ft_check_surrounded_y(char **map)
  * 
  * @param game 
  */
-void	ft_check_map(t_map *map)
+void	ft_check_map(t_cub *map)
 {
 	ft_check_map_letters(map->map);
 	ft_check_one_player(map->map);

@@ -65,6 +65,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		c;
 	char	*str;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen((char *)s1);
 	l_s1 = find_start(s1, set, len);
 	l_s2 = find_end(s1, set, len);
@@ -74,7 +76,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = malloc(sizeof(char) * (c + 1));
 	if (str == NULL)
 		return (NULL);
-	else if (c == 0)
+	if (c == 0)
 	{
 		str[0] = '\0';
 		return (str);
