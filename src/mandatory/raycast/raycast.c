@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:05:44 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:23:14 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-
-# define HEI_TEX 64
-# define WID_TEX 64
 
 /**
  * @brief Recogemos la dirección del rayo
@@ -134,19 +131,6 @@ static int	ft_get_end_draw(int line_h)
 	return (end_draw);
 }
 
-// static int	ft_get_color(char object, int side_2)
-// {
-// 	int	colour;
-
-// 	if (object == '1')
-// 		colour = 0xFF0000;
-// 	// EL SIDE = 1 ES HACIA QUE LADO HA ENCONTRADO EL MURO
-// 	// ES DECIR, NOS VAMOS A ENCONTRAR EL MURO EN DIRECCION X O EN DIRECCION Y?
-// 	if (side_2 == 1)
-// 		colour = 0xAA0000;
-// 	return (colour);
-// }
-
 t_raycast	ft_get_ray(t_game *game, int x)
 {
 	t_raycast	raycast;
@@ -161,19 +145,12 @@ t_raycast	ft_get_ray(t_game *game, int x)
 	ft_set_distance(game, &raycast);
 	if (raycast.side_2 == 0)
 		raycast.perp_wall_dist = ft_calc_perp_wall_dist(game->player.pos.x,
-														raycast.map.x,
-														raycast.step.x,
-														raycast.ray.x);
+				raycast.map.x, raycast.step.x, raycast.ray.x);
 	else
 		raycast.perp_wall_dist = ft_calc_perp_wall_dist(game->player.pos.y,
-														raycast.map.y,
-														raycast.step.y,
-														raycast.ray.y);
+				raycast.map.y, raycast.step.y, raycast.ray.y);
 	raycast.line_h = (int)(WIDTH / raycast.perp_wall_dist);
 	raycast.start_draw = ft_get_start_draw(raycast.line_h);
 	raycast.end_draw = ft_get_end_draw(raycast.line_h);
-    // ? es necesario?
-	// raycast.colour = ft_get_color(game->map.map[raycast.map.x][raycast.map.y],
-	// 								raycast.side_2);
 	return (raycast);
 }

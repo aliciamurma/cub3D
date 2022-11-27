@@ -23,9 +23,9 @@ SRCS 			= game.c \
 				player.c \
 				exit.c \
 				images.c \
-				errors.c
 				render.c \
 				textures.c \
+				errors.c
 
 # LIBS
 LIBS_PATH		:= libs

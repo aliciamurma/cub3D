@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:07:15 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:12:21 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "images.h"
 # include "vector.h"
-# include "game.h"
 
 typedef struct s_texture
 {
