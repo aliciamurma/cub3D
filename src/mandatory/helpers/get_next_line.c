@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:31:00 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/26 18:00:25 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:11:41 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "helpers.h"
+#include "get_next_line.h"
 #include "libft.h"
 
 // return 0 if EOF has been reached

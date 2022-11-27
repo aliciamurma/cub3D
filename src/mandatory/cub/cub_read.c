@@ -6,13 +6,14 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 15:29:38 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:11:12 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/stat.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "get_next_line.h"
 #include "helpers.h"
 #include "errors.h"
 #include "exit.h"
