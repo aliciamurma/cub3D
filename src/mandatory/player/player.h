@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:29:31 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:04:55 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:12:09 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ typedef struct s_player
 	t_rotation	rotation;
 }	t_player;
 
-void	ft_move_forward(t_player *player, char **map);
-void	ft_move_backward(t_player *player, char **map);
-void	ft_move_left(t_player *player, char **map);
-void	ft_move_right(t_player *player, char **map);
-void	ft_rotate_left(t_player *player);
-void	ft_rotate_right(t_player *player);
+void		ft_move_forward(t_player *player, char **map);
+void		ft_move_backward(t_player *player, char **map);
+void		ft_move_left(t_player *player, char **map);
+void		ft_move_right(t_player *player, char **map);
+void		ft_rotate_left(t_player *player);
+void		ft_rotate_right(t_player *player);
+t_player	ft_new_player(void);
 
 #endif

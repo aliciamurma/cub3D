@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 19:20:43 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:12:40 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,9 @@ int	main(int argc, char **argv)
 	ft_check_parameters(argc, argv);
 	game.mlx.mlx_ptr = mlx_init();
 	game.map = ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
-	game.player.pos.x = 6;
-	game.player.pos.y = 9;
-	game.player.dir.x = -1;
-	game.player.dir.y = 0;
-	game.player.plane.x = 0;
-	game.player.plane.y = 0.66;
 	game.mlx.win_ptr = mlx_new_window(game.mlx.mlx_ptr,
 			WIDTH, HEIGHT, NAME_WIN);
-	game.player.movement.forward = false;
-	game.player.movement.backward = false;
-	game.player.movement.right = false;
-	game.player.movement.left = false;
-	game.player.rotation.right = false;
-	game.player.rotation.left = false;
+	game.player = ft_new_player();
 	mlx_loop_hook(game.mlx.mlx_ptr, &ft_game_loop, &game);
 	mlx_hook(game.mlx.win_ptr, 2, 0, handle_keydown, &game);
 	mlx_hook(game.mlx.win_ptr, 3, 0, handle_keyup, &game);

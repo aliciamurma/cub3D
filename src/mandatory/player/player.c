@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:04:19 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:11:39 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,25 @@
 #include <stdio.h>
 #include "game.h"
 #include "player.h"
+
+t_player	ft_new_player(void)
+{
+	t_player	player;
+
+	player.pos.x = 6;
+	player.pos.y = 9;
+	player.dir.x = -1;
+	player.dir.y = 0;
+	player.plane.x = 0;
+	player.plane.y = 0.66;
+	player.movement.forward = false;
+	player.movement.backward = false;
+	player.movement.right = false;
+	player.movement.left = false;
+	player.rotation.right = false;
+	player.rotation.left = false;
+	return (player);
+}
 
 bool	ft_can_move(char **map, double pos_x, double pos_y)
 {
