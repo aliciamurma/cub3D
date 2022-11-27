@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 23:49:54 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 23:49:59 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/27 23:56:32 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/28 00:05:04 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#include "mlx.h"
+#include "window.h"
 
-# include "game.h"
+t_window	ft_new_window(void)
+{
+	t_window	mlx;
 
-int	ft_render_map(t_game *game);
-
-#endif
+	mlx.mlx_ptr = mlx_init();
+	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr,
+			WIDTH, HEIGHT, NAME_WIN);
+	return (mlx);
+}

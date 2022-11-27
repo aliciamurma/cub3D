@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:28:43 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:54:57 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 
 unsigned int	create_rgb(t_color color)
 {
-	return (((color.r & 0xff) << 16) + ((color.g & 0xff) << 8) + (color.b & 0xff));
+	return (
+		((color.r & 0xff) << 16)
+		+ ((color.g & 0xff) << 8)
+		+ (color.b & 0xff)
+	);
 }
 
 // TODO valorar si seria necesario que el atoi mirase si no enviamos un numero y dar un error
@@ -51,10 +55,11 @@ unsigned int	ft_parse_color(char *input)
 	return (create_rgb(color));
 }
 
-int ft_get_texture_x(double side, t_vector position, double perp_wall_dist, t_vector ray)
+int	ft_get_texture_x(
+	double side, t_vector position, double perp_wall_dist, t_vector ray)
 {
-	double wall_x;
-	int text_x;
+	double	wall_x;
+	int		text_x;
 
 	if (side == 0)
 		wall_x = position.y + perp_wall_dist * ray.y;
@@ -69,22 +74,23 @@ int ft_get_texture_x(double side, t_vector position, double perp_wall_dist, t_ve
 	return (text_x);
 }
 
-double ft_get_texture_steep(double line_h)
+double	ft_get_texture_steep(double line_h)
 {
 	return (1.0 * 64 / line_h);
 }
 
-double ft_get_texture_position(int start_draw, double line_h, double step)
+double	ft_get_texture_position(int start_draw, double line_h, double step)
 {
 	return ((start_draw - WIDTH / 2 + line_h / 2) * step);
 }
 
-int ft_get_texture_y(double text_pos)
+int	ft_get_texture_y(double text_pos)
 {
 	return ((int)text_pos & (64 - 1));
 }
 
-int ft_get_color_image(t_image img, t_int_vector text)
+int	ft_get_color_image(t_image img, t_int_vector text)
 {
-	return (*(int *)(img.pixels + ((64 * text.y + text.x) * (img.bits_per_pixel / 8))));
+	return (*(int *)(img.pixels
+		+ ((64 * text.y + text.x) * (img.bits_per_pixel / 8))));
 }

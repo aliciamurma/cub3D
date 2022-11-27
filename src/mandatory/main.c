@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 23:12:40 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 23:59:33 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	ft_check_parameters(argc, argv);
-	game.mlx.mlx_ptr = mlx_init();
+	game.mlx = ft_new_window();
 	game.map = ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
-	game.mlx.win_ptr = mlx_new_window(game.mlx.mlx_ptr,
-			WIDTH, HEIGHT, NAME_WIN);
 	game.player = ft_new_player();
 	mlx_loop_hook(game.mlx.mlx_ptr, &ft_game_loop, &game);
 	mlx_hook(game.mlx.win_ptr, 2, 0, handle_keydown, &game);

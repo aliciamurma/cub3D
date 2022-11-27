@@ -24,6 +24,7 @@ SRCS 			= game.c \
 				exit.c \
 				images.c \
 				render.c \
+				window.c \
 				textures.c \
 				errors.c
 
@@ -75,7 +76,7 @@ NAME 			:= cub3D
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
 
-vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit \
+vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/window \
 	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/map \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render

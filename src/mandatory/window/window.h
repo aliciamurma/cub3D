@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:40:28 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:43:13 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/28 00:05:09 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ typedef struct s_window
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_window;
+
+t_window	ft_new_window(void);
 
 #endif
