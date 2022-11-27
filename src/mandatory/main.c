@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 18:52:30 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:01:02 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ int	main(int argc, char **argv)
 
 	ft_check_parameters(argc, argv);
 	game.mlx.mlx_ptr = mlx_init();
-	ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
-	game.player.pos.x = 12;
-	game.player.pos.y = 5;
+	game.map = ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
+	game.player.pos.x = 5;
+	game.player.pos.y = 9;
 	game.player.dir.x = -1;
 	game.player.dir.y = 0;
 	game.player.plane.x = 0;
 	game.player.plane.y = 0.66;
-	game.mlx.win_ptr = mlx_new_window(game.mlx.mlx_ptr, WIDTH, HEIGHT, NAME_WIN);
+	game.mlx.win_ptr = mlx_new_window(game.mlx.mlx_ptr,
+			WIDTH, HEIGHT, NAME_WIN);
 	game.player.movement.forward = false;
 	game.player.movement.backward = false;
 	game.player.movement.right = false;
