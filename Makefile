@@ -19,12 +19,13 @@ SRCS 			= game.c \
 				get_next_line.c strings.c memory.c helpers_1.c helpers_2.c helpers_3.c \
 				cub.c cub_read.c cub_textures.c \
 				raycast.c \
-				textures.c \
 				inputs.c \
 				player.c \
 				exit.c \
 				images.c \
 				errors.c
+				render.c \
+				textures.c \
 
 # LIBS
 LIBS_PATH		:= libs
@@ -46,14 +47,15 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/map \
 					src/mandatory/window \
 					src/mandatory/types \
-					src/mandatory/raycast \
 					src/mandatory/player \
-					src/mandatory/textures \
 					src/mandatory/helpers \
 					src/mandatory/validators \
 					src/mandatory/cub \
 					src/mandatory/images \
 					src/mandatory/errors \
+					src/mandatory/raycast \
+					src/mandatory/render \
+					src/mandatory/textures \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 
@@ -76,7 +78,7 @@ BIN = $(BIN_DIR)/$(NAME)
 vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit \
 	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/map \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
-	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images
+	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
 
 .SECONDEXPANSION:

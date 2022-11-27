@@ -16,6 +16,8 @@
 # include "game.h"
 # include "vector.h"
 
+
+// TODO -> poner una variable con el objeto que impacta(actor)
 typedef struct s_raycast
 {
     int             side_2;
@@ -32,6 +34,6 @@ typedef struct s_raycast
 
 }	t_raycast;
 
-int ft_render_map(t_game *game);
+t_raycast	ft_get_ray(t_game *game, int x);
 
 #endif

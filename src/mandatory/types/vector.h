@@ -19,7 +19,7 @@ typedef struct t_vector
 	double	y;
 }	t_vector;
 
-typedef struct t_int_vector
+typedef struct s_int_vector
 {
 	int	x;
 	int	y;
