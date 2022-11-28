@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:53:04 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 16:00:27 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 00:42:41 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	ft_get_texture_x(
  * @param line_h 
  * @return double 
  */
-double	ft_get_texture_steep(double line_h, int text_height)
+double	ft_get_texture_steep(double line_h, int text_height, int line_size)
 {
-	return (1.0 * text_height / line_h);
+	return (line_size / 128 * text_height / line_h);
 }
 
 /**

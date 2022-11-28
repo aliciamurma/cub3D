@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 16:05:45 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 00:44:21 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	ft_render_walls(
 	texture_x.side = raycast_pos.raycast.side_2;
 	text.x = ft_get_texture_x(texture_x, player.pos,
 			raycast_pos.raycast.ray, texture.height);
-	step = ft_get_texture_steep(
-			raycast_pos.raycast.line_h, texture.bits_per_pixel);
+	step = ft_get_texture_steep(raycast_pos.raycast.line_h,
+			texture.bits_per_pixel, texture.line_size);
 	text_pos = ft_get_texture_position(
 			raycast_pos.raycast.start_draw, raycast_pos.raycast.line_h, step);
 	y = raycast_pos.raycast.start_draw;

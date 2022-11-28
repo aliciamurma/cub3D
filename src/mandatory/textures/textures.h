@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:01:26 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 00:43:08 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int				ft_get_texture_x(
 					t_vector position,
 					t_vector ray, int text_height);
 int				ft_get_texture_y(double text_pos, int text_height);
-double			ft_get_texture_steep(double line_h, int text_height);
+double			ft_get_texture_steep(double line_h, int text_height,
+					int line_size);
 double			ft_get_texture_position(
 					int start_draw, double line_h, double step);
 int				ft_get_color_image(

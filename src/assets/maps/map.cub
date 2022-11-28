@@ -1,13 +1,13 @@
 NO ./src/assets/textures/north.xpm
 WE       ./src/assets/textures/west.xpm
 
-SO ./src/assets/textures/south.xpm
+SO ./src/assets/textures/sw_1.xpm
         EA ./src/assets/textures/east.xpm
 
 
 
-F 220,   100,        0
-C 225,30,0
+C 60,   60,        60
+F 36,36,36
 
 
        
