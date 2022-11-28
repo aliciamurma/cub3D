@@ -6,17 +6,20 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:53:25 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:13:37 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:23:32 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "game.h"
 #include "cub.h"
 #include "player.h"
 #include "render.h"
 
+/**
+ * @brief Loop del juego
+ * 
+ * @param game 
+ * @return int 
+ */
 int	ft_game_loop(t_game *game)
 {
 	if (game->player.movement.forward)

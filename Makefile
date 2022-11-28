@@ -14,19 +14,19 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= game.c \
-				validators.c \
-				get_next_line.c strings.c memory.c helpers_1.c helpers_2.c helpers_3.c \
-				cub.c cub_read.c cub_textures.c \
-				raycast.c \
-				inputs.c \
-				player.c \
+SRCS 			= cub.c cub_read.c cub_textures.c \
+				errors.c \
 				exit.c \
+				game.c \
+				get_next_line.c strings.c memory.c helpers_1.c helpers_2.c helpers_3.c \
 				images.c \
+				inputs.c \
+				player_1.c player_2.c \
+				raycast_1.c raycast_2.c \
 				render.c \
+				textures_1.c textures_2.c \
+				validators.c \
 				window.c \
-				textures.c \
-				errors.c
 
 # LIBS
 LIBS_PATH		:= libs
@@ -42,21 +42,20 @@ BIN_DIR			:= bin
 
 #INCLUDES
 INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
-					src/mandatory/game \
-					src/mandatory/exit \
-					src/mandatory/inputs \
-					src/mandatory/map \
-					src/mandatory/window \
-					src/mandatory/types \
-					src/mandatory/player \
-					src/mandatory/helpers \
-					src/mandatory/validators \
 					src/mandatory/cub \
-					src/mandatory/images \
 					src/mandatory/errors \
+					src/mandatory/exit \
+					src/mandatory/game \
+					src/mandatory/helpers \
+					src/mandatory/images \
+					src/mandatory/inputs \
+					src/mandatory/player \
 					src/mandatory/raycast \
 					src/mandatory/render \
 					src/mandatory/textures \
+					src/mandatory/types \
+					src/mandatory/validators \
+					src/mandatory/window \
 
 INC 			= $(addprefix -I , $(INCLUDES))
 

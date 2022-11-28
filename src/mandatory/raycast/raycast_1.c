@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.c                                          :+:      :+:    :+:   */
+/*   raycast_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:23:14 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:39:23 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,101 +16,31 @@
 #include "raycast.h"
 #include "window.h"
 #include "cub.h"
-
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 
 /**
- * @brief Recogemos la dirección del rayo
- *
- * @param game
- * @param x
- * @return t_vector
+ * @brief Calcula la distancia perpendicular a el muro
+ * 
+ * @param pos 
+ * @param map 
+ * @param step 
+ * @param ray 
+ * @return double 
  */
-static t_vector	ft_get_ray_dir(t_player player, int x)
-{
-	double		camera_x;
-	t_vector	ray;
-
-	camera_x = 2 * x / (double)WIDTH - 1;
-	ray.x = player.dir.x + player.plane.x * camera_x;
-	ray.y = player.dir.y + player.plane.y * camera_x;
-	return (ray);
-}
-
-static t_vector	ft_get_ray_abs_distance(t_vector ray)
-{
-	t_vector	delta;
-
-	delta.x = fabs(1 / ray.x);
-	delta.y = fabs(1 / ray.y);
-	return (delta);
-}
-
-static t_vector	ft_get_step_distance(t_vector ray)
-{
-	t_vector	distance;
-
-	if (ray.x < 0)
-		distance.x = -1;
-	else
-		distance.x = 1;
-	if (ray.y < 0)
-		distance.y = -1;
-	else
-		distance.y = 1;
-	return (distance);
-}
-
-static t_vector	ft_get_side_distance(t_player player, t_vector ray,
-		t_vector delta, t_int_vector map)
-{
-	t_vector	distance;
-
-	if (ray.x < 0)
-		distance.x = (player.pos.x - map.x) * delta.x;
-	else
-		distance.x = (map.x + 1.0 - player.pos.x) * delta.x;
-	if (ray.y < 0)
-		distance.y = (player.pos.y - map.y) * delta.y;
-	else
-		distance.y = (map.y + 1.0 - player.pos.y) * delta.y;
-	return (distance);
-}
-
-static void	ft_set_distance(t_game *game, t_raycast *raycast)
-{
-	int	hit;
-
-	hit = 0;
-	while (hit == 0)
-	{
-		if (raycast->side.x < raycast->side.y)
-		{
-			raycast->side.x += raycast->delta.x;
-			raycast->map.x += raycast->step.x;
-			raycast->side_2 = 0;
-		}
-		else
-		{
-			raycast->side.y += raycast->delta.y;
-			raycast->map.y += raycast->step.y;
-			raycast->side_2 = 1;
-		}
-		// NUESTRO JUGADOR SE HA CHOCADO CONTRA UNA PARED?
-		// SI LA RESPUESTA ES SÍ, NO PUEDE MOVERSE, NO PUEDE ENTRAR EN EL BUCLE
-		// TODO comprobar con que impacta y retornar el tipo
-        if (game->map.map[raycast->map.x][raycast->map.y] == '1')
-			hit = 1;
-	}
-}
-
-double	ft_calc_perp_wall_dist(double pos, int map, double step, double ray)
+static double	ft_calc_perp_wall_dist(
+	double pos, int map, double step, double ray)
 {
 	return ((map - pos + (1 - step) / 2) / ray);
 }
 
+/**
+ * @brief Obtiene la posicion donde empieza a dibujar el rayo
+ * 
+ * @param line_h 
+ * @return int 
+ */
 static int	ft_get_start_draw(int line_h)
 {
 	int	start_draw;
@@ -121,6 +51,12 @@ static int	ft_get_start_draw(int line_h)
 	return (start_draw);
 }
 
+/**
+ * @brief Obtiene la posicion donde termina de dibuar el rayo
+ * 
+ * @param line_h 
+ * @return int 
+ */
 static int	ft_get_end_draw(int line_h)
 {
 	int	end_draw;
@@ -131,6 +67,13 @@ static int	ft_get_end_draw(int line_h)
 	return (end_draw);
 }
 
+/**
+ * @brief Lanza un raycast y obtiene la informacion del rayo
+ * 
+ * @param game 
+ * @param x 
+ * @return t_raycast 
+ */
 t_raycast	ft_get_ray(t_game *game, int x)
 {
 	t_raycast	raycast;

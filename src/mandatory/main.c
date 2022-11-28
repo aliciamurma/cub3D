@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 23:59:33 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 15:08:02 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
  *  FOV = 2 * atan(0.66/1.0)=66.8 es adecuado para tiradores en primera persona
  * @return int
  */
-// int main(void)
 int	main(int argc, char **argv)
 {
 	t_game	game;

@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:42:49 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 18:20:24 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:24:06 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "exit.h"
 #include "errors.h"
 
+/**
+ * @brief Crea una imagen a partir del path
+ * 
+ * @param mlx 
+ * @param path 
+ * @return t_image 
+ */
 t_image	ft_create_img(void *mlx, char *path)
 {
 	t_image	img;

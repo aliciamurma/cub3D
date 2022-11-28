@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 21:11:12 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:09:45 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "errors.h"
 #include "exit.h"
 #include "libft.h"
-// #include "helpers.h"
 #include "strings.h"
 #include "memory.h"
 
@@ -38,6 +37,12 @@ static int	ft_open_cub(char *cub)
 	return (fd);
 }
 
+/**
+ * @brief Comprueba si es una linea vacia
+ * 
+ * @param line 
+ * @return bool 
+ */
 static bool	ft_is_empty_line(char *line)
 {
 	int	i;
@@ -52,6 +57,13 @@ static bool	ft_is_empty_line(char *line)
 	return (true);
 }
 
+/**
+ * @brief Lee el archivo .cub
+ * 
+ * @param fd 
+ * @param is_reading_map 
+ * @return char* 
+ */
 char	*ft_read_cub(int fd, bool is_reading_map)
 {
 	static bool	is_reading = false;
@@ -81,6 +93,12 @@ char	*ft_read_cub(int fd, bool is_reading_map)
 	return (aux);
 }
 
+/**
+ * @brief Parsea la informacion del .cub y la guarda en una array de strings
+ * 
+ * @param cub_raw 
+ * @return char** 
+ */
 char	**ft_get_cub(char *cub_raw)
 {
 	char	*line;

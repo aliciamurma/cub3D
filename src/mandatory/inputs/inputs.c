@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 23:47:51 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:25:41 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include "inputs.h"
 #include "exit.h"
 
+/**
+ * @brief Evento que se ejecuta al pulsar una tecla
+ * Identidica que tecla se ha pulsado y llama a su funcionalidad
+ * 
+ * @param key 
+ * @param game 
+ * @return int 
+ */
 int	handle_keydown(int key, t_game *game)
 {
 	if (key == UP)
@@ -35,6 +43,14 @@ int	handle_keydown(int key, t_game *game)
 	return (0);
 }
 
+/**
+ * @brief Evento que se ejecuta al pulsar una tecla
+ * Identidica que tecla se ha pulsado y llama a su funcionalidad
+ * 
+ * @param key 
+ * @param game 
+ * @return int 
+ */
 int	handle_keyup(int key, t_game *game)
 {
 	if (key == UP)
@@ -52,6 +68,13 @@ int	handle_keyup(int key, t_game *game)
 	return (0);
 }
 
+/**
+ * @brief Evento que se ejecuta cuando se cierra la ventana 
+ * del programa con el boton
+ * 
+ * @param game 
+ * @return int 
+ */
 int	handle_close(t_game *game)
 {
 	(void)game;

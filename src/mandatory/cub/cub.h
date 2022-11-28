@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:51:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 17:53:49 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:21:52 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ typedef struct s_cub
 	char		**map;
 	t_texture	textures;
 }	t_cub;
-
-// void	ft_check_map(t_cub *map);
-// void	ft_get_cub(t_cub *map, t_player *player);
 
 char		**ft_get_cub(char *cub_raw);
 t_cub		ft_parse_cub(void *mlx, char *cub_raw);

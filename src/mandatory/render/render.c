@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/28 16:05:45 by aramirez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <math.h>
 #include <mlx.h>
 #include "raycast.h"
@@ -6,30 +18,56 @@
 #include "game.h"
 #include "vector.h"
 #include "textures.h"
+#include "render.h"
 
-void ft_render_pixel(t_image *img, int x, int y, int color)
+/**
+ * @brief Pinta un pixel en una imagen
+ * 
+ * @param img puntero de la imagen que queremos pintar
+ * @param x posicion en x donde pintar
+ * @param y posicion en y donde pintar
+ * @param color color del pixel
+ */
+void	ft_render_pixel(t_image *img, int x, int y, int color)
 {
-	int pixel;
+	int	pixel;
 
 	pixel = (y * img->line_size) + (x * 4);
-	img->pixels[pixel + 0] = (color)&0xFF;
+	img->pixels[pixel + 0] = (color) & 0xFF;
 	img->pixels[pixel + 1] = (color >> 8) & 0xFF;
 	img->pixels[pixel + 2] = (color >> 16) & 0xFF;
 	img->pixels[pixel + 3] = (color >> 24);
 }
 
-void ft_render_ceil(t_image *img, int x, int start_draw, int color)
+/**
+ * @brief Pinta en una imagen el cielo del cub3D
+ * 
+ * @param img imagen donde pintar
+ * @param x posicion en x donde pintar
+ * @param start_draw posicion en y donde empieza el cielo
+ * @param color color del cielo
+ */
+void	ft_render_ceil(t_image *img, int x, int start_draw, int color)
 {
-	int y;
+	int	y;
 
 	y = 0;
-	while (y < start_draw)
+	while (y >= 0 && y < HEIGHT && y < start_draw)
 	{
 		ft_render_pixel(img, x, y, color);
 		y++;
 	}
 }
-void ft_render_floor(t_image *img, int x, int y, int color)
+
+/**
+ * @brief Pinta en una imagen el suelo del cub3D
+ * 
+ * @param img imagen donde pintar
+ * @param x posicion en x donde pintar
+ * @param y posicion en y donde empezar a pintara
+ * @param color color del suelo
+ */
+void	ft_render_floor(t_image *img, int x, int y, int color)
 {
 	while (y > 0 && y < HEIGHT)
 	{
@@ -38,51 +76,73 @@ void ft_render_floor(t_image *img, int x, int y, int color)
 	}
 }
 
-void ft_render_walls(t_raycast raycast, t_player player, int x, t_image *img, t_image texture)
+/**
+ * @brief Pinta en una imagen los muros del cub3D
+ * 
+ * @param raycast informacion del muro obtenida con el raycast
+ * @param player informacion del jugador
+ * @param x posicion en x
+ * @param img imagen donde pintar
+ * @param texture informacion de la textura que pintar
+ */
+void	ft_render_walls(
+	t_raycast_pos raycast_pos, t_player player, t_image *img, t_image texture)
 {
-	double step;
-	double text_pos;
-	int y;
-	t_int_vector text;
+	double			step;
+	double			text_pos;
+	int				y;
+	t_int_vector	text;
+	t_texture_x		texture_x;
 
-	text.x = ft_get_texture_x(raycast.side_2, player.pos, raycast.perp_wall_dist, raycast.ray);
-	step = ft_get_texture_steep(raycast.line_h);
-	text_pos = ft_get_texture_position(raycast.start_draw, raycast.line_h, step);
-	y = raycast.start_draw;
-	while (y < raycast.end_draw && y < HEIGHT)
+	texture_x.perp_wall_dist = raycast_pos.raycast.perp_wall_dist;
+	texture_x.side = raycast_pos.raycast.side_2;
+	text.x = ft_get_texture_x(texture_x, player.pos,
+			raycast_pos.raycast.ray, texture.height);
+	step = ft_get_texture_steep(
+			raycast_pos.raycast.line_h, texture.bits_per_pixel);
+	text_pos = ft_get_texture_position(
+			raycast_pos.raycast.start_draw, raycast_pos.raycast.line_h, step);
+	y = raycast_pos.raycast.start_draw;
+	while (y < raycast_pos.raycast.end_draw && y < HEIGHT)
 	{
-		text.y = ft_get_texture_y(text_pos);
+		text.y = ft_get_texture_y(text_pos, texture.height);
 		text_pos += step;
-		ft_render_pixel(img, x, y,
-						ft_get_color_image(texture, text));
+		ft_render_pixel(
+			img, raycast_pos.x, y,
+			ft_get_color_image(texture, text, texture.height)
+			);
 		y++;
 	}
 }
 
+/**
+ * @brief Pinta el mapa del cub3D
+ * 
+ * @param game informacion del juego
+ * @return int 
+ */
 int	ft_render_map(t_game *game)
 {
-	int			x;
-	t_raycast	raycast;
-	static int	a;
+	t_raycast_pos	raycast_pos;
 
-	a = 0;
-	if (a != 0)
-		mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
 	mlx_clear_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
 	game->img.pointer = mlx_new_image(game->mlx.mlx_ptr, WIDTH, HEIGHT);
 	game->img.pixels = mlx_get_data_addr(game->img.pointer,
 			&game->img.bits_per_pixel, &game->img.line_size, &game->img.endian);
-	x = 1;
-	while (x < WIDTH)
+	raycast_pos.x = 1;
+	while (raycast_pos.x < WIDTH)
 	{
-		raycast = ft_get_ray(game, x);
-		ft_render_floor(&game->img, x, raycast.start_draw, game->map.textures.floor);
-		ft_render_ceil(&game->img, x, raycast.end_draw, game->map.textures.ceil);
-		ft_render_walls(raycast, game->player, x, &game->img, game->map.textures.south);
-		x++;
+		raycast_pos.raycast = ft_get_ray(game, raycast_pos.x);
+		ft_render_floor(&game->img, raycast_pos.x,
+			raycast_pos.raycast.start_draw, game->map.textures.floor);
+		ft_render_ceil(&game->img, raycast_pos.x,
+			raycast_pos.raycast.end_draw, game->map.textures.ceil);
+		ft_render_walls(raycast_pos, game->player,
+			&game->img, game->map.textures.south);
+		raycast_pos.x++;
 	}
 	mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr,
 		game->img.pointer, 0, 0);
-	a = 1;
+	mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
 	return (0);
 }

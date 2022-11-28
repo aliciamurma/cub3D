@@ -6,12 +6,18 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:58:09 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 17:59:55 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:22:36 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "errors.h"
 
+/**
+ * @brief Obtiene la informacion del error segun el code
+ * 
+ * @param code 
+ * @return char* 
+ */
 char	*ft_get_error(int code)
 {
 	if (code == INV_ARGS)

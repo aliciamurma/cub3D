@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 11:29:31 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 23:12:09 by aramirez         ###   ########.fr       */
+/*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
+/*   Updated: 2022/11/28 16:31:29 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ typedef struct s_player
 	t_rotation	rotation;
 }	t_player;
 
+t_player	ft_new_player(void);
+bool		ft_can_move(char **map, double pos_x, double pos_y);
+double		ft_get_new_position(double dir);
 void		ft_move_forward(t_player *player, char **map);
 void		ft_move_backward(t_player *player, char **map);
 void		ft_move_left(t_player *player, char **map);
 void		ft_move_right(t_player *player, char **map);
 void		ft_rotate_left(t_player *player);
 void		ft_rotate_right(t_player *player);
-t_player	ft_new_player(void);
 
 #endif

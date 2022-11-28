@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 19:12:21 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:01:26 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,21 @@ typedef struct s_color
 	int	b;
 }	t_color;
 
-unsigned int	ft_parse_color(char *input);
-int				ft_get_texture_x(double side, t_vector position, double perp_wall_dist, t_vector ray);
-double			ft_get_texture_steep(double line_h);
-double			ft_get_texture_position(int start_draw, double line_h, double step);
-int				ft_get_texture_y(double text_pos);
-int				ft_get_color_image(t_image img, t_int_vector text);
+typedef struct s_texture_x
+{
+	double	side;
+	double	perp_wall_dist;
+}	t_texture_x;
 
+unsigned int	ft_parse_color(char *input);
+int				ft_get_texture_x(
+					t_texture_x texture_x,
+					t_vector position,
+					t_vector ray, int text_height);
+int				ft_get_texture_y(double text_pos, int text_height);
+double			ft_get_texture_steep(double line_h, int text_height);
+double			ft_get_texture_position(
+					int start_draw, double line_h, double step);
+int				ft_get_color_image(
+					t_image img, t_int_vector text, int text_height);
 #endif

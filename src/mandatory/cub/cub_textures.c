@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 18:47:42 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:21:32 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 #include "textures.h"
 #include "images.h"
 
+/**
+ * @brief Comprueba que tipo de textura es la linea del .cub
+ * 
+ * @param texture 
+ * @return t_texture_types 
+ */
 t_texture_types	ft_get_texture_type(char *texture)
 {
 	char				**parse;
@@ -42,6 +48,12 @@ t_texture_types	ft_get_texture_type(char *texture)
 	return (type);
 }
 
+/**
+ * @brief Parsea la informacion del .cub sobre la textura
+ * 
+ * @param texture 
+ * @return char* 
+ */
 char	*ft_parse_texture(char *texture)
 {
 	char	*aux;
@@ -53,6 +65,13 @@ char	*ft_parse_texture(char *texture)
 	return (info);
 }
 
+/**
+ * @brief Obtiene la informacion de la textura del .cub
+ * 
+ * @param mlx 
+ * @param texture 
+ * @return t_image 
+ */
 t_image	ft_get_texture(void *mlx, char *texture)
 {
 	t_image	img;
@@ -63,6 +82,12 @@ t_image	ft_get_texture(void *mlx, char *texture)
 	return (img);
 }
 
+/**
+ * @brief Obtiene el color hexadecimal de la informacion del .cub
+ * 
+ * @param texture 
+ * @return unsigned int 
+ */
 unsigned int	ft_get_color(char *texture)
 {
 	char	*input;
@@ -71,6 +96,14 @@ unsigned int	ft_get_color(char *texture)
 	return (ft_parse_color(input));
 }
 
+/**
+ * @brief Obtiene la imagen de las texturas apartir de la informacion
+ * del .cub
+ * 
+ * @param mlx 
+ * @param cub 
+ * @return t_texture 
+ */
 t_texture	ft_parse_cub_textures(void *mlx, char **cub)
 {
 	int					i;
