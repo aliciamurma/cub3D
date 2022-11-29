@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 11:05:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:09:52 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,22 @@
 void	ft_check_one_player(char **map)
 {
 	int	player;
-	int	cont1;
-	int	cont2;
+	int	c1;
+	int	c2;
 
-	cont1 = 0;
-	cont2 = 0;
+	c1 = 0;
+	c2 = 0;
 	player = 0;
-	while (map[cont1])
+	while (map[c1])
 	{
-		cont2 = 0;
-		while (map[cont1][cont2])
+		c2 = 0;
+		while (map[c1][c2])
 		{
-			if (map[cont1][cont2] == 'N' || map[cont1][cont2] == 'S'
-				|| map[cont1][cont2] == 'E'
-				|| map[cont1][cont2] == 'W')
+			if (ft_is_player(map[c1][c2]))
 				player++;
-			cont2++;
+			c2++;
 		}
-		cont1++;
+		c1++;
 	}
 	if (player != 1)
 		ft_exit_cub3d(CUB_FORMAT);
@@ -163,5 +161,5 @@ void	ft_parse_map(char **map, int height, int width)
 	ft_check_surrounded_x(spaces_map);
 	ft_check_surrounded_y(spaces_map);
 	ft_free_matrix(spaces_map);
-	ft_get_player_pos(map);
+	// ft_get_player_pos(map);
 }

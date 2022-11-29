@@ -6,13 +6,20 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:34:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 11:03:56 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:08:24 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "helpers.h"
 #include <stdio.h>
+
+bool	ft_is_player(char pos)
+{
+	if (pos == 'N' || pos == 'S' || pos == 'E' || pos == 'W')
+		return (true);
+	return (false);
+}
 
 /**
  * @brief Get the width of our map
