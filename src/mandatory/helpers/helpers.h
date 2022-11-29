@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/27 21:10:07 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:40:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 # include <stdbool.h>
 // # include "game.h"
 
-char	**ft_colour_split(char *str);
-void	ft_free_matrix(char **str);
-int		ft_strlen_map(char **str);
-char	**ft_words_split(char *str);
+char			**ft_colour_split(char *str);
+void			ft_free_matrix(char **str);
+int				ft_strlen_map(char **str);
+char			**ft_words_split(char *str);
+
+// AUX MAP
+char			**ft_refile_map(char **map, char **empty_map);
+char			**ft_create_empty_map(int height, int width);
+unsigned int	ft_get_map_height(char **map);
+unsigned int	ft_get_map_width(char **map);
 
 #endif

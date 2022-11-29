@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:51:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:21:52 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:37:39 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ typedef struct s_cub
 	t_texture	textures;
 }	t_cub;
 
-char		**ft_get_cub(char *cub_raw);
-t_cub		ft_parse_cub(void *mlx, char *cub_raw);
-t_texture	ft_parse_cub_textures(void *mlx, char **cub);
+char			**ft_get_cub(char *cub_raw);
+t_cub			ft_parse_cub(void *mlx, char *cub_raw);
+t_texture		ft_parse_cub_textures(void *mlx, char **cub);
+void			ft_parse_map(char **map, int height, int width);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 13:13:08 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 13:38:57 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:17:10 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ void	*ft_realloc(void *ptr, size_t size)
 	ft_memcpy(new_ptr, ptr, size);
 	free(ptr);
 	return (new_ptr);
+}
+
+void	ft_free_matrix(char **str)
+{
+	int	count;
+
+	count = 0;
+	while (str[count])
+	{
+		free(str[count]);
+		count++;
+	}
+	free(str);
 }

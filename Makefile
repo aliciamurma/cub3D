@@ -14,11 +14,11 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= cub.c cub_read.c cub_textures.c \
+SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c \
 				errors.c \
 				exit.c \
 				game.c \
-				get_next_line.c strings.c memory.c helpers_1.c helpers_2.c helpers_3.c \
+				get_next_line.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c \
 				images.c \
 				inputs.c \
 				player_1.c player_2.c \
@@ -76,7 +76,7 @@ NAME 			:= cub3D
 BIN = $(BIN_DIR)/$(NAME)
 
 vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/window \
-	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/map \
+	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render
 # vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
