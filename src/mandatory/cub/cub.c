@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/29 17:40:47 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:47:57 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "helpers.h"
 #include <stdio.h>
 
+/**
+ * @brief Libera la memoria de la lectura de las texturas
+ * 
+ * @param cub 
+ */
 static	void	ft_free_cub(char **cub)
 {
 	int	i;
