@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/30 21:38:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:52:13 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,43 +49,43 @@ t_vector	ft_get_player_pos(char **map)
 	return (vector_pos);
 }
 
-void	ft_parse_dir_north(t_player player)
+void	ft_parse_dir_north(t_player *player)
 {
-	player.dir.x = -1;
-	player.dir.y = 0;
-	player.plane.x = 0;
-	player.plane.y = 0.66;
+	player->dir.x = -1;
+	player->dir.y = 0;
+	player->plane.x = 0;
+	player->plane.y = 0.66;
 	printf("im in north\n");
 }
 
-void	ft_parse_dir_south(t_player player)
+void	ft_parse_dir_south(t_player *player)
 {
-	player.dir.x = 1;
-	player.dir.y = 0;
-	player.plane.x = 0;
-	player.plane.y = -0.66;
+	player->dir.x = 1;
+	player->dir.y = 0;
+	player->plane.x = 0;
+	player->plane.y = -0.66;
 	printf("im in south\n");
 }
 
-void	ft_parse_dir_east(t_player player)
+void	ft_parse_dir_east(t_player *player)
 {
-	player.dir.x = 0;
-	player.dir.y = 1;
-	player.plane.x = 0.66;
-	player.plane.y = 0;
+	player->dir.x = 0;
+	player->dir.y = 1;
+	player->plane.x = 0.66;
+	player->plane.y = 0;
 	printf("im in east\n");
 }
 
-void	ft_parse_dir_west(t_player player)
+void	ft_parse_dir_west(t_player *player)
 {
-	player.dir.x = 0;
-	player.dir.y = -1;
-	player.plane.x = -0.66;
-	player.plane.y = 0;
+	player->dir.x = 0;
+	player->dir.y = -1;
+	player->plane.x = -0.66;
+	player->plane.y = 0;
 	printf("im in west\n");
 }
 
-void	ft_get_direction(t_player player, char pos)
+void	ft_get_direction(t_player *player, char pos)
 {
 	if (pos == 'N')
 		ft_parse_dir_north(player);
@@ -97,10 +97,10 @@ void	ft_get_direction(t_player player, char pos)
 		ft_parse_dir_east(player);
 }
 
-void	ft_get_player_dir(t_player player, char **map)
+void	ft_get_player_dir(t_player *player, char **map)
 {
-	int			c1;
-	int			c2;
+	int	c1;
+	int	c2;
 
 	c1 = 0;
 	c2 = 0;

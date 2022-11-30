@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/30 21:38:26 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:52:23 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_move_left(t_player *player, char **map);
 void		ft_move_right(t_player *player, char **map);
 void		ft_rotate_left(t_player *player);
 void		ft_rotate_right(t_player *player);
-void		ft_get_player_dir(t_player player, char **map);
+void		ft_get_player_dir(t_player *player, char **map);
 t_vector	ft_get_player_pos(char **map);
 
 #endif
