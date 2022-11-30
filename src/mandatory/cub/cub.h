@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:51:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/30 11:51:35 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:37:59 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,5 @@ char			**ft_get_cub(char *cub_raw);
 t_cub			ft_parse_cub(void *mlx, char *cub_raw);
 t_texture		ft_parse_cub_textures(void *mlx, char **cub);
 void			ft_parse_map(char **map, int height, int width);
-t_vector		ft_get_player_pos(char **map);
-t_vector		ft_get_player_dir(char **map);
 
 #endif
