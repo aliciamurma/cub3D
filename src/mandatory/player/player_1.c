@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:32:50 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:51:48 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@
  * 
  * @return t_player 
  */
-t_player	ft_new_player(void)
+t_player	ft_new_player(char **map)
 {
 	t_player	player;
 
-	player.pos.x = 6;
-	player.pos.y = 9;
-	player.dir.x = -1;
-	player.dir.y = 0;
+	player.pos = ft_get_player_pos(map);
+	// printf("my pos is x: %d y: %d\n", player.pos.x, player.pos.y);
+	player.dir = ft_get_player_dir(map);
+	// printf("my dir is x: %d y: %d\n", player.dir.x, player.dir.y);
+	// player.pos.x = 6;
+	// player.pos.y = 9;
+	// player.dir.x = -1;
+	// player.dir.y = 0;
 	player.plane.x = 0;
 	player.plane.y = 0.66;
 	player.movement.forward = false;

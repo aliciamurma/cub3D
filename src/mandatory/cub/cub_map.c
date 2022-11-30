@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 11:10:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:12:26 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,5 +161,4 @@ void	ft_parse_map(char **map, int height, int width)
 	ft_check_surrounded_x(spaces_map);
 	ft_check_surrounded_y(spaces_map);
 	ft_free_matrix(spaces_map);
-	// ft_get_player_pos(map);
 }

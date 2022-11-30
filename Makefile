@@ -14,7 +14,7 @@ RM 				:= rm -f
 # SRC
 MAIN			= main.c
 
-SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c \
+SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				errors.c \
 				exit.c \
 				game.c \

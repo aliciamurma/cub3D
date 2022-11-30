@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 16:31:29 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:51:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ typedef struct s_player
 	t_rotation	rotation;
 }	t_player;
 
-t_player	ft_new_player(void);
+// t_player	ft_new_player(void);
+t_player	ft_new_player(char **map);
 bool		ft_can_move(char **map, double pos_x, double pos_y);
 double		ft_get_new_position(double dir);
 void		ft_move_forward(t_player *player, char **map);
