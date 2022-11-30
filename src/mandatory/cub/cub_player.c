@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/30 21:52:13 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:55:45 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_vector	ft_get_player_pos(char **map)
 		{
 			if (ft_is_player(map[c1][c2]))
 			{
-				vector_pos.x = c1;
-				vector_pos.y = c2;
+				vector_pos.x = c1 + 0.05;
+				vector_pos.y = c2 + 0.05;
 				break ;
 			}
 			c2++;
@@ -55,7 +55,6 @@ void	ft_parse_dir_north(t_player *player)
 	player->dir.y = 0;
 	player->plane.x = 0;
 	player->plane.y = 0.66;
-	printf("im in north\n");
 }
 
 void	ft_parse_dir_south(t_player *player)
@@ -64,7 +63,6 @@ void	ft_parse_dir_south(t_player *player)
 	player->dir.y = 0;
 	player->plane.x = 0;
 	player->plane.y = -0.66;
-	printf("im in south\n");
 }
 
 void	ft_parse_dir_east(t_player *player)
@@ -73,7 +71,6 @@ void	ft_parse_dir_east(t_player *player)
 	player->dir.y = 1;
 	player->plane.x = 0.66;
 	player->plane.y = 0;
-	printf("im in east\n");
 }
 
 void	ft_parse_dir_west(t_player *player)
@@ -82,7 +79,6 @@ void	ft_parse_dir_west(t_player *player)
 	player->dir.y = -1;
 	player->plane.x = -0.66;
 	player->plane.y = 0;
-	printf("im in west\n");
 }
 
 void	ft_get_direction(t_player *player, char pos)
