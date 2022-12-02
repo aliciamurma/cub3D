@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/02 20:01:28 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:34:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ t_vector	ft_get_player_pos(char **map)
 		{
 			if (ft_is_player(map[c1][c2]))
 			{
-				vector_pos.x = c1 + 0.0001;
-				vector_pos.y = c2 + 0.0001;
+				vector_pos.x = c1 + 0.5;
+				vector_pos.y = c2 + 0.5;
 				break ;
 			}
 			c2++;

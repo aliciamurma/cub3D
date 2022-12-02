@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/29 00:44:21 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:32:16 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,18 @@ int	ft_render_map(t_game *game)
 			raycast_pos.raycast.start_draw, game->map.textures.floor);
 		ft_render_ceil(&game->img, raycast_pos.x,
 			raycast_pos.raycast.end_draw, game->map.textures.ceil);
-		ft_render_walls(raycast_pos, game->player,
-			&game->img, game->map.textures.south);
+		if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == 1)
+			ft_render_walls(raycast_pos, game->player,
+				&game->img, game->map.textures.east);
+		if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == -1)
+			ft_render_walls(raycast_pos, game->player,
+				&game->img, game->map.textures.west);
+		if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == 1)
+			ft_render_walls(raycast_pos, game->player,
+				&game->img, game->map.textures.north);
+		if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == -1)
+			ft_render_walls(raycast_pos, game->player,
+				&game->img, game->map.textures.south);
 		raycast_pos.x++;
 	}
 	mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr,

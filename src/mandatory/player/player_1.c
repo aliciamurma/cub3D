@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/02 19:53:52 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:23:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_player	ft_new_player(char **map)
 	t_player	player;
 
 	player.pos = ft_get_player_pos(map);
-	// printf("my pos is x: %d y: %d\n", player.pos.x, player.pos.y);
+	printf("my pos is x: %f y: %f\n", player.pos.x, player.pos.y);
 	ft_get_player_dir(&player, map);
 	// printf("my dir is x: %f y: %f\n", player.dir.x, player.dir.y);
 	// player.pos.x = 6;
