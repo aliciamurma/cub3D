@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 16:21:32 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:05:40 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ unsigned int	ft_get_color(char *texture)
 	char	*input;
 
 	input = ft_parse_texture(texture);
+	if (!ft_check_comas(input))
+		ft_exit_cub3d(MAP_FORMAT);
 	return (ft_parse_color(input));
 }
 

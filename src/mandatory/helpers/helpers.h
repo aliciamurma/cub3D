@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 11:09:04 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:00:34 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ char			**ft_create_empty_map(int height, int width);
 unsigned int	ft_get_map_height(char **map);
 unsigned int	ft_get_map_width(char **map);
 bool			ft_is_player(char pos);
+
+// CHECKERS
+bool			ft_check_comas(char *input);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/02 19:54:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/02 20:01:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 /**
  * @brief Get the player position
+ * Añadimos el + 0.0001 para que no se encuentre con el negro absoluto
  * 
  * @param map 
  * @return t_vector 

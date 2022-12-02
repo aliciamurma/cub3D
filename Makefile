@@ -18,7 +18,7 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				errors.c \
 				exit.c \
 				game.c \
-				get_next_line.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c \
+				get_next_line.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c \
 				images.c \
 				inputs.c \
 				player_1.c player_2.c \
