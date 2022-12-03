@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:51:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 20:30:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:58:32 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ t_texture		ft_parse_cub_textures(void *mlx, char **cub);
 void			ft_parse_map(char **map, int height, int width);
 void			ft_check_one_player(char **map);
 void			ft_check_all_textures(char **cub);
+t_texture_types	ft_get_texture_type(char *texture);
 
 #endif
