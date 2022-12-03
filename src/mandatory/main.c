@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 20:31:57 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:09:48 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,7 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx.mlx_ptr);
 	return (0);
 }
+
+// TODO
+// 2 NO lo coge como bien
+// tenemos floor and ceiling al reves 

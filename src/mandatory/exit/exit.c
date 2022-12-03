@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:29:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 18:04:18 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:44:47 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ void	ft_print_error(t_errors code)
 void	ft_exit_cub3d(t_errors code)
 {
 	ft_print_error(code);
-	// mlx_destroy_window();
 	exit(code);
 }
