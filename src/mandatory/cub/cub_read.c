@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 19:02:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:24:29 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_read_cub(int fd, bool is_reading_map)
 	else
 	{
 		if (is_end)
-			ft_exit_cub3d(4);
+			ft_exit_cub3d(MAP_FORMAT);
 		is_reading = true;
 		line = aux;
 	}
@@ -113,8 +113,10 @@ char	**ft_get_cub(char *cub_raw)
 		line = ft_read_cub(fd, ft_strlen_arr(cub) >= 6);
 		if (!line || ft_strcmp(line, "", false))
 			continue ;
-		cub = ft_push_str(cub, line);
+		cub = ft_push_str(cub, line); // HOLA ALBERTO SOY UN LEAK
+		ft_free_matrix(cub);
 	}
 	free(line);
+	exit(8);
 	return (cub);
 }

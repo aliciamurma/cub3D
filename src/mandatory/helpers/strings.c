@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strings.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 13:10:06 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 16:49:51 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:10:05 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ bool	ft_str_includes(const char *haystack, const char *needle)
 		}
 		i++;
 	}
+	free(str);
 	if (f == 1)
 		return (true);
 	return (false);
