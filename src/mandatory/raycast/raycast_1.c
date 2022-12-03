@@ -3,22 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:39:23 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:31:06 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "mlx.h"
+#include "cub.h"
 #include "game.h"
 #include "raycast.h"
 #include "window.h"
-#include "cub.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
 
 /**
  * @brief Calcula la distancia perpendicular a el muro

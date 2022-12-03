@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   validators.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:07:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 15:06:56 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:28:55 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include "libft.h"
-#include "exit.h"
 #include "errors.h"
+#include "exit.h"
 
 /**
  * @brief Check that the parameters be 2: executable + map

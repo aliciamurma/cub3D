@@ -6,19 +6,17 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:34:47 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/02 21:17:18 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:31:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include <stdlib.h>
 #include "mlx.h"
 #include "game.h"
+#include "cub.h"
 #include "raycast.h"
 #include "window.h"
-#include "cub.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
 
 /**
  * @brief Recogemos la dirección del rayo

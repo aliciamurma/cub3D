@@ -6,46 +6,15 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/30 11:12:26 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:29:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include "game.h"
 #include "cub.h"
 #include "exit.h"
+#include "game.h"
 #include "helpers.h"
-
-/**
- * @brief Check if there is only 1 player
- * Remember that the player can be N, S, E or W
- * 
- * @param game 
- */
-void	ft_check_one_player(char **map)
-{
-	int	player;
-	int	c1;
-	int	c2;
-
-	c1 = 0;
-	c2 = 0;
-	player = 0;
-	while (map[c1])
-	{
-		c2 = 0;
-		while (map[c1][c2])
-		{
-			if (ft_is_player(map[c1][c2]))
-				player++;
-			c2++;
-		}
-		c1++;
-	}
-	if (player != 1)
-		ft_exit_cub3d(CUB_FORMAT);
-}
 
 /**
  * @brief Check if there is a letter different from 
@@ -102,10 +71,7 @@ void	ft_check_surrounded_x(char **map)
 				ft_exit_cub3d(CUB_FORMAT);
 			if (map[c1][c2] == '0' && (map[c1][c2 +1] == ' '
 			|| map[c1][c2 +1] == '\n' || map[c1][c2 +1] == '\0'))
-			{
-				printf("IM IN POS %d\n %d\n", c1, c2);
 				ft_exit_cub3d(CUB_FORMAT);
-			}
 			c2++;
 		}
 		c1++;

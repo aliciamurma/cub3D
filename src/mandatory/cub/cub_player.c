@@ -6,16 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:15:42 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:25:39 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 #include "player.h"
 #include "helpers.h"
+#include "exit.h"
 
 /**
  * @brief Get the player position
@@ -68,4 +66,34 @@ void	ft_get_player_dir(t_player *player, char **map)
 		}
 		c1++;
 	}
+}
+
+/**
+ * @brief Check if there is only 1 player
+ * Remember that the player can be N, S, E or W
+ * 
+ * @param game 
+ */
+void	ft_check_one_player(char **map)
+{
+	int	player;
+	int	c1;
+	int	c2;
+
+	c1 = 0;
+	c2 = 0;
+	player = 0;
+	while (map[c1])
+	{
+		c2 = 0;
+		while (map[c1][c2])
+		{
+			if (ft_is_player(map[c1][c2]))
+				player++;
+			c2++;
+		}
+		c1++;
+	}
+	if (player != 1)
+		ft_exit_cub3d(CUB_FORMAT);
 }
