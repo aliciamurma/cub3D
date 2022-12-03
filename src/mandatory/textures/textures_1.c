@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 19:43:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:58:26 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 #include "exit.h"
 #include "helpers.h"
 #include "textures.h"
+
+int	ft_get_checked_colors(char *str_color)
+{
+	int	aux;
+
+	ft_check_color_digit(str_color);
+	aux = ft_atoi(str_color);
+	ft_check_color(aux);
+	return (aux);
+}
 
 /**
  * @brief Parsea la informacion del color del .cub
@@ -36,11 +46,11 @@ unsigned int	ft_parse_color(char *input)
 	{
 		aux = ft_strtrim(color_arr[i], " ");
 		if (i == 0)
-			color.r = ft_atoi(aux);
+			color.r = ft_get_checked_colors(aux);
 		if (i == 1)
-			color.g = ft_atoi(aux);
+			color.g = ft_get_checked_colors(aux);
 		if (i == 2)
-			color.b = ft_atoi(aux);
+			color.b = ft_get_checked_colors(aux);
 		free(aux);
 		i++;
 	}

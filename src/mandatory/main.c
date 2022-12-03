@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 19:42:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:02:52 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,9 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx.mlx_ptr);
 	return (0);
 }
+
+// TODO
+// 2 NO lo coge como bien
+// los numeros los sigue cogiendo mal: maximos, minimos, letras
+// si alguno esta vacio, lo coge bien
+// tenemos floor and ceiling al reves 
