@@ -6,13 +6,14 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 19:44:29 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:43:37 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include "player.h"
 #include "helpers.h"
+#include "exit.h"
 #include <stdio.h>
 
 /**

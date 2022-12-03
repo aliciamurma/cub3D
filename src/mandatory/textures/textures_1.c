@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 19:58:26 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:11:11 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ unsigned int	ft_parse_color(char *input)
 	int		i;
 
 	color_arr = ft_split(input, ',');
+	if (!color_arr[0] || !color_arr[1] || !color_arr[2])
+		ft_exit_cub3d(MAP_FORMAT);
 	i = 0;
 	while (color_arr[i])
 	{
