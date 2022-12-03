@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 13:52:15 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:39:08 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,10 @@ void	ft_move_forward(t_player *player, char **map)
 
 	new_pos_x = ft_get_new_position(player->dir.x);
 	new_pos_y = ft_get_new_position(player->dir.y);
-	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1)
-		&& ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
-	{
+	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1))
 		player->pos.x += new_pos_x;
+	if (ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
 		player->pos.y += new_pos_y;
-	}
 }
 
 /**
@@ -112,10 +110,8 @@ void	ft_move_backward(t_player *player, char **map)
 	printf("px: %f, py: %f\n", player->plane.x, player->plane.y);
 	printf("nx: %f, ny: %f\n", new_pos_x, new_pos_y);
 	printf("2\n");
-	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1)
-		&& ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
-	{
+	if (ft_can_move(map, player->pos.x - new_pos_x, player->pos.y, 1))
 		player->pos.x -= new_pos_x;
+	if (ft_can_move(map, player->pos.x, player->pos.y - new_pos_y, 1))
 		player->pos.y -= new_pos_y;
-	}
 }
