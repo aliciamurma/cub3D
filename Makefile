@@ -18,7 +18,7 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				errors.c \
 				exit.c \
 				game.c \
-				get_next_line.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
+				get_next_line.c get_next_line_utils.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
 				images.c \
 				inputs.c \
 				player_1.c player_2.c directions.c \
@@ -105,7 +105,7 @@ run: all
 	@./$(BIN) ./src/assets/maps/map.cub
 
 leaks: $(BIN)
-	leaks -atExit -- ./$(BIN)
+	leaks -atExit -- ./$(BIN) ./src/assets/maps/map.cub
 
 test: all
 	@echo "$(BLUE)Executing tests...$(NC)"

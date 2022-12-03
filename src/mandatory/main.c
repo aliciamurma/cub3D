@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 18:33:19 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 20:31:57 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main(int argc, char **argv)
 	ft_check_parameters(argc, argv);
 	game.mlx = ft_new_window();
 	game.map = ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
-	mlx_destroy_window(game.mlx.mlx_ptr, game.mlx.win_ptr);
 	ft_exit_cub3d(4);
+	mlx_destroy_window(game.mlx.mlx_ptr, game.mlx.win_ptr);
 	game.player = ft_new_player(game.map.map);
 	mlx_loop_hook(game.mlx.mlx_ptr, &ft_game_loop, &game);
 	mlx_hook(game.mlx.win_ptr, 2, 0, handle_keydown, &game);
