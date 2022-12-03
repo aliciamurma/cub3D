@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:55:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:45:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ unsigned int	ft_parse_color(char *input)
 		free(aux);
 		i++;
 	}
+	free(aux);
 	ft_free_matrix(color_arr);
+	free(input);
 	return (ft_create_rgb(color));
 }

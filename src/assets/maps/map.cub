@@ -1,4 +1,4 @@
-NO ./src/assets/textures/north.xpm
+NO ./src/assets,/textures/north.xpm
 WE       ./src/assets/textures/west.xpm
 
 SO ./src/assets/textures/south.xpm

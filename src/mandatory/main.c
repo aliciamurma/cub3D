@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 17:28:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:48:46 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "inputs.h"
 #include "validators.h"
 #include "window.h"
+#include "exit.h"
 
 int	main(int argc, char **argv)
 {
