@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 19:24:57 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:43:40 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,6 @@ char	**ft_get_cub(char *cub_raw)
 			continue ;
 		cub = ft_push_str(cub, line); // HOLA ALBERTO SOY UN LEAK
 	}
-	ft_free_matrix(cub);
 	free(line);
-	exit(8);
 	return (cub);
 }
