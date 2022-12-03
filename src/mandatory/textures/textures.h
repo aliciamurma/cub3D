@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 00:43:08 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:40:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ typedef struct s_texture
 	unsigned int	floor;
 	unsigned int	ceil;
 }	t_texture;
-
-typedef struct s_color
-{
-	int	r;
-	int	g;
-	int	b;
-}	t_color;
 
 typedef struct s_texture_x
 {

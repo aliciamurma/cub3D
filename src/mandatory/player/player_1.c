@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/02 20:23:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 13:52:15 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,7 @@ t_player	ft_new_player(char **map)
 	t_player	player;
 
 	player.pos = ft_get_player_pos(map);
-	printf("my pos is x: %f y: %f\n", player.pos.x, player.pos.y);
 	ft_get_player_dir(&player, map);
-	// printf("my dir is x: %f y: %f\n", player.dir.x, player.dir.y);
-	// player.pos.x = 6;
-	// player.pos.y = 9;
-	// player.dir.x = -1;
-	// player.dir.y = 0;
-	// player.plane.x = 0;
-	// player.plane.y = 0.66;
 	player.movement.forward = false;
 	player.movement.backward = false;
 	player.movement.right = false;
@@ -53,10 +45,19 @@ t_player	ft_new_player(char **map)
  * @return true 
  * @return false 
  */
-bool	ft_can_move(char **map, double pos_x, double pos_y)
+bool	ft_can_move(char **map, double pos_x, double pos_y, t_orientation ori)
 {
-	if (map[(int)pos_x][(int)pos_y] == '0')
+	(void)ori;
+	printf("x: %f y: %f\n", pos_x, pos_y);
+	printf("%c\n", map[(int)trunc(pos_x)][(int)trunc(pos_y)]);
+	if (map[(int)trunc(pos_x)][(int)trunc(pos_y)] != '1'
+		&& map[(int)trunc(pos_x + 0.25)][(int)trunc(pos_y + 0.25)] != '1'
+		&& map[(int)trunc(pos_x - 0.25)][(int)trunc(pos_y - 0.25)] != '1'
+		&& map[(int)trunc(pos_x - 0.25)][(int)trunc(pos_y + 0.25)] != '1'
+		&& map[(int)trunc(pos_x + 0.25)][(int)trunc(pos_y - 0.25)] != '1'
+		)
 		return (true);
+	printf("NO\n");
 	return (false);
 }
 
@@ -84,10 +85,12 @@ void	ft_move_forward(t_player *player, char **map)
 
 	new_pos_x = ft_get_new_position(player->dir.x);
 	new_pos_y = ft_get_new_position(player->dir.y);
-	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y))
+	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1)
+		&& ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
+	{
 		player->pos.x += new_pos_x;
-	if (ft_can_move(map, player->pos.x, new_pos_y + player->pos.y))
 		player->pos.y += new_pos_y;
+	}
 }
 
 /**
@@ -103,8 +106,16 @@ void	ft_move_backward(t_player *player, char **map)
 
 	new_pos_x = ft_get_new_position(player->dir.x);
 	new_pos_y = ft_get_new_position(player->dir.y);
-	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y))
+	printf("1\n");
+	printf("x: %f, y: %f\n", player->pos.x, player->pos.y);
+	printf("dx: %f, dy: %f\n", player->dir.x, player->dir.y);
+	printf("px: %f, py: %f\n", player->plane.x, player->plane.y);
+	printf("nx: %f, ny: %f\n", new_pos_x, new_pos_y);
+	printf("2\n");
+	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1)
+		&& ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
+	{
 		player->pos.x -= new_pos_x;
-	if (ft_can_move(map, player->pos.x, new_pos_y + player->pos.y))
 		player->pos.y -= new_pos_y;
+	}
 }

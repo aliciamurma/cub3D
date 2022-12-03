@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/02 20:00:34 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:43:53 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdbool.h>
 // # include "game.h"
 
-char			**ft_colour_split(char *str);
 void			ft_free_matrix(char **str);
 int				ft_strlen_map(char **str);
 char			**ft_words_split(char *str);

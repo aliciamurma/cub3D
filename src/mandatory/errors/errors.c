@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:58:09 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/29 10:43:51 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:43:26 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ char	*ft_get_error(int code)
 		return ("Incorrect cub format");
 	if (code == TEXT_NOTFOUND)
 		return ("Texture not found");
+	if (code == COLOR_FORMAT)
+		return ("Colour not found");
 	return ("");
 }

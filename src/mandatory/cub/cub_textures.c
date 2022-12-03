@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/02 20:43:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:52:54 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ unsigned int	ft_get_color(char *texture)
 
 	input = ft_parse_texture(texture);
 	if (!ft_check_comas(input))
-	// || !ft_correct_numbers(input))
 		ft_exit_cub3d(MAP_FORMAT);
 	return (ft_parse_color(input));
 }

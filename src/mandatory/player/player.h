@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/30 21:52:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 13:42:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,17 @@ typedef struct s_player
 	t_rotation	rotation;
 }	t_player;
 
-// t_player	ft_new_player(void);
+typedef enum s_orientation
+{
+	N,
+	S,
+	W,
+	E
+}	t_orientation;
+
 t_player	ft_new_player(char **map);
-bool		ft_can_move(char **map, double pos_x, double pos_y);
+bool		ft_can_move(char **map, double pos_x,
+				double pos_y, t_orientation ori);
 double		ft_get_new_position(double dir);
 void		ft_move_forward(t_player *player, char **map);
 void		ft_move_backward(t_player *player, char **map);
@@ -56,5 +64,5 @@ void		ft_rotate_left(t_player *player);
 void		ft_rotate_right(t_player *player);
 void		ft_get_player_dir(t_player *player, char **map);
 t_vector	ft_get_player_pos(char **map);
-
+bool can_move(char **map, int dir, float new_pos, int pos);
 #endif

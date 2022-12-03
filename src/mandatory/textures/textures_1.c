@@ -3,32 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   textures_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:42:00 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 11:55:23 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "textures.h"
-#include "helpers.h"
 #include <stdio.h>
-
-/**
- * @brief Convierte un color rgb a hexadecimal
- * 
- * @param color color grb
- * @return unsigned int 
- */
-unsigned int	create_rgb(t_color color)
-{
-	return (
-		((color.r & 0xff) << 16)
-		+ ((color.g & 0xff) << 8)
-		+ (color.b & 0xff)
-	);
-}
+#include "libft.h"
+#include "color.h"
+#include "exit.h"
+#include "helpers.h"
+#include "textures.h"
 
 /**
  * @brief Parsea la informacion del color del .cub
@@ -36,8 +23,6 @@ unsigned int	create_rgb(t_color color)
  * @param input linea leida del .cub
  * @return unsigned int 
  */
-// TODO valorar si seria necesario que el atoi mirase si no 
-// enviamos un numero y dar un error
 unsigned int	ft_parse_color(char *input)
 {
 	char	**color_arr;
@@ -60,5 +45,5 @@ unsigned int	ft_parse_color(char *input)
 		i++;
 	}
 	ft_free_matrix(color_arr);
-	return (create_rgb(color));
+	return (ft_create_rgb(color));
 }
