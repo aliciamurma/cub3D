@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 16:09:45 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:02:20 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ char	**ft_get_cub(char *cub_raw)
 			continue ;
 		cub = ft_push_str(cub, line);
 	}
+	free(line);
 	return (cub);
 }

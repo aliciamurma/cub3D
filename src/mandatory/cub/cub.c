@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 17:49:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:01:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ t_cub	ft_parse_cub(void *mlx, char *cub_raw)
 	char		**cub_arr;
 
 	cub_arr = ft_get_cub(cub_raw);
+	ft_free_cub(cub_arr);
+	exit(8);
 	cub.textures = ft_parse_cub_textures(mlx, cub_arr);
 	cub.map = &cub_arr[6];
-	ft_free_matrix(cub_arr);
+	ft_free_cub(cub_arr);
 	cub.height = ft_get_map_height(cub.map);
 	cub.width = ft_get_map_width(cub.map);
 	ft_parse_map(cub.map, cub.height, cub.width);
