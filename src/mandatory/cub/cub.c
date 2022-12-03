@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 21:09:53 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:19:22 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ t_cub	ft_parse_cub(void *mlx, char *cub_raw)
 	char		**cub_arr;
 
 	cub_arr = ft_get_cub(cub_raw);
-	exit(8);
-	ft_free_cub(cub_arr);
 	ft_check_repeated_textures(cub_arr);
 	cub.textures = ft_parse_cub_textures(mlx, cub_arr);
 	cub.map = &cub_arr[6];

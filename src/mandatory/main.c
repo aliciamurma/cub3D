@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 21:09:48 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:16:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "validators.h"
 #include "window.h"
 #include "exit.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -25,7 +26,6 @@ int	main(int argc, char **argv)
 	ft_check_parameters(argc, argv);
 	game.mlx = ft_new_window();
 	game.map = ft_parse_cub(game.mlx.mlx_ptr, argv[1]);
-	ft_exit_cub3d(4);
 	mlx_destroy_window(game.mlx.mlx_ptr, game.mlx.win_ptr);
 	game.player = ft_new_player(game.map.map);
 	mlx_loop_hook(game.mlx.mlx_ptr, &ft_game_loop, &game);
@@ -37,5 +37,4 @@ int	main(int argc, char **argv)
 }
 
 // TODO
-// 2 NO lo coge como bien
-// tenemos floor and ceiling al reves 
+// tenemos floor and ceiling al reves

@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 20:50:31 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:19:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "helpers.h"
 #include "textures.h"
 #include "images.h"
+#include <stdio.h>
 
 /**
  * @brief Comprueba que tipo de textura es la linea del .cub
