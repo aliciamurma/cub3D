@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 21:19:09 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:27:18 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,9 @@ t_texture	ft_parse_cub_textures(void *mlx, char **cub)
 			textures.east = ft_get_texture(mlx, cub[i]);
 		if (type == WE)
 			textures.west = ft_get_texture(mlx, cub[i]);
-		if (type == C)
-			textures.floor = ft_get_color(cub[i]);
 		if (type == F)
+			textures.floor = ft_get_color(cub[i]);
+		if (type == C)
 			textures.ceil = ft_get_color(cub[i]);
 		i++;
 	}
