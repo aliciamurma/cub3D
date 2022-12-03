@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:26:15 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 16:40:40 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:14:26 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,10 @@ void	ft_move_left(t_player *player, char **map)
 
 	new_pos_x = ft_get_new_position(player->plane.x);
 	new_pos_y = ft_get_new_position(player->plane.y);
-	if (ft_can_move(map, player->pos.x - new_pos_x, player->pos.y, 1))
+	if (ft_can_move(map, player->pos.x - new_pos_x, player->pos.y))
 		player->pos.x -= new_pos_x;
-	if (ft_can_move(map, player->pos.x, player->pos.y - new_pos_y, 1))
+	if (ft_can_move(map, player->pos.x, player->pos.y - new_pos_y))
 		player->pos.y -= new_pos_y;
-}
-
-t_orientation	ft_get_orientation(t_vector plane)
-{
-	if (plane.x == 0.0 && plane.y == 1.0)
-		return (E);
-	return (N);
 }
 
 /**
@@ -55,9 +48,9 @@ void	ft_move_right(t_player *player, char **map)
 
 	new_pos_x = ft_get_new_position(player->plane.x);
 	new_pos_y = ft_get_new_position(player->plane.y);
-	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y, 1))
+	if (ft_can_move(map, new_pos_x + player->pos.x, player->pos.y))
 		player->pos.x += new_pos_x;
-	if (ft_can_move(map, player->pos.x, new_pos_y + player->pos.y, 1))
+	if (ft_can_move(map, player->pos.x, new_pos_y + player->pos.y))
 		player->pos.y += new_pos_y;
 }
 

@@ -21,7 +21,7 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				get_next_line.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
 				images.c \
 				inputs.c \
-				player_1.c player_2.c \
+				player_1.c player_2.c directions.c \
 				raycast_1.c raycast_2.c \
 				render.c \
 				textures_1.c textures_2.c \
