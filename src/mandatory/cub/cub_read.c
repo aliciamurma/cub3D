@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 21:18:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:05:17 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,11 @@ char	**ft_get_cub(char *cub_raw)
 	{
 		line = ft_read_cub(fd, ft_strlen_arr(cub) >= 6);
 		if (!line || ft_strcmp(line, "", false))
+		{
+			free(line);
 			continue ;
-		cub = ft_push_str(cub, line); // HOLA ALBERTO SOY UN LEAK
+		}
+		cub = ft_push_str(cub, line);
 	}
 	free(line);
 	return (cub);
