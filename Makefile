@@ -28,6 +28,22 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				validators.c \
 				window.c \
 
+MAIN_B			= main_bonus.c
+
+SRCS_B 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
+				errors.c \
+				exit.c \
+				game.c \
+				get_next_line.c get_next_line_utils.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
+				images.c \
+				inputs.c \
+				player_1.c player_2.c player_directions.c \
+				raycast_1.c raycast_2.c \
+				render_1.c render_2.c render_weapon.c \
+				textures_1.c textures_2.c \
+				validators.c \
+				window.c \
+
 # LIBS
 LIBS_PATH		:= libs
 LIBFT_PATH		:= libft
@@ -57,36 +73,68 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/validators \
 					src/mandatory/window \
 
-INC 			= $(addprefix -I , $(INCLUDES))
+INC			= $(addprefix -I , $(INCLUDES))
+
+INCLUDES_B		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
+					src/bonus/cub \
+					src/bonus/errors \
+					src/bonus/exit \
+					src/bonus/game \
+					src/bonus/helpers \
+					src/bonus/images \
+					src/bonus/inputs \
+					src/bonus/player \
+					src/bonus/raycast \
+					src/bonus/render \
+					src/bonus/textures \
+					src/bonus/types \
+					src/bonus/validators \
+					src/bonus/window \
+
+INC_B			= $(addprefix -I , $(INCLUDES_B))
 
 # OBJECTS
 OBJS_MAIN		= $(addprefix $(OBJS_DIR)/, $(MAIN:.c=.o))
 OBJS_SRC		= $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 OBJS			= $(OBJS_MAIN) $(OBJS_SRC)
 
+OBJS_MAIN_B		= $(addprefix $(OBJS_DIR)/, $(MAIN_B:.c=.o))
+OBJS_SRC_B		= $(addprefix $(OBJS_DIR)/, $(SRCS_B:.c=.o))
+OBJS_B			= $(OBJS_MAIN) $(OBJS_SRC_B)
+
 
 # DEPENDECES
 DEPS				= $(patsubst %.o, %.d, $(OBJS)) 
+DEPS_B				= $(patsubst %.o, %.d, $(OBJS_B)) 
 DEPFLAGS			= -MMD -MF
 
 # PROGRAM NAME
-NAME 			:= cub3D
+NAME 				:= cub3D
+NAME_B 			:= cub3D_bonus
 
 # BINARY PATH
 BIN = $(BIN_DIR)/$(NAME)
+BIN_B = $(BIN_DIR)/$(NAME_B)
 
 vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src/mandatory/window \
 	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
-	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render
-# vpath %.c src src/assets src/mandatory src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs src/mandatory/maps
+	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render \
+	\
+	src/bonus src/bonus/game src/bonus/exit src/bonus/window \
+	src/bonus/cub_info src/bonus/helpers src/bonus/inputs \
+	src/bonus/raycast src/bonus/player src/bonus/textures src/bonus/helpers \
+	src/bonus/validators src/bonus/cub src/bonus/errors src/bonus/images src/bonus/render
 
 .SECONDEXPANSION:
 
 all: $(LIBFT) $(MLX) $(BIN)
 
+bonus: $(LIBFT) $(MLX) $(BIN_B)
+
 $(OBJS_DIR)/%.o: %.c | $$(@D)
-	@$(CC) $(FLAGS) -c $(INC)  $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
+	@$(CC) $(FLAGS) -c $(INC) $(INC_B) $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
+
 
 $(LIBFT): libft_force_make
 	@make -C $(LIBS_PATH)/libft
@@ -101,8 +149,17 @@ $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
 	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN)
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
+$(BIN_B): $(OBJS_B) $(BIN_DIR) $(LIBS)
+	@echo "$(BLUE)$(NAME_B) compiling...$(NC)"
+	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS_B) $(LIBS) -o $(BIN_B)
+	@echo "$(GREEN)$(NAME_B) compiled!$(NC)"
+
+
 run: all
 	@./$(BIN) ./src/assets/maps/map.cub
+
+run_b: bonus
+	@./$(BIN_B) ./src/assets/maps/map.cub
 
 leaks: $(BIN)
 	leaks -atExit -- ./$(BIN) ./src/assets/maps/map.cub
@@ -121,10 +178,13 @@ clean:
 	@make fclean -C $(LIBS_PATH)/libft
 	@make clean -C $(LIBS_PATH)/mlx
 	@$(RM) $(OBJS) $(DEPS)
+	@$(RM) $(OBJS_B) $(DEPS_B)
 	@echo "$(GREEN)$(NAME) cleaned!$(NC)"
+	@echo "$(GREEN)$(NAME_B) cleaned!$(NC)"
 
 fclean:		clean
 	@$(RM) $(BIN)
+	@$(RM) $(BIN_B)
 
 re:	fclean all
 
@@ -135,5 +195,6 @@ $(BIN_DIR):
 	@mkdir -p $(BIN_DIR)
 
 -include $(DEPS)
+-include $(DEPS_B)
 
-.PHONY: all clean fclean re leaks run test check_ft norm norm2 libft_force_make mlx_force_make
+.PHONY: all clean fclean re leaks run test check_ft norm norm2 libft_force_make mlx_force_make bonus
