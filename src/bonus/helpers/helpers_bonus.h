@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.h                                          :+:      :+:    :+:   */
+/*   helpers_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:16:19 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:43:53 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:10 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPERS_H
-# define HELPERS_H
+#ifndef HELPERS_BONUS_H
+# define HELPERS_BONUS_H
 
 # include <stdlib.h>
 # include <stdbool.h>

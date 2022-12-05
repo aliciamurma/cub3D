@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_textures.c                                     :+:      :+:    :+:   */
+/*   cub_textures_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 15:46:46 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 21:27:18 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:14:47 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "strings.h"
-#include "cub.h"
-#include "exit.h"
-#include "errors.h"
-#include "helpers.h"
-#include "textures.h"
-#include "images.h"
+#include "strings_bonus.h"
+#include "cub_bonus.h"
+#include "exit_bonus.h"
+#include "errors_bonus.h"
+#include "helpers_bonus.h"
+#include "textures_bonus.h"
+#include "images_bonus.h"
 #include <stdio.h>
 
 /**

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_map.c                                          :+:      :+:    :+:   */
+/*   cub_map_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:29:57 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:13:53 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "cub.h"
-#include "exit.h"
-#include "game.h"
-#include "helpers.h"
+#include "cub_bonus.h"
+#include "exit_bonus.h"
+#include "game_bonus.h"
+#include "helpers_bonus.h"
 
 /**
  * @brief Check if there is a letter different from 

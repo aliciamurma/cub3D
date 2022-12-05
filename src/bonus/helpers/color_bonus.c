@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 11:40:02 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:54:08 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:17:17 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "color.h"
-#include "exit.h"
+#include "color_bonus.h"
+#include "exit_bonus.h"
 
 /**
  * @brief Verifica que el color entre entre el numero 0 y 255, incluidos

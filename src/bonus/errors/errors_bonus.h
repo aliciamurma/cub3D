@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   errors_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 11:38:58 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:54:16 by amurcia-         ###   ########.fr       */
+/*   Created: 2022/11/27 10:57:55 by aramirez          #+#    #+#             */
+/*   Updated: 2022/12/05 17:15:06 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef ERRORS_BONUS_H
+# define ERRORS_BONUS_H
 
-typedef struct s_color
+typedef enum e_errors
 {
-	int	r;
-	int	g;
-	int	b;
-}	t_color;
+	INV_ARGS = 1,
+	INV_CUB_EXT = 2,
+	OPEN_CUB = 3,
+	MAP_FORMAT = 4,
+	CUB_FORMAT = 5,
+	TEXT_NOTFOUND = 6,
+	COLOR_FORMAT = 7
+}	t_errors;
 
-void			ft_check_color(int color);
-void			ft_check_color_digit(char *color);
-unsigned int	ft_create_rgb(t_color color);
+char	*ft_get_error(int code);
 
 #endif

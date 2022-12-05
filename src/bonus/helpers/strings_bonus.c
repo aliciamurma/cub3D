@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strings.c                                          :+:      :+:    :+:   */
+/*   strings_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 13:10:06 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 19:43:50 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:28 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include "libft.h"
-#include "memory.h"
+#include "memory_bonus.h"
 
 int	ft_strlen_arr(char	**arr)
 {

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_2.c                                         :+:      :+:    :+:   */
+/*   player_2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:26:15 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 17:14:26 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:51 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <math.h>
 #include <stdio.h>
-#include "game.h"
-#include "player.h"
+#include "game_bonus.h"
+#include "player_bonus.h"
 
 /**
  * @brief Mueve el personaje hacia la izquierda

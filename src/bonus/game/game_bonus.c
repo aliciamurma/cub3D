@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   game_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:53:25 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:23:32 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:15:49 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
-#include "player.h"
-#include "render.h"
+#include "cub_bonus.h"
+#include "player_bonus.h"
+#include "render_bonus.h"
 
 /**
  * @brief Loop del juego

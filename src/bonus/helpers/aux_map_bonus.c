@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux_map.c                                          :+:      :+:    :+:   */
+/*   aux_map_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:34:15 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:23:32 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:17:09 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "helpers.h"
+#include "helpers_bonus.h"
 #include <stdio.h>
 
 bool	ft_is_player(char pos)

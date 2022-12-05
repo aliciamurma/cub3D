@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.c                                              :+:      :+:    :+:   */
+/*   cub_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 15:05:24 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:13:45 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
-#include "player.h"
-#include "helpers.h"
-#include "exit.h"
+#include "cub_bonus.h"
+#include "player_bonus.h"
+#include "helpers_bonus.h"
+#include "exit_bonus.h"
 #include <stdio.h>
 
 /**

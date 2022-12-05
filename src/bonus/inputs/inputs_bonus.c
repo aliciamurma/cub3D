@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inputs.c                                           :+:      :+:    :+:   */
+/*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 15:37:57 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:17 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "game.h"
-#include "player.h"
-#include "inputs.h"
-#include "exit.h"
+#include "game_bonus.h"
+#include "player_bonus.h"
+#include "inputs_bonus.h"
+#include "exit_bonus.h"
 
 /**
  * @brief Evento que se ejecuta al pulsar una tecla

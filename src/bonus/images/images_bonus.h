@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   images.h                                           :+:      :+:    :+:   */
+/*   images_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:27:10 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 20:53:52 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:02 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMAGES_H
-# define IMAGES_H
+#ifndef IMAGES_BONUS_H
+# define IMAGES_BONUS_H
 
 # include <stdbool.h>
 

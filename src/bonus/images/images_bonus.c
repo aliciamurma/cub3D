@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   images.c                                           :+:      :+:    :+:   */
+/*   images_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:42:49 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/29 00:44:44 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:57 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "window.h"
-#include "images.h"
-#include "exit.h"
-#include "errors.h"
+#include "mlx_bonus.h"
+#include "window_bonus.h"
+#include "images_bonus.h"
+#include "exit_bonus.h"
+#include "errors_bonus.h"
 
 /**
  * @brief Crea una imagen a partir del path

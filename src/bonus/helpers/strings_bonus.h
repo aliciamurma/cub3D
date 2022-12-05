@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strings.h                                          :+:      :+:    :+:   */
+/*   strings_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 13:10:12 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 16:49:51 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:37 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRINGS_H
-# define STRINGS_H
+#ifndef STRINGS_BONUS_H
+# define STRINGS_BONUS_H
 
 # include <stdbool.h>
 

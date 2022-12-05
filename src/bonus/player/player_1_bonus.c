@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_1.c                                         :+:      :+:    :+:   */
+/*   player_1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:16:14 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:47 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <math.h>
 #include <stdio.h>
-#include "game.h"
-#include "player.h"
+#include "game_bonus.h"
+#include "player_bonus.h"
 
 /**
  * @brief Crea la variable del jugador

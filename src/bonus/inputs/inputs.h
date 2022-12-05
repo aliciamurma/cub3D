@@ -6,14 +6,14 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:45:55 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/27 23:46:32 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:24 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUTS_H
-# define INPUTS_H
+#ifndef INPUTS_BONUS_H
+# define INPUTS_BONUS_H
 
-# include "game.h"
+# include "game_bonus.h"
 
 typedef enum e_inputs
 {

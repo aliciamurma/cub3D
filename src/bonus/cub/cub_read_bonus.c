@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_read.c                                         :+:      :+:    :+:   */
+/*   cub_read_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 15:05:17 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:14:36 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/stat.h>
 #include <stdio.h>
 #include <fcntl.h>
-#include "get_next_line.h"
-#include "helpers.h"
-#include "errors.h"
-#include "exit.h"
 #include "libft.h"
-#include "strings.h"
-#include "memory.h"
+#include "get_next_line_bonus.h"
+#include "helpers_bonus.h"
+#include "errors_bonus.h"
+#include "exit_bonus.h"
+#include "strings_bonus.h"
+#include "memory_bonus.h"
 
 /**
  * @brief Open the .cub and check if it can be opened

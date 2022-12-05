@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_player.c                                       :+:      :+:    :+:   */
+/*   cub_player_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:08:30 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:25:39 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:14:05 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "player.h"
-#include "helpers.h"
-#include "exit.h"
+#include "player_bonus.h"
+#include "helpers_bonus.h"
+#include "exit_bonus.h"
 
 /**
  * @brief Get the player position

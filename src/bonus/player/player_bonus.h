@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 17:13:19 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:59 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_H
-# define PLAYER_H
+#ifndef PLAYER_BONUS_H
+# define PLAYER_BONUS_H
 
 # define SPEED 0.06
 # define ROT_SPEED 0.02
 
 # include <stdbool.h>
-# include "vector.h"
+# include "vector_bonus.h"
 
 typedef struct s_movement
 {

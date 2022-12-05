@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   exit_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:29:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 19:44:47 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:15:22 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "exit.h"
-#include "errors.h"
+#include "exit_bonus.h"
+#include "errors_bonus.h"
 
 /**
  * @brief Pinta el error y su descripcio
