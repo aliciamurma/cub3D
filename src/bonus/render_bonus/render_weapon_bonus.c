@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_weapon.c                                    :+:      :+:    :+:   */
+/*   render_weapon_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:59:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:06:27 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include "window.h"
-#include "render.h"
-#include "images.h"
+#include <stdio.h>
+#include "window_bonus.h"
+#include "render_bonus.h"
+#include "images_bonus.h"
 
 void	ft_render_weapon(void *mlx)
 {

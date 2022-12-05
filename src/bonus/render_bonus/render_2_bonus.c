@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_2.c                                         :+:      :+:    :+:   */
+/*   render_2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:34:43 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 15:37:16 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:25 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "render.h"
-#include "game.h"
-#include "raycast.h"
+#include "render_bonus.h"
+#include "game_bonus.h"
+#include "raycast_bonus.h"
 
 /**
  * @brief Pinta el mapa del cub3D

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validators.c                                       :+:      :+:    :+:   */
+/*   validators_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 20:07:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 17:28:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:31 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include "libft.h"
-#include "errors.h"
-#include "exit.h"
+#include "errors_bonus.h"
+#include "exit_bonus.h"
 
 /**
  * @brief Check that the parameters be 2: executable + map

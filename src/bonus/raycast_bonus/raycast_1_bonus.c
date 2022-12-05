@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast_1.c                                        :+:      :+:    :+:   */
+/*   raycast_1_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 11:20:15 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:20:00 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "mlx.h"
-#include "cub.h"
-#include "game.h"
-#include "raycast.h"
-#include "window.h"
+#include "cub_bonus.h"
+#include "game_bonus.h"
+#include "raycast_bonus.h"
+#include "window_bonus.h"
 
 /**
  * @brief Calcula la distancia perpendicular a el muro

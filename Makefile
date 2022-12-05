@@ -30,19 +30,19 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 
 MAIN_B			= main_bonus.c
 
-SRCS_B 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
-				errors.c \
-				exit.c \
-				game.c \
-				get_next_line.c get_next_line_utils.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
-				images.c \
-				inputs.c \
-				player_1.c player_2.c player_directions.c \
-				raycast_1.c raycast_2.c \
-				render_1.c render_2.c render_weapon.c \
-				textures_1.c textures_2.c \
-				validators.c \
-				window.c \
+SRCS_B 			= cub_bonus.c cub_read_bonus.c cub_textures_bonus.c cub_map_bonus.c cub_player_bonus.c \
+				errors_bonus.c \
+				exit_bonus.c \
+				game_bonus.c \
+				get_next_line_bonus.c get_next_line_utils_bonus.c strings_bonus.c memory_bonus.c helpers_1_bonus.c helpers_3_bonus.c aux_map_bonus.c checkers_bonus.c color_bonus.c \
+				images_bonus.c \
+				inputs_bonus.c \
+				player_1_bonus.c player_2_bonus.c player_directions_bonus.c \
+				raycast_1_bonus.c raycast_2_bonus.c \
+				render_1_bonus.c render_2_bonus.c render_weapon_bonus.c \
+				textures_1_bonus.c textures_2_bonus.c \
+				validators_bonus.c \
+				window_bonus.c \
 
 # LIBS
 LIBS_PATH		:= libs
@@ -76,20 +76,20 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 INC			= $(addprefix -I , $(INCLUDES))
 
 INCLUDES_B		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
-					src/bonus/cub \
-					src/bonus/errors \
-					src/bonus/exit \
-					src/bonus/game \
-					src/bonus/helpers \
-					src/bonus/images \
-					src/bonus/inputs \
-					src/bonus/player \
-					src/bonus/raycast \
-					src/bonus/render \
-					src/bonus/textures \
-					src/bonus/types \
-					src/bonus/validators \
-					src/bonus/window \
+					src/bonus/cub_bonus \
+					src/bonus/errors_bonus \
+					src/bonus/exit_bonus \
+					src/bonus/game_bonus \
+					src/bonus/helpers_bonus \
+					src/bonus/images_bonus \
+					src/bonus/inputs_bonus \
+					src/bonus/player_bonus \
+					src/bonus/raycast_bonus \
+					src/bonus/render_bonus \
+					src/bonus/textures_bonus \
+					src/bonus/types_bonus \
+					src/bonus/validators_bonus \
+					src/bonus/window_bonus \
 
 INC_B			= $(addprefix -I , $(INCLUDES_B))
 
@@ -121,10 +121,10 @@ vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render \
 	\
-	src/bonus src/bonus/game src/bonus/exit src/bonus/window \
-	src/bonus/cub_info src/bonus/helpers src/bonus/inputs \
-	src/bonus/raycast src/bonus/player src/bonus/textures src/bonus/helpers \
-	src/bonus/validators src/bonus/cub src/bonus/errors src/bonus/images src/bonus/render
+	src/bonus src/bonus/game_bonus src/bonus/exit_bonus src/bonus/window_bonus \
+	src/bonus/cub_info_bonus src/bonus/helpers_bonus src/bonus/inputs_bonus \
+	src/bonus/raycast_bonus src/bonus/player_bonus src/bonus/textures_bonus src/bonus/helpers_bonus \
+	src/bonus/validators_bonus src/bonus/cub_bonus src/bonus/errors_bonus src/bonus/images_bonus src/bonus/render_bonus
 
 .SECONDEXPANSION:
 
