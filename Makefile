@@ -21,9 +21,9 @@ SRCS 			= cub.c cub_read.c cub_textures.c cub_map.c cub_player.c \
 				get_next_line.c get_next_line_utils.c strings.c memory.c helpers_1.c helpers_3.c aux_map.c checkers.c color.c \
 				images.c \
 				inputs.c \
-				player_1.c player_2.c directions.c \
+				player_1.c player_2.c player_directions.c \
 				raycast_1.c raycast_2.c \
-				render.c \
+				render_1.c render_2.c \
 				textures_1.c textures_2.c \
 				validators.c \
 				window.c \
@@ -115,10 +115,7 @@ check_ft:
 	@nm -u ./$(BIN)
 
 norm:
-	@norminette src/$(SRC) $(INCLUDES)  | sh tests/norminette.sh
-
-norm2:
-	@norminette src/$(SRC) $(INCLUDES) 
+	@norminette src/* libs/libft
 
 clean:
 	@make fclean -C $(LIBS_PATH)/libft

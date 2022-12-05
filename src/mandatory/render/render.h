@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:49:54 by aramirez          #+#    #+#             */
-/*   Updated: 2022/11/28 15:36:59 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:35:36 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_raycast_pos
 	t_raycast	raycast;
 }	t_raycast_pos;
 
-int	ft_render_map(t_game *game);
+int		ft_render_map(t_game *game);
+void	ft_render_ray(t_game *game, t_raycast_pos raycast_pos);
 
 #endif

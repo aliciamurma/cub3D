@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:25:41 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:37:57 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ int	handle_keyup(int key, t_game *game)
 int	handle_close(t_game *game)
 {
 	(void)game;
-	ft_exit_cub3d(3);
+	ft_exit_cub3d(0);
 	return (0);
 }

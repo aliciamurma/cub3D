@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/02 21:32:16 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:36:31 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,44 +115,23 @@ void	ft_render_walls(
 	}
 }
 
-/**
- * @brief Pinta el mapa del cub3D
- * 
- * @param game informacion del juego
- * @return int 
- */
-int	ft_render_map(t_game *game)
+void	ft_render_ray(t_game *game, t_raycast_pos raycast_pos)
 {
-	t_raycast_pos	raycast_pos;
-
-	mlx_clear_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
-	game->img.pointer = mlx_new_image(game->mlx.mlx_ptr, WIDTH, HEIGHT);
-	game->img.pixels = mlx_get_data_addr(game->img.pointer,
-			&game->img.bits_per_pixel, &game->img.line_size, &game->img.endian);
-	raycast_pos.x = 1;
-	while (raycast_pos.x < WIDTH)
-	{
-		raycast_pos.raycast = ft_get_ray(game, raycast_pos.x);
-		ft_render_floor(&game->img, raycast_pos.x,
-			raycast_pos.raycast.start_draw, game->map.textures.floor);
-		ft_render_ceil(&game->img, raycast_pos.x,
-			raycast_pos.raycast.end_draw, game->map.textures.ceil);
-		if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == 1)
-			ft_render_walls(raycast_pos, game->player,
-				&game->img, game->map.textures.east);
-		if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == -1)
-			ft_render_walls(raycast_pos, game->player,
-				&game->img, game->map.textures.west);
-		if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == 1)
-			ft_render_walls(raycast_pos, game->player,
-				&game->img, game->map.textures.north);
-		if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == -1)
-			ft_render_walls(raycast_pos, game->player,
-				&game->img, game->map.textures.south);
-		raycast_pos.x++;
-	}
-	mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr,
-		game->img.pointer, 0, 0);
-	mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
-	return (0);
+	raycast_pos.raycast = ft_get_ray(game, raycast_pos.x);
+	ft_render_floor(&game->img, raycast_pos.x,
+		raycast_pos.raycast.start_draw, game->map.textures.floor);
+	ft_render_ceil(&game->img, raycast_pos.x,
+		raycast_pos.raycast.end_draw, game->map.textures.ceil);
+	if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == 1)
+		ft_render_walls(raycast_pos, game->player,
+			&game->img, game->map.textures.east);
+	if (raycast_pos.raycast.side_2 == 1 && raycast_pos.raycast.step.y == -1)
+		ft_render_walls(raycast_pos, game->player,
+			&game->img, game->map.textures.west);
+	if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == 1)
+		ft_render_walls(raycast_pos, game->player,
+			&game->img, game->map.textures.north);
+	if (raycast_pos.raycast.side_2 == 0 && raycast_pos.raycast.step.x == -1)
+		ft_render_walls(raycast_pos, game->player,
+			&game->img, game->map.textures.south);
 }
