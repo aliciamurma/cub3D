@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 20:58:35 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:25:03 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ int	handle_mouse_move(int x, int y, t_game *game)
 	static int	old_pos = 0;
 
 	mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
-	mlx_mouse_move(game->mlx.win_ptr, x, y);
+	//mlx_mouse_move(game->mlx.win_ptr, x, y);
 	mlx_mouse_get_pos(game->mlx.win_ptr, &x, &y);
-	if (x > old_pos)
+	if (x > old_pos || x >= WIDTH)
 		ft_rotate_left(&game->player);
-	else if (x < old_pos)
+	else if (x < old_pos || x <= 0)
 		ft_rotate_right(&game->player);
 	old_pos = x;
 	return (0);
