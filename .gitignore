@@ -2,3 +2,5 @@
 bin
 obj
 .vscode
+libs/mlx/*.o
+libs/mlx/*.a
