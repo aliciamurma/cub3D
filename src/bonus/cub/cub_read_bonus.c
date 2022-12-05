@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:14:36 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:27:06 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ char	**ft_get_cub(char *cub_raw)
 		}
 		cub = ft_push_str(cub, line);
 	}
+	if (!line && ft_strlen_arr(cub) == 0)
+		ft_exit_cub3d(MAP_FORMAT);
 	free(line);
 	return (cub);
 }

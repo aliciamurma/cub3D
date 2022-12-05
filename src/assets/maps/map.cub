@@ -1,8 +1,8 @@
-WE ./src/assets/textures/north.xpm
-NO      ./src/assets/textures/west.xpm
+WE ./src/assets/textures/sw_1.xpm
+NO      ./src/assets/textures/sw_2.xpm
 
-SO ./src/assets/textures/south.xpm 
-EA ./src/assets/textures/east.xpm
+SO ./src/assets/textures/sw_3.xpm 
+EA ./src/assets/textures/sw_4.xpm
 
 
 
@@ -25,7 +25,7 @@ F 100,100,100
 
         1111111111111111111111111
         1000000000110000000000001
-        10110000011100000E0000001
+        10110000011100000S0000001
         1001000000000000000000001
 111111111011000001110000000000001
 100000000011000001110111111111111

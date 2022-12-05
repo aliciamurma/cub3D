@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:17 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:53:58 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,23 @@ int	handle_keydown(int key, t_game *game)
  * @return int 
  */
 int	handle_keyup(int key, t_game *game)
+{
+	if (key == UP)
+		game->player.movement.forward = false;
+	if (key == DOWN)
+		game->player.movement.backward = false;
+	if (key == RIGHT)
+		game->player.movement.right = false;
+	if (key == LEFT)
+		game->player.movement.left = false;
+	if (key == ROT_LEFT)
+		game->player.rotation.left = false;
+	if (key == ROT_RIGHT)
+		game->player.rotation.right = false;
+	return (0);
+}
+
+int	handle_mouse_move(int key, t_game *game)
 {
 	if (key == UP)
 		game->player.movement.forward = false;

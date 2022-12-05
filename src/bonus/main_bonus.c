@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:27:55 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:53:39 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	mlx_hook(game.mlx.win_ptr, 2, 0, handle_keydown, &game);
 	mlx_hook(game.mlx.win_ptr, 3, 0, handle_keyup, &game);
 	mlx_hook(game.mlx.win_ptr, 17, 0, handle_close, &game);
+	mlx_hook(game.mlx.win_ptr, 6, 0, handle_mouse_move, &game);
 	mlx_loop(game.mlx.mlx_ptr);
 	return (0);
 }
