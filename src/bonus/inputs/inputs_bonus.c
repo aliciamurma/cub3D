@@ -6,11 +6,12 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 19:53:58 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:58:08 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include <stdio.h>
 #include "game_bonus.h"
 #include "player_bonus.h"
 #include "inputs_bonus.h"
@@ -68,20 +69,10 @@ int	handle_keyup(int key, t_game *game)
 	return (0);
 }
 
-int	handle_mouse_move(int key, t_game *game)
+int	handle_mouse_move(int x, int y, t_game *game)
 {
-	if (key == UP)
-		game->player.movement.forward = false;
-	if (key == DOWN)
-		game->player.movement.backward = false;
-	if (key == RIGHT)
-		game->player.movement.right = false;
-	if (key == LEFT)
-		game->player.movement.left = false;
-	if (key == ROT_LEFT)
-		game->player.rotation.left = false;
-	if (key == ROT_RIGHT)
-		game->player.rotation.right = false;
+	printf("x: %i, y: %i\n", x, y);
+	(void)game;
 	return (0);
 }
 
