@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.h                                          :+:      :+:    :+:   */
+/*   raycast_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 17:29:10 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/28 16:37:40 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:48 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCAST_H
-# define RAYCAST_H
+#ifndef RAYCAST_BONUS_H
+# define RAYCAST_BONUS_H
 
-# include "game.h"
-# include "vector.h"
+# include "game_bonus.h"
+# include "vector_bonus.h"
 
 // TODO -> poner una variable con el objeto que impacta(actor)
 typedef struct s_raycast

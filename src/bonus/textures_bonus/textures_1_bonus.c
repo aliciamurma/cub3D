@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_1.c                                       :+:      :+:    :+:   */
+/*   textures_1_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:05:45 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 20:11:11 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:49 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
-#include "color.h"
-#include "exit.h"
-#include "helpers.h"
-#include "textures.h"
+#include "color_bonus.h"
+#include "exit_bonus.h"
+#include "helpers_bonus.h"
+#include "textures_bonus.h"
 
 int	ft_get_checked_colors(char *str_color)
 {

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.h                                         :+:      :+:    :+:   */
+/*   textures_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/03 11:40:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEXTURES_H
-# define TEXTURES_H
+#ifndef TEXTURES_BONUS_H
+# define TEXTURES_BONUS_H
 
 # include "images.h"
 # include "vector.h"

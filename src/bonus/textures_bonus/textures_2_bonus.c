@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_2.c                                       :+:      :+:    :+:   */
+/*   textures_2_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:53:04 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:21:01 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:56 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "vector.h"
-#include "window.h"
-#include "game.h"
-#include "textures.h"
+#include "vector_bonus.h"
+#include "window_bonus.h"
+#include "game_bonus.h"
+#include "textures_bonus.h"
 
 /**
  * @brief Obtiene la posicion en x de la textura donde queremos mirar el color

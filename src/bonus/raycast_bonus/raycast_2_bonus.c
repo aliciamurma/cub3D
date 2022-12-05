@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast_2.c                                        :+:      :+:    :+:   */
+/*   raycast_2_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:34:47 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:20:35 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:55 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdlib.h>
 #include "mlx.h"
-#include "game.h"
-#include "cub.h"
-#include "raycast.h"
-#include "window.h"
+#include "game_bonus.h"
+#include "cub_bonus.h"
+#include "raycast_bonus.h"
+#include "window_bonus.h"
 
 /**
  * @brief Recogemos la dirección del rayo

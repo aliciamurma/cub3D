@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.h                                           :+:      :+:    :+:   */
+/*   window_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:40:28 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/11/29 00:33:10 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:18:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WINDOW_H
-# define WINDOW_H
+#ifndef WINDOW_BONUS_H
+# define WINDOW_BONUS_H
 # define WIDTH 800
 # define HEIGHT 600
 # define NAME_WIN "MY CUB3D"

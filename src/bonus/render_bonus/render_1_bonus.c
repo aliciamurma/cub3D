@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_1.c                                         :+:      :+:    :+:   */
+/*   render_1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:07:46 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:33 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <mlx.h>
-#include "raycast.h"
-#include "window.h"
-#include "player.h"
-#include "game.h"
-#include "vector.h"
-#include "textures.h"
-#include "render.h"
+#include "raycast_bonus.h"
+#include "window_bonus.h"
+#include "player_bonus.h"
+#include "game_bonus.h"
+#include "vector_bonus.h"
+#include "textures_bonus.h"
+#include "render_bonus.h"
 
 /**
  * @brief Pinta un pixel en una imagen

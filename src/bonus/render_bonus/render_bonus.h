@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   render_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:49:54 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:05:58 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:19:20 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#ifndef RENDER_BONUS_H
+# define RENDER_BONUS_H
 
 # include "game.h"
 # include "raycast.h"
