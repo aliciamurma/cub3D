@@ -1,13 +1,13 @@
-NO ./src/assets/textures/north.xpm
-WE       ./src/assets/textures/west.xpm
+WE ./src/assets/textures/north.xpm
+NO      ./src/assets/textures/west.xpm
 
 SO ./src/assets/textures/south.xpm 
 EA ./src/assets/textures/east.xpm
 
 
 
-C 0,   0, 0
-F 36,100,36
+C 50,   50, 50
+F 100,100,100
 
 
        

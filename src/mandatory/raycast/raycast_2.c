@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:34:47 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/03 17:31:31 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:20:35 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_vector	ft_get_ray_dir(t_player player, int x)
 	double		camera_x;
 	t_vector	ray;
 
-	camera_x = 2 * x / (double)WIDTH - 1;
+	camera_x = 2 * x / (double)HEIGHT - 1;
 	ray.x = player.dir.x + player.plane.x * camera_x;
 	ray.y = player.dir.y + player.plane.y * camera_x;
 	return (ray);
