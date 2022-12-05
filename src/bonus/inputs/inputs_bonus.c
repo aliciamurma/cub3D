@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 19:58:08 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 20:58:35 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdio.h>
+#include "mlx.h"
 #include "game_bonus.h"
 #include "player_bonus.h"
 #include "inputs_bonus.h"
@@ -71,8 +72,16 @@ int	handle_keyup(int key, t_game *game)
 
 int	handle_mouse_move(int x, int y, t_game *game)
 {
-	printf("x: %i, y: %i\n", x, y);
-	(void)game;
+	static int	old_pos = 0;
+
+	mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
+	mlx_mouse_move(game->mlx.win_ptr, x, y);
+	mlx_mouse_get_pos(game->mlx.win_ptr, &x, &y);
+	if (x > old_pos)
+		ft_rotate_left(&game->player);
+	else if (x < old_pos)
+		ft_rotate_right(&game->player);
+	old_pos = x;
 	return (0);
 }
 
