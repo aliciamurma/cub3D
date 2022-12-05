@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:51:11 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 15:06:54 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:27:55 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "cub.h"
-#include "game.h"
-#include "inputs.h"
-#include "validators.h"
-#include "window.h"
-#include "exit.h"
+#include "cub_bonus.h"
+#include "game_bonus.h"
+#include "inputs_bonus.h"
+#include "validators_bonus.h"
+#include "window_bonus.h"
+#include "exit_bonus.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)

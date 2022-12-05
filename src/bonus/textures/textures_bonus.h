@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 12:59:38 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:03 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:24:14 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEXTURES_BONUS_H
 # define TEXTURES_BONUS_H
 
-# include "images.h"
-# include "vector.h"
+# include "images_bonus.h"
+# include "vector_bonus.h"
 
 typedef struct s_texture
 {

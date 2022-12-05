@@ -76,20 +76,20 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 INC			= $(addprefix -I , $(INCLUDES))
 
 INCLUDES_B		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
-					src/bonus/cub_bonus \
-					src/bonus/errors_bonus \
-					src/bonus/exit_bonus \
-					src/bonus/game_bonus \
-					src/bonus/helpers_bonus \
-					src/bonus/images_bonus \
-					src/bonus/inputs_bonus \
-					src/bonus/player_bonus \
-					src/bonus/raycast_bonus \
-					src/bonus/render_bonus \
-					src/bonus/textures_bonus \
-					src/bonus/types_bonus \
-					src/bonus/validators_bonus \
-					src/bonus/window_bonus \
+					src/bonus/cub \
+					src/bonus/errors \
+					src/bonus/exit \
+					src/bonus/game \
+					src/bonus/helpers \
+					src/bonus/images \
+					src/bonus/inputs \
+					src/bonus/player \
+					src/bonus/raycast \
+					src/bonus/render \
+					src/bonus/textures \
+					src/bonus/types \
+					src/bonus/validators \
+					src/bonus/window \
 
 INC_B			= $(addprefix -I , $(INCLUDES_B))
 
@@ -100,7 +100,7 @@ OBJS			= $(OBJS_MAIN) $(OBJS_SRC)
 
 OBJS_MAIN_B		= $(addprefix $(OBJS_DIR)/, $(MAIN_B:.c=.o))
 OBJS_SRC_B		= $(addprefix $(OBJS_DIR)/, $(SRCS_B:.c=.o))
-OBJS_B			= $(OBJS_MAIN) $(OBJS_SRC_B)
+OBJS_B			= $(OBJS_MAIN_B) $(OBJS_SRC_B)
 
 
 # DEPENDECES
@@ -121,10 +121,11 @@ vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render \
 	\
-	src/bonus src/bonus/game_bonus src/bonus/exit_bonus src/bonus/window_bonus \
-	src/bonus/cub_info_bonus src/bonus/helpers_bonus src/bonus/inputs_bonus \
-	src/bonus/raycast_bonus src/bonus/player_bonus src/bonus/textures_bonus src/bonus/helpers_bonus \
-	src/bonus/validators_bonus src/bonus/cub_bonus src/bonus/errors_bonus src/bonus/images_bonus src/bonus/render_bonus
+	src/bonus \
+	src/bonus src/bonus/game src/bonus/exit src/bonus/window \
+	src/bonus/cub_info src/bonus/helpers src/bonus/inputs \
+	src/bonus/raycast src/bonus/player src/bonus/textures src/bonus/helpers \
+	src/bonus/validators src/bonus/cub src/bonus/errors src/bonus/images src/bonus/render
 
 .SECONDEXPANSION:
 

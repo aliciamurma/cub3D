@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:34:43 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:25 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:38:13 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_render_map(t_game *game)
 	}
 	mlx_put_image_to_window(game->mlx.mlx_ptr, game->mlx.win_ptr,
 		game->img.pointer, 0, 0);
+	ft_render_weapon(game->mlx.mlx_ptr, game->mlx.win_ptr);
 	mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
 	return (0);
 }

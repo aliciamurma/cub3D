@@ -6,11 +6,11 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:42:49 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:18:57 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:30:34 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_bonus.h"
+#include "mlx.h"
 #include "window_bonus.h"
 #include "images_bonus.h"
 #include "exit_bonus.h"

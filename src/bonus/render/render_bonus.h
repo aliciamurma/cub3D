@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   render_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:49:54 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:36:43 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDER_BONUS_H
 # define RENDER_BONUS_H
 
-# include "game.h"
-# include "raycast.h"
+# include "game_bonus.h"
+# include "raycast_bonus.h"
 
 typedef struct s_raycast_pos
 {
@@ -25,6 +25,6 @@ typedef struct s_raycast_pos
 int		ft_render_map(t_game *game);
 void	ft_render_ray(t_game *game, t_raycast_pos raycast_pos);
 
-void	ft_render_weapon(void *mlx);
+void	ft_render_weapon(void *mlx, void *win);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:33 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:37:29 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ void	ft_render_walls(
 
 void	ft_render_ray(t_game *game, t_raycast_pos raycast_pos)
 {
-	ft_render_weapon(game->mlx.mlx_ptr);
 	raycast_pos.raycast = ft_get_ray(game, raycast_pos.x);
 	ft_render_floor(&game->img, raycast_pos.x,
 		raycast_pos.raycast.start_draw, game->map.textures.floor);
