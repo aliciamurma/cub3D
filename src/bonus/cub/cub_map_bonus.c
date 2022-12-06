@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 13:59:03 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:02:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	ft_check_map_letters(char **map)
 			if (map[c1][c2] != '1' && map[c1][c2] != '0'
 				&& map[c1][c2] != 'N' && map[c1][c2] != 'S'
 				&& map[c1][c2] != 'E' && map[c1][c2] != 'W'
-				&& map[c1][c2] != '\0' && map[c1][c2] != ' '
 				&& map[c1][c2] != 'D' && map[c1][c2] != '\t'
+				&& map[c1][c2] != '\0' && map[c1][c2] != ' '
 				&& map[c1][c2] != '\n')
 			{
 				ft_exit_cub3d(CUB_FORMAT);

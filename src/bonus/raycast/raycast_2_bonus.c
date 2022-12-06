@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:34:47 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:11:14 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ void	ft_set_distance(t_game *game, t_raycast *raycast)
 			raycast->side_2 = 1;
 		}
 		if (game->map.map[raycast->map.x][raycast->map.y] == '1')
+			hit = 1;
+		if (game->map.map[raycast->map.x][raycast->map.y] == 'D')
 			hit = 1;
 	}
 }
