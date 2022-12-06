@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 19:55:59 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:59:47 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 		}
 		
 	}
+	mlx_destroy_image(mlx.mlx_ptr, img1.pointer);
+	mlx_destroy_image(mlx.mlx_ptr, img2.pointer);
 }
