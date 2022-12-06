@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 19:21:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:55:59 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 	t_image img1;
 	t_image img2;
 
-	img1 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap1.xpm");
+	img1 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap1_n.xpm");
 	img2 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap2.xpm");
 		y = 0;
-	while (y < cub.height)
+	while (cub.map[y])
 	{
 		x = 0;
-		while (x < cub.width)
+		while (cub.map[y][x])
 		{
 			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
 				mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
@@ -51,5 +51,4 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 		}
 		
 	}
-	
 }

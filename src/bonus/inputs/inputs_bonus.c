@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 18:23:04 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:47:05 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	handle_keydown(int key, t_game *game)
 		game->player.rotation.right = true;
 	if (key == SHOOT)
 		game->player.is_shooting = true;
+	if (key == MAP)
+		game->minimap = !game->minimap;
 	if (key == ESC)
 		ft_exit_cub3d(0);
 	return (0);
@@ -87,8 +89,10 @@ int	handle_mouse_move(int x, int y, t_game *game)
 		old_pos = x;
 		return (0);
 	}
-	// mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
-	// mlx_mouse_move(game->mlx.win_ptr, x, y);
+	if ((x > 0 && x <= WIDTH) && y > 0 && y <= HEIGHT)
+		mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
+	else
+		mlx_mouse_show(game->mlx.mlx_ptr, game->mlx.win_ptr);
 	mlx_mouse_get_pos(game->mlx.win_ptr, &x, &y);
 	if (x > old_pos || x >= WIDTH)
 		ft_rotate_left(&game->player);
@@ -107,6 +111,8 @@ int	handle_mouse_hook(int key, int x, int y, t_game *game)
 	(void)y;
 	if (key == 1)
 		game->player.is_shooting = true;
+	if (key == 2)
+		game->minimap = !game->minimap;
 	return (0);
 }
 

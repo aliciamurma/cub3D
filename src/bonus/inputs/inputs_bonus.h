@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:45:55 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 18:22:19 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:35:04 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum e_inputs
 	ROT_LEFT = 124,
 	ROT_RIGHT = 123,
 	SHOOT = 49,
+	MAP = 259,
 	ESC = 53
 }	t_inputs;
 
