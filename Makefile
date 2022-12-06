@@ -157,13 +157,13 @@ $(BIN_B): $(OBJS_B) $(BIN_DIR) $(LIBS)
 
 
 run: all
-	@./$(BIN) ./src/assets/maps/map.cub
+	@./$(BIN) ./src/assets/maps/mandatory/map.cub
 
 run_b: bonus
-	@./$(BIN_B) ./src/assets/maps/map.cub
+	@./$(BIN_B) ./src/assets/maps/bonus/map.cub
 
 leaks: $(BIN)
-	leaks -atExit -- ./$(BIN) ./src/assets/maps/map.cub
+	leaks -atExit -- ./$(BIN) ./src/assets/maps/mandatory/map.cub
 
 test: all
 	@echo "$(BLUE)Executing tests...$(NC)"

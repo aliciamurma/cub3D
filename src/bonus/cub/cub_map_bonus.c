@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_map_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:13:53 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:59:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_check_map_letters(char **map)
 				&& map[c1][c2] != 'N' && map[c1][c2] != 'S'
 				&& map[c1][c2] != 'E' && map[c1][c2] != 'W'
 				&& map[c1][c2] != '\0' && map[c1][c2] != ' '
-				&& map[c1][c2] != '\t' && map[c1][c2] != '\n')
+				&& map[c1][c2] != 'D' && map[c1][c2] != '\t'
+				&& map[c1][c2] != '\n')
 			{
 				ft_exit_cub3d(CUB_FORMAT);
 			}
