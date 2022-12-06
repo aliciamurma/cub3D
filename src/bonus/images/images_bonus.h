@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:27:10 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:02 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 01:25:35 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ typedef struct s_num_text
 }	t_num_text;
 
 t_image	ft_create_img(void *mlx, char *path);
+t_image	ft_create_new_img(void *mlx, int width, int height);
+t_image	ft_resize_img(void *mlx, t_image img, int ratio);
 
 #endif
