@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:17 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 17:20:52 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:05:34 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_player	ft_new_player(char **map)
 	player.movement.left = false;
 	player.rotation.right = false;
 	player.rotation.left = false;
+	player.is_shooting = false;
 	return (player);
 }
 

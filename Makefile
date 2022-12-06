@@ -37,6 +37,7 @@ SRCS_B 			= cub_bonus.c cub_read_bonus.c cub_textures_bonus.c cub_map_bonus.c cu
 				get_next_line_bonus.c get_next_line_utils_bonus.c strings_bonus.c memory_bonus.c helpers_1_bonus.c helpers_3_bonus.c aux_map_bonus.c checkers_bonus.c color_bonus.c \
 				images_bonus.c \
 				inputs_bonus.c \
+				minimap_bonus.c \
 				player_1_bonus.c player_2_bonus.c player_directions_bonus.c \
 				raycast_1_bonus.c raycast_2_bonus.c \
 				render_1_bonus.c render_2_bonus.c render_weapon_bonus.c \
@@ -83,6 +84,7 @@ INCLUDES_B		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/bonus/helpers \
 					src/bonus/images \
 					src/bonus/inputs \
+					src/bonus/minimap \
 					src/bonus/player \
 					src/bonus/raycast \
 					src/bonus/render \
@@ -122,7 +124,7 @@ vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render \
 	\
 	src/bonus \
-	src/bonus src/bonus/game src/bonus/exit src/bonus/window \
+	src/bonus src/bonus/game src/bonus/exit src/bonus/window src/bonus/minimap \
 	src/bonus/cub_info src/bonus/helpers src/bonus/inputs \
 	src/bonus/raycast src/bonus/player src/bonus/textures src/bonus/helpers \
 	src/bonus/validators src/bonus/cub src/bonus/errors src/bonus/images src/bonus/render

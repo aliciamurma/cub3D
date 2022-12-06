@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 16:09:45 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:23:04 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	handle_keydown(int key, t_game *game)
 		game->player.rotation.left = true;
 	if (key == ROT_RIGHT)
 		game->player.rotation.right = true;
+	if (key == SHOOT)
+		game->player.is_shooting = true;
 	if (key == ESC)
 		ft_exit_cub3d(0);
 	return (0);
@@ -69,8 +71,8 @@ int	handle_keyup(int key, t_game *game)
 		game->player.rotation.left = false;
 	if (key == ROT_RIGHT)
 		game->player.rotation.right = false;
-	else
-		system("afplay ./src/assets/sounds/intro.wav -t 5");
+	// else
+	// 	system("afplay ./src/assets/sounds/intro.wav -t 5");
 	return (0);
 }
 
@@ -96,6 +98,15 @@ int	handle_mouse_move(int x, int y, t_game *game)
 		old_pos = WIDTH;
 	else
 		old_pos = x;
+	return (0);
+}
+
+int	handle_mouse_hook(int key, int x, int y, t_game *game)
+{
+	(void)x;
+	(void)y;
+	if (key == 1)
+		game->player.is_shooting = true;
 	return (0);
 }
 

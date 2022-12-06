@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 23:45:55 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 19:57:52 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:22:19 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum e_inputs
 	DOWN = 1,
 	ROT_LEFT = 124,
 	ROT_RIGHT = 123,
+	SHOOT = 49,
 	ESC = 53
 }	t_inputs;
 
@@ -30,5 +31,6 @@ int	handle_keydown(int key, t_game *game);
 int	handle_keyup(int key, t_game *game);
 int	handle_close(t_game *game);
 int	handle_mouse_move(int x, int y, t_game *game);
+int	handle_mouse_hook(int code, int x, int y, t_game *game);
 
 #endif
