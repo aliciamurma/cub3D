@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 10:14:36 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/07 10:23:39 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,21 +118,22 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 		{
 			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
 			{
-				c = *(unsigned int *)(img.pixels
-					+ (20 * img1.line_size + 20 * (img1.bits_per_pixel / 8)));
-				ft_render_pixel(&img1, x, y, c);
+				c = *(unsigned int *)(img1.pixels
+					+ (y * img1.width * img1.line_size + x
+						* img1.width * (img1.bits_per_pixel / 8)));
+				ft_render_pixel(&img1, 20, 20, c);
 			}
 			else if (cub.map[y][x] != ' ')
 			{
 				c = *(unsigned int *)(img2.pixels
-					+ (20 * img2.line_size + 20 * (img2.bits_per_pixel / 8)));
-				ft_render_pixel(&img2, x, y, c);
+					+ (y * img2.width * img2.line_size + x
+						* img2.width * (img2.bits_per_pixel / 8)));
+				ft_render_pixel(&img2, 20, 20, c);
 			}
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
-		img.pointer, 20, 20);
-	mlx_destroy_image(mlx.mlx_ptr, img.pointer);
+	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, img.pointer, 20, 20);
+	// mlx_destroy_image(mlx.mlx_ptr, img.pointer);
 }
