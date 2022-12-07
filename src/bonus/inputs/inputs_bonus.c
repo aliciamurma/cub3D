@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 19:47:05 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/07 09:03:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,15 @@ int	handle_keyup(int key, t_game *game)
 	return (0);
 }
 
+/**
+ * @brief Evento: rotar el personaje según movimiento del ratón
+ * Aparecer/desaparecer flecha del ratón
+ * 
+ * @param x 
+ * @param y 
+ * @param game 
+ * @return int 
+ */
 int	handle_mouse_move(int x, int y, t_game *game)
 {
 	static int	old_pos = 0;
@@ -98,13 +107,22 @@ int	handle_mouse_move(int x, int y, t_game *game)
 		ft_rotate_left(&game->player);
 	else if (x < old_pos || x <= 0)
 		ft_rotate_right(&game->player);
-	if ( x > WIDTH)
+	if (x > WIDTH)
 		old_pos = WIDTH;
 	else
 		old_pos = x;
 	return (0);
 }
 
+/**
+ * @brief Evento: clic en el mouse botón derecho: dispara
+ * 				  clic en el mouse botón izquierdo: minimapa
+ * @param key 
+ * @param x 
+ * @param y 
+ * @param game 
+ * @return int 
+ */
 int	handle_mouse_hook(int key, int x, int y, t_game *game)
 {
 	(void)x;
