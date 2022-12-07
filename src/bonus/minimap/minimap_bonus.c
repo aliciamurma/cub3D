@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 10:27:37 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:03:39 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,122 +18,97 @@
 #include "helpers_bonus.h"
 #include "render_bonus.h"
 #include <stdio.h>
-// void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
-// {
-// 	int	x;
-// 	int	y;
-// 	(void)pos;
-// 	t_image img1;
-// 	t_image img2;
 
-// 	img1 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap1_n.xpm");
-// 	img2 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap2.xpm");
-// 		y = 0;
-// 	while (cub.map[y])
-// 	{
-// 		x = 0;
-// 		while (cub.map[y][x])
-// 		{
-// 			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-// 				mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
-// 					img2.pointer, 20 * x, 20 * y);
-// 			else if (cub.map[y][x] != ' ')
-// 				mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
-// 					img1.pointer, 20 * x, 20 * y);
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// 	for (int i = 0; i < 5; i++)
-// 	{
-// 		for (int j = 0; j < 5; j++)
-// 		{
-// 			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * 20 + i, pos.x * 20 + j, 0xFF0000);
-// 		}
-		
-// 	}
-// 	mlx_destroy_image(mlx.mlx_ptr, img1.pointer);
-// 	mlx_destroy_image(mlx.mlx_ptr, img2.pointer);
-// }
+#define MARGING 200
 
-// void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
-// {
-// 	int		x;
-// 	int		y;
-// 	int		c;
-// 	t_image	img;
-// 	t_image	img1;
-// 	t_image	img2;
+void	ft_render_player(t_window mlx, t_vector pos, int ratio, int w, int h)
+{
+	int	i;
+	int	j;
 
-// 	(void)pos;
-// 	y = 0;
-// 	img1 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap1_n.xpm");
-// 	img2 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap2.xpm");
-// 	img = ft_create_new_img(mlx.mlx_ptr, 200, 200);
-// 	while (cub.map[y])
-// 	{
-// 		x = 0;
-// 		while (cub.map[y][x])
-// 		{
-// 			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-// 			{
-// 				c = *(unsigned int *)(img.pixels
-// 					+ (y * 20 * img1.line_size + x
-// 						* 20 * (img1.bits_per_pixel / 8)));
-// 				ft_render_pixel(&img1, x, y, c);
-// 			}
-// 			else if (cub.map[y][x] != ' ')
-// 			{
-// 				c = *(unsigned int *)(img2.pixels
-// 					+ (y * 20 * img2.line_size + x
-// 						* 20 * (img2.bits_per_pixel / 8)));
-// 				ft_render_pixel(&img2, x, y, c);
-// 			}
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// 	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr,
-// 		img.pointer, 20 * x, 20 * y);
-// 	mlx_destroy_image(mlx.mlx_ptr, img.pointer);
-// }
+	i = 0;
+	j = 0;
+	while (i < 5)
+	{
+		j = 0;
+		while (j < 5)
+		{
+			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, w + (pos.y * ratio + i), h + (pos.x * ratio + j), 0xFF0000);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_render_pixel_image(t_image img, int x, int y, int c, int ratio)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < ratio)
+	{
+		j = 0;
+		while (j < ratio)
+		{
+			ft_render_pixel(&img, j + (x * ratio), (y * ratio) + i, c);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_refile_minimap(t_image img, t_cub cub, int x, int y)
+{
+	float	ratio;
+
+	if (cub.width > cub.height)
+		ratio = (WIDTH - MARGING) / cub.width;
+	else
+		ratio = (HEIGHT - MARGING) / cub.height;
+	while (cub.map[y][x])
+	{
+		if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
+		{
+			ft_render_pixel_image(img, x, y, 0x0abd1c, ratio);
+		}
+		else if (cub.map[y][x] != ' ')
+		{
+			ft_render_pixel_image(img, x, y, 0x02560b, ratio);
+		}
+		else
+			ft_render_pixel_image(img, x, y, 0x02560b, ratio);
+		x++;
+	}
+	while (x < cub.width)
+	{
+		ft_render_pixel_image(img, x, y, 0x02560b, ratio);
+		x++;
+	}
+}
+
+// TODO escalar de 200 a nuestro mapa con un define, un 20%
 void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 {
 	int		x;
 	int		y;
-	int		c;
 	t_image	img;
-	t_image	img1;
-	t_image	img2;
+	float	ratio;
 
-	(void)pos;
+	if (cub.width > cub.height)
+		ratio = (WIDTH - MARGING) / cub.width;
+	else
+		ratio = (HEIGHT - MARGING) / cub.height;
 	y = 0;
-	img1 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap1_n.xpm");
-	img2 = ft_create_img(mlx.mlx_ptr, "./src/assets/maps/bonus/minimap2.xpm");
-	img = ft_create_new_img(mlx.mlx_ptr, 200, 200);
+	img = ft_create_new_img(mlx.mlx_ptr, ratio * cub.width, ratio * cub.height);
 	while (cub.map[y])
 	{
 		x = 0;
-		while (cub.map[y][x])
-		{
-			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-			{
-				c = *(unsigned int *)(img1.pixels
-					+ (y * img1.width * img1.line_size + x
-						* img1.width * (img1.bits_per_pixel / 8)));
-				ft_render_pixel(&img1, x, y, c);
-			}
-			else if (cub.map[y][x] != ' ')
-			{
-				c = *(unsigned int *)(img2.pixels
-					+ (y * img2.width * img2.line_size + x
-						* img2.width * (img2.bits_per_pixel / 8)));
-				ft_render_pixel(&img2, x, y, c);
-			}
-			x++;
-		}
+		ft_refile_minimap(img, cub, x, y);
 		y++;
 	}
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, img.pointer, 20, 20);
-	// mlx_destroy_image(mlx.mlx_ptr, img.pointer);
+	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, img.pointer, (WIDTH - ratio * cub.width)/2, (HEIGHT - ratio * cub.height)/2);
+	ft_render_player(mlx, pos, ratio, (WIDTH - ratio * cub.width) / 2, (HEIGHT - ratio * cub.height) / 2);
+	mlx_destroy_image(mlx.mlx_ptr, img.pointer);
 }

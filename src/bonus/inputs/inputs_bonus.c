@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 09:03:03 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:56:23 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,16 @@ int	handle_keydown(int key, t_game *game)
 	if (key == SHOOT)
 		game->player.is_shooting = true;
 	if (key == MAP)
+	{
+		// game->player.movement.forward = false;
+		// game->player.movement.backward = false;
+		// game->player.movement.right = false;
+		// game->player.movement.left = false;
+		// game->player.rotation.right = false;
+		// game->player.rotation.left = false;
+		// game->player.is_shooting = false;
 		game->minimap = !game->minimap;
+	}
 	if (key == ESC)
 		ft_exit_cub3d(0);
 	return (0);
@@ -73,6 +82,16 @@ int	handle_keyup(int key, t_game *game)
 		game->player.rotation.left = false;
 	if (key == ROT_RIGHT)
 		game->player.rotation.right = false;
+	if (key == MAP)
+	{
+		game->player.movement.forward = false;
+		game->player.movement.backward = false;
+		game->player.movement.right = false;
+		game->player.movement.left = false;
+		game->player.rotation.right = false;
+		game->player.rotation.left = false;
+		game->player.is_shooting = false;
+	}
 	// else
 	// 	system("afplay ./src/assets/sounds/intro.wav -t 5");
 	return (0);

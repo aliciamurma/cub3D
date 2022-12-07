@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:37:13 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 01:15:20 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:36:18 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_render_pixel(t_image *img, int x, int y, int color)
 	img->pixels[pixel + 0] = (color) & 0xFF;
 	img->pixels[pixel + 1] = (color >> 8) & 0xFF;
 	img->pixels[pixel + 2] = (color >> 16) & 0xFF;
-	img->pixels[pixel + 3] = (color >> 24);
+	img->pixels[pixel + 3] = (color >> 24) & 0xFF;
 }
 
 /**
