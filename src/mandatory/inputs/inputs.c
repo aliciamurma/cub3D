@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inputs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 15:37:57 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:34:04 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 /**
  * @brief Evento que se ejecuta al pulsar una tecla
  * Identidica que tecla se ha pulsado y llama a su funcionalidad
+ * Apretar
  * 
  * @param key 
  * @param game 
@@ -46,6 +47,7 @@ int	handle_keydown(int key, t_game *game)
 /**
  * @brief Evento que se ejecuta al pulsar una tecla
  * Identidica que tecla se ha pulsado y llama a su funcionalidad
+ * Soltar
  * 
  * @param key 
  * @param game 

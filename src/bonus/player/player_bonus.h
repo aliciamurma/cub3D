@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:19:59 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:56:41 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,14 @@ typedef struct s_rotation
 
 typedef struct s_player
 {
-	t_vector	dir;
-	t_vector	pos;
-	t_vector	plane;
-	t_movement	movement;
-	t_rotation	rotation;
+	t_vector		dir;
+	t_vector		pos;
+	t_vector		plane;
+	t_movement		movement;
+	t_rotation		rotation;
+	int				life;
+	bool			is_shooting;
+	// t_weapon_list	weapons;
 }	t_player;
 
 t_player	ft_new_player(char **map);

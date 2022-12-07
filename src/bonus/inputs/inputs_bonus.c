@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/05 21:37:19 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/07 09:03:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "mlx.h"
 #include "game_bonus.h"
 #include "player_bonus.h"
 #include "inputs_bonus.h"
 #include "exit_bonus.h"
 
+#include <stdlib.h>
 /**
  * @brief Evento que se ejecuta al pulsar una tecla
  * Identidica que tecla se ha pulsado y llama a su funcionalidad
@@ -40,6 +42,10 @@ int	handle_keydown(int key, t_game *game)
 		game->player.rotation.left = true;
 	if (key == ROT_RIGHT)
 		game->player.rotation.right = true;
+	if (key == SHOOT)
+		game->player.is_shooting = true;
+	if (key == MAP)
+		game->minimap = !game->minimap;
 	if (key == ESC)
 		ft_exit_cub3d(0);
 	return (0);
@@ -67,21 +73,64 @@ int	handle_keyup(int key, t_game *game)
 		game->player.rotation.left = false;
 	if (key == ROT_RIGHT)
 		game->player.rotation.right = false;
+	// else
+	// 	system("afplay ./src/assets/sounds/intro.wav -t 5");
 	return (0);
 }
 
+/**
+ * @brief Evento: rotar el personaje según movimiento del ratón
+ * Aparecer/desaparecer flecha del ratón
+ * 
+ * @param x 
+ * @param y 
+ * @param game 
+ * @return int 
+ */
 int	handle_mouse_move(int x, int y, t_game *game)
 {
 	static int	old_pos = 0;
+	static bool	is_init = false;
 
-	mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
-	//mlx_mouse_move(game->mlx.win_ptr, x, y);
+	if (!is_init)
+	{
+		is_init = true;
+		old_pos = x;
+		return (0);
+	}
+	if ((x > 0 && x <= WIDTH) && y > 0 && y <= HEIGHT)
+		mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.win_ptr);
+	else
+		mlx_mouse_show(game->mlx.mlx_ptr, game->mlx.win_ptr);
 	mlx_mouse_get_pos(game->mlx.win_ptr, &x, &y);
 	if (x > old_pos || x >= WIDTH)
 		ft_rotate_left(&game->player);
 	else if (x < old_pos || x <= 0)
 		ft_rotate_right(&game->player);
-	old_pos = x;
+	if (x > WIDTH)
+		old_pos = WIDTH;
+	else
+		old_pos = x;
+	return (0);
+}
+
+/**
+ * @brief Evento: clic en el mouse botón derecho: dispara
+ * 				  clic en el mouse botón izquierdo: minimapa
+ * @param key 
+ * @param x 
+ * @param y 
+ * @param game 
+ * @return int 
+ */
+int	handle_mouse_hook(int key, int x, int y, t_game *game)
+{
+	(void)x;
+	(void)y;
+	if (key == 1)
+		game->player.is_shooting = true;
+	if (key == 2)
+		game->minimap = !game->minimap;
 	return (0);
 }
 
