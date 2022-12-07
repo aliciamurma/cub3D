@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 10:07:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/07 10:08:47 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 				c = *(unsigned int *)(img.pixels
 					+ (y * 20 * img1.line_size + x
 						* 20 * (img1.bits_per_pixel / 8)));
-				ft_render_pixel(&img, x, y, c);
+				ft_render_pixel(&img1, x, y, c);
 			}
 			else if (cub.map[y][x] != ' ')
 			{
 				c = *(unsigned int *)(img2.pixels
 					+ (y * 20 * img2.line_size + x
 						* 20 * (img2.bits_per_pixel / 8)));
-				ft_render_pixel(&img, x, y, c);
+				ft_render_pixel(&img2, x, y, c);
 			}
 			x++;
 		}
