@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 13:01:17 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:04:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ static void	ft_render_player(t_window mlx, t_vector pos, int rat, t_vector dim)
  * @param c 
  * @param ratio 
  */
-static void	ft_render_pixel_image(t_image img, t_int_vector vec, int c, int ratio)
+static void	ft_render_pixel_image(t_image img, t_int_vector vec, int c, int rat)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (i < ratio)
+	while (i < rat)
 	{
 		j = 0;
-		while (j < ratio)
+		while (j < rat)
 		{
-			ft_render_pixel(&img, j + (vec.x * ratio), (vec.y * ratio) + i, c);
+			ft_render_pixel(&img, j + (vec.x * rat), (vec.y * rat) + i, c);
 			j++;
 		}
 		i++;

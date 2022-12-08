@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:05:34 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 13:00:41 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:03:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 #include "vector_bonus.h"
 #include "window_bonus.h"
 
+/**
+ * @brief Printamos el personaje
+ * 
+ * @param mlx 
+ * @param pos 
+ * @param ratio 
+ */
 static void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
 {
 	int	x;
@@ -39,6 +46,14 @@ static void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
 	}
 }
 
+/**
+ * @brief Rellenamos los cuadrados con color
+ * 
+ * @param mlx 
+ * @param vect 
+ * @param c 
+ * @param ratio 
+ */
 static void	ft_refile_squares(t_window mlx, t_int_vector vect, int c, int ratio)
 {
 	int	i;
@@ -59,6 +74,12 @@ static void	ft_refile_squares(t_window mlx, t_int_vector vect, int c, int ratio)
 	}
 }
 
+/**
+ * @brief Obtenemos el ratio para el mini-minimapa
+ * 
+ * @param cub 
+ * @return int 
+ */
 static int	ft_get_ratio_mini(t_cub cub)
 {
 	if (cub.width > cub.height)
@@ -67,6 +88,13 @@ static int	ft_get_ratio_mini(t_cub cub)
 		return ((HEIGHT / 3 - MARGING / 3) / cub.height);
 }
 
+/**
+ * @brief Creamos el minimapa más pequeño
+ * 
+ * @param mlx 
+ * @param cub 
+ * @param pos 
+ */
 void	ft_render_static_minimap(t_window mlx, t_cub cub, t_vector pos)
 {
 	int				ratio;
