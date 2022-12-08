@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 12:59:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:01:17 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  * @param ratio 
  * @param dim es la dimensión, ancho y largo
  */
-static void	ft_render_player(t_window mlx, t_vector pos, int ratio, t_vector dim)
+static void	ft_render_player(t_window mlx, t_vector pos, int rat, t_vector dim)
 {
 	int	i;
 	int	j;
@@ -39,8 +39,8 @@ static void	ft_render_player(t_window mlx, t_vector pos, int ratio, t_vector dim
 		j = 0;
 		while (j < 5)
 		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, dim.x + (pos.y * ratio + i),
-				dim.y + (pos.x * ratio + j), 0xFF0000);
+			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, dim.x + (pos.y * rat + i),
+				dim.y + (pos.x * rat + j), 0xFF0000);
 			j++;
 		}
 		i++;
