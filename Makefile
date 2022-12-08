@@ -167,6 +167,9 @@ run_b: bonus
 leaks: $(BIN)
 	leaks -atExit -- ./$(BIN) ./src/assets/maps/mandatory/map.cub
 
+leaks_b: $(BIN_b)
+	leaks -atExit -- ./$(BIN_B) ./src/assets/maps/bonus/map.cub
+
 test: all
 	@echo "$(BLUE)Executing tests...$(NC)"
 	@make run -e -C tests/ OBJS_SRC="$(OBJS_SRC)"

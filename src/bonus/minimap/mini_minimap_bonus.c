@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:05:34 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 13:03:38 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:05:28 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	ft_render_static_minimap(t_window mlx, t_cub cub, t_vector pos)
 		{
 			if (cub.map[vector.y][vector.x] == '0'
 				|| ft_is_player(cub.map[vector.y][vector.x]))
-				ft_refile_squares(mlx, vector, 0xFF0000, ratio);
+				ft_refile_squares(mlx, vector, 0x0abd1c, ratio);
 			else
 				ft_refile_squares(mlx, vector, 0x02560b, ratio);
 			vector.x++;
