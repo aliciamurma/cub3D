@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 09:58:45 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 10:59:43 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # include "cub_bonus.h"
 
 void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos);
+void	ft_render_static_minimap(t_window mlx, t_cub cub, t_vector pos);
 
 #endif

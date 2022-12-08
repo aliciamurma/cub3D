@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:34:43 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 19:35:40 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 10:58:57 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	ft_render_map(t_game *game)
 		ft_render_weapon(game->mlx, "./src/assets/weapons/rifle/rifle_1.xpm");
 	if (game->minimap)
 		ft_render_minimap(game->mlx, game->map, game->player.pos);
+	if (!game->minimap)
+		ft_render_static_minimap(game->mlx, game->map, game->player.pos);
 	mlx_destroy_image(game->mlx.mlx_ptr, game->img.pointer);
 	return (0);
 }
