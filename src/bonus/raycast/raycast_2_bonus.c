@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:34:47 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 14:11:14 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:33:09 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ t_vector	ft_get_side_distance(t_player player, t_vector ray,
  * @param game 
  * @param raycast 
  */
-// TODO comprobar con que impacta y retornar el tipo
 void	ft_set_distance(t_game *game, t_raycast *raycast)
 {
 	int	hit;
@@ -124,8 +123,6 @@ void	ft_set_distance(t_game *game, t_raycast *raycast)
 			raycast->side_2 = 1;
 		}
 		if (game->map.map[raycast->map.x][raycast->map.y] == '1')
-			hit = 1;
-		if (game->map.map[raycast->map.x][raycast->map.y] == 'D')
 			hit = 1;
 	}
 }
