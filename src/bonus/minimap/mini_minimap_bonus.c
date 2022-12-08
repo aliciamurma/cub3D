@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:05:34 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 20:05:28 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:12:03 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
 		while (y < 2)
 		{
 			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * ratio + x,
-				pos.x * ratio + y, 0xFFFFFF);
+				pos.x * ratio + y, 0xFF0000);
 			y++;
 		}
 		x++;
