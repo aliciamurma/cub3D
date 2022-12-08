@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:34:43 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/08 13:25:12 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:18:21 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	ft_render_multiple_rays(t_raycast_pos raycast_pos, t_game *game)
  */
 void	ft_choose_minimap(t_game *game)
 {
-	if (game->minimap)
-		ft_render_minimap(game->mlx, game->map, game->player.pos);
-	if (!game->minimap)
+	if (game->minimap == 1)
 		ft_render_static_minimap(game->mlx, game->map, game->player.pos);
+	if (game->minimap == 2)
+		ft_render_minimap(game->mlx, game->map, game->player.pos);
 }
 
 /**
