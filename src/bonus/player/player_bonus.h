@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:31:28 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 17:56:41 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:25:56 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_player
 	t_rotation		rotation;
 	int				life;
 	bool			is_shooting;
-	// t_weapon_list	weapons;
 }	t_player;
 
 t_player	ft_new_player(char **map);
