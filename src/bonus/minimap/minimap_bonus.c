@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 11:25:20 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:04:43 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,38 +112,38 @@ void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 	mlx_destroy_image(mlx.mlx_ptr, img.pointer);
 }
 
-void	ft_render_static_player(t_window mlx, t_vector pos)
+void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (x < 5)
+	while (x < 2)
 	{
 		y = 0;
-		while (y < 5)
+		while (y < 2)
 		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * 8 + x, pos.x * 8 + y, 0xFFFFFF);
+			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * ratio + x, pos.x * ratio + y, 0xFFFFFF);
 			y++;
 		}
 		x++;
 	}
 }
 
-void	ft_refile_squares(t_window mlx, int i, int j, int c)
+void	ft_refile_squares(t_window mlx, int i, int j, int c, int ratio)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (x < 7)
+	while (x < ratio)
 	{
 		y = 0;
-		while (y < 7)
+		while (y < ratio)
 		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, i * 8 + x, j * 8 + y, c);
+			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, i * ratio + x, j * ratio + y, c);
 			y++;
 		}
 		x++;
@@ -154,24 +154,34 @@ void	ft_render_static_minimap(t_window mlx, t_cub cub, t_vector pos)
 {
 	int	x;
 	int	y;
+	int	ratio;
 
 	x = 0;
 	y = 0;
-	(void) pos;
+	if (cub.width > cub.height)
+		ratio = (WIDTH / 3 - MARGING / 3) / cub.width;
+	else
+		ratio = (HEIGHT / 3 - MARGING / 3) / cub.height;
 	while (cub.map[y])
 	{
 		x = 0;
 		while (cub.map[y][x])
 		{
 			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-				ft_refile_squares(mlx, x, y, 0xFF0000);
+				ft_refile_squares(mlx, x, y, 0xFF0000, ratio);
 			else if (cub.map[y][x] != ' ')
-				ft_refile_squares(mlx, x, y, 0x02560b);
+				ft_refile_squares(mlx, x, y, 0x02560b, ratio);
 			else
-				ft_refile_squares(mlx, x, y, 0x02560b);
+				ft_refile_squares(mlx, x, y, 0x02560b, ratio);
 			x++;
 		}
+		while (x < cub.width)
+		{
+			ft_refile_squares(mlx, x, y, 0x02560b, ratio);
+			x++;
+		}
+		x = 0;
 		y++;
 	}
-	ft_render_static_player(mlx, pos);
+	ft_render_static_player(mlx, pos, ratio);
 }
