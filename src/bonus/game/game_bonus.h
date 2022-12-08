@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:59:39 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 19:32:07 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:13:46 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_game
 	t_window	mlx;
 	t_image		img;
 	t_texture	texture;
-	bool		minimap;
+	int			minimap;
 }	t_game;
 
 int		ft_game_loop(t_game *game);

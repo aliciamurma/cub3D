@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inputs_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/07 19:56:23 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:17:16 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,10 @@ int	handle_keydown(int key, t_game *game)
 		game->player.is_shooting = true;
 	if (key == MAP)
 	{
-		// game->player.movement.forward = false;
-		// game->player.movement.backward = false;
-		// game->player.movement.right = false;
-		// game->player.movement.left = false;
-		// game->player.rotation.right = false;
-		// game->player.rotation.left = false;
-		// game->player.is_shooting = false;
-		game->minimap = !game->minimap;
+		if (game->minimap == 2)
+			game->minimap = 0;
+		else
+			game->minimap++;
 	}
 	if (key == ESC)
 		ft_exit_cub3d(0);
