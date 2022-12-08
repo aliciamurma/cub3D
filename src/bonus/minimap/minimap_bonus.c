@@ -6,22 +6,28 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:44 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 12:04:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:59:38 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
+#include "cub_bonus.h"
+#include "helpers_bonus.h"
+#include "images_bonus.h"
+#include "minimap_bonus.h"
+#include "render_bonus.h"
 #include "vector_bonus.h"
 #include "window_bonus.h"
-#include "cub_bonus.h"
-#include "images_bonus.h"
-#include "mlx.h"
-#include "helpers_bonus.h"
-#include "render_bonus.h"
-#include <stdio.h>
 
-#define MARGING 200
-
-void	ft_render_player(t_window mlx, t_vector pos, int ratio, int w, int h)
+/**
+ * @brief Printa el personaje en el mapa grande
+ * 
+ * @param mlx 
+ * @param pos 
+ * @param ratio 
+ * @param dim es la dimensión, ancho y largo
+ */
+static void	ft_render_player(t_window mlx, t_vector pos, int ratio, t_vector dim)
 {
 	int	i;
 	int	j;
@@ -33,14 +39,23 @@ void	ft_render_player(t_window mlx, t_vector pos, int ratio, int w, int h)
 		j = 0;
 		while (j < 5)
 		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, w + (pos.y * ratio + i), h + (pos.x * ratio + j), 0xFF0000);
+			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, dim.x + (pos.y * ratio + i),
+				dim.y + (pos.x * ratio + j), 0xFF0000);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	ft_render_pixel_image(t_image img, int x, int y, int c, int ratio)
+/**
+ * @brief Printamos los píxeles en función del ratio
+ * 
+ * @param img 
+ * @param vec 
+ * @param c 
+ * @param ratio 
+ */
+static void	ft_render_pixel_image(t_image img, t_int_vector vec, int c, int ratio)
 {
 	int	i;
 	int	j;
@@ -52,14 +67,21 @@ void	ft_render_pixel_image(t_image img, int x, int y, int c, int ratio)
 		j = 0;
 		while (j < ratio)
 		{
-			ft_render_pixel(&img, j + (x * ratio), (y * ratio) + i, c);
+			ft_render_pixel(&img, j + (vec.x * ratio), (vec.y * ratio) + i, c);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	ft_refile_minimap(t_image img, t_cub cub, int x, int y)
+/**
+ * @brief Rellenamos la nueva imagen de píxeles
+ * 
+ * @param img 
+ * @param cub 
+ * @param vec 
+ */
+static void	ft_refile_minimap(t_image img, t_cub cub, t_int_vector vec)
 {
 	float	ratio;
 
@@ -67,121 +89,64 @@ void	ft_refile_minimap(t_image img, t_cub cub, int x, int y)
 		ratio = (WIDTH - MARGING) / cub.width;
 	else
 		ratio = (HEIGHT - MARGING) / cub.height;
-	while (cub.map[y][x])
+	while (cub.map[vec.y][vec.x])
 	{
-		if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-		{
-			ft_render_pixel_image(img, x, y, 0x0abd1c, ratio);
-		}
-		else if (cub.map[y][x] != ' ')
-		{
-			ft_render_pixel_image(img, x, y, 0x02560b, ratio);
-		}
+		if (cub.map[vec.y][vec.x] == '0' || ft_is_player(cub.map[vec.y][vec.x]))
+			ft_render_pixel_image(img, vec, 0x0abd1c, ratio);
 		else
-			ft_render_pixel_image(img, x, y, 0x02560b, ratio);
-		x++;
+			ft_render_pixel_image(img, vec, 0x02560b, ratio);
+		vec.x++;
 	}
-	while (x < cub.width)
+	while (vec.x < cub.width)
 	{
-		ft_render_pixel_image(img, x, y, 0x02560b, ratio);
-		x++;
+		ft_render_pixel_image(img, vec, 0x02560b, ratio);
+		vec.x++;
 	}
 }
 
+/**
+ * @brief Obtenemos el ratio del minimapa
+ * 
+ * @param cub 
+ * @return int 
+ */
+static int	ft_get_ratio(t_cub cub)
+{
+	if (cub.width > cub.height)
+		return ((WIDTH - MARGING) / cub.width);
+	else
+		return ((HEIGHT - MARGING) / cub.height);
+}
+
+/**
+ * @brief Printamos el minimapa
+ * Primero obtenemos una nueva imagen y la rellenamos de píxeles
+ * Y luego printamos la nueva imagen
+ * 
+ * @param mlx 
+ * @param cub 
+ * @param pos 
+ */
 void	ft_render_minimap(t_window mlx, t_cub cub, t_vector pos)
 {
-	int		x;
-	int		y;
-	t_image	img;
-	float	ratio;
+	int				ratio;
+	t_vector		dimension;
+	t_int_vector	vector;
+	t_image			img;
 
-	if (cub.width > cub.height)
-		ratio = (WIDTH - MARGING) / cub.width;
-	else
-		ratio = (HEIGHT - MARGING) / cub.height;
-	y = 0;
+	vector.y = 0;
+	ratio = ft_get_ratio(cub);
+	dimension.x = (WIDTH - ratio * cub.width) / 2;
+	dimension.y = (HEIGHT - ratio * cub.height) / 2;
 	img = ft_create_new_img(mlx.mlx_ptr, ratio * cub.width, ratio * cub.height);
-	while (cub.map[y])
+	while (cub.map[vector.y])
 	{
-		x = 0;
-		ft_refile_minimap(img, cub, x, y);
-		y++;
+		vector.x = 0;
+		ft_refile_minimap(img, cub, vector);
+		vector.y++;
 	}
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, img.pointer, (WIDTH - ratio * cub.width)/2, (HEIGHT - ratio * cub.height)/2);
-	ft_render_player(mlx, pos, ratio, (WIDTH - ratio * cub.width) / 2, (HEIGHT - ratio * cub.height) / 2);
+	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, img.pointer,
+		dimension.x, dimension.y);
+	ft_render_player(mlx, pos, ratio, dimension);
 	mlx_destroy_image(mlx.mlx_ptr, img.pointer);
-}
-
-void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (x < 2)
-	{
-		y = 0;
-		while (y < 2)
-		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * ratio + x, pos.x * ratio + y, 0xFFFFFF);
-			y++;
-		}
-		x++;
-	}
-}
-
-void	ft_refile_squares(t_window mlx, int i, int j, int c, int ratio)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (x < ratio)
-	{
-		y = 0;
-		while (y < ratio)
-		{
-			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, i * ratio + x, j * ratio + y, c);
-			y++;
-		}
-		x++;
-	}
-}
-
-void	ft_render_static_minimap(t_window mlx, t_cub cub, t_vector pos)
-{
-	int	x;
-	int	y;
-	int	ratio;
-
-	x = 0;
-	y = 0;
-	if (cub.width > cub.height)
-		ratio = (WIDTH / 3 - MARGING / 3) / cub.width;
-	else
-		ratio = (HEIGHT / 3 - MARGING / 3) / cub.height;
-	while (cub.map[y])
-	{
-		x = 0;
-		while (cub.map[y][x])
-		{
-			if (cub.map[y][x] == '0' || ft_is_player(cub.map[y][x]))
-				ft_refile_squares(mlx, x, y, 0xFF0000, ratio);
-			else if (cub.map[y][x] != ' ')
-				ft_refile_squares(mlx, x, y, 0x02560b, ratio);
-			else
-				ft_refile_squares(mlx, x, y, 0x02560b, ratio);
-			x++;
-		}
-		while (x < cub.width)
-		{
-			ft_refile_squares(mlx, x, y, 0x02560b, ratio);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	ft_render_static_player(mlx, pos, ratio);
 }

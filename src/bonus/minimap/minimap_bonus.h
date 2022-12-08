@@ -6,12 +6,13 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:24:04 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 10:59:43 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:06:07 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIMAP_BONUS_H
 # define MINIMAP_BONUS_H
+# define MARGING 200
 
 # include "vector_bonus.h"
 # include "window_bonus.h"

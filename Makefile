@@ -37,7 +37,7 @@ SRCS_B 			= cub_bonus.c cub_read_bonus.c cub_textures_bonus.c cub_map_bonus.c cu
 				get_next_line_bonus.c get_next_line_utils_bonus.c strings_bonus.c memory_bonus.c helpers_1_bonus.c helpers_3_bonus.c aux_map_bonus.c checkers_bonus.c color_bonus.c \
 				images_bonus.c \
 				inputs_bonus.c \
-				minimap_bonus.c \
+				minimap_bonus.c mini_minimap_bonus.c \
 				player_1_bonus.c player_2_bonus.c player_directions_bonus.c \
 				raycast_1_bonus.c raycast_2_bonus.c \
 				render_1_bonus.c render_2_bonus.c render_weapon_bonus.c \
