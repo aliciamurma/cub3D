@@ -6,7 +6,7 @@
 /*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:51:09 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 20:17:16 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:26:14 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ int	handle_keyup(int key, t_game *game)
 		game->player.rotation.left = false;
 		game->player.is_shooting = false;
 	}
-	// else
-	// 	system("afplay ./src/assets/sounds/intro.wav -t 5");
 	return (0);
 }
 

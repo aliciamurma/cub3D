@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_minimap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:05:34 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/08 20:12:03 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/08 20:24:55 by aramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "render_bonus.h"
 #include "vector_bonus.h"
 #include "window_bonus.h"
+
+#define MARGIN_MIN 10
 
 /**
  * @brief Printamos el personaje
@@ -31,12 +33,12 @@ static void	ft_render_static_player(t_window mlx, t_vector pos, int ratio)
 	int	x;
 	int	y;
 
-	x = 0;
-	y = 0;
-	while (x < 2)
+	x = MARGIN_MIN;
+	y = MARGIN_MIN;
+	while (x < 2 + MARGIN_MIN)
 	{
-		y = 0;
-		while (y < 2)
+		y = MARGIN_MIN;
+		while (y < 2 + MARGIN_MIN)
 		{
 			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, pos.y * ratio + x,
 				pos.x * ratio + y, 0xFF0000);
@@ -59,12 +61,12 @@ static void	ft_refile_squares(t_window mlx, t_int_vector vect, int c, int ratio)
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
-	while (i < ratio)
+	i = MARGIN_MIN;
+	j = MARGIN_MIN;
+	while (i < ratio + MARGIN_MIN)
 	{
-		j = 0;
-		while (j < ratio)
+		j = MARGIN_MIN;
+		while (j < ratio + MARGIN_MIN)
 		{
 			mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, vect.x * ratio + i,
 				vect.y * ratio + j, c);
