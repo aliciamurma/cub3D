@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 11:48:38 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/05 17:13:45 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:58:01 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,28 @@ void	ft_check_repeated_textures(char **map)
 		ft_exit_cub3d(MAP_FORMAT);
 }
 
+void	ft_check_repeated_colours(char **map)
+{
+	t_num_text		num_tex;
+	t_texture_types	type;
+	int				i;
+
+	i = 0;
+	while (map[0] && i < 6)
+	{
+		type = ft_get_texture_type(map[i]);
+		if (type == 0)
+			ft_exit_cub3d(CUB_FORMAT);
+		if (type == C)
+			num_tex.ceil = true;
+		if (type == F)
+			num_tex.floor = true;
+		i++;
+	}
+	if (!num_tex.ceil || !num_tex.floor)
+		ft_exit_cub3d(MAP_FORMAT);
+}
+
 /**
  * @brief Parsea ek archivo .cub
  * 
@@ -73,6 +95,7 @@ t_cub	ft_parse_cub(void *mlx, char *cub_raw)
 
 	cub_arr = ft_get_cub(cub_raw);
 	ft_check_repeated_textures(cub_arr);
+	ft_check_repeated_colours(cub_arr);
 	cub.textures = ft_parse_cub_textures(mlx, cub_arr);
 	cub.map = &cub_arr[6];
 	ft_free_cub(cub_arr);

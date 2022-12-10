@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   images_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aramirez <aramirez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:27:10 by aramirez          #+#    #+#             */
-/*   Updated: 2022/12/06 01:25:35 by aramirez         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:59:50 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_num_text
 	bool	south;
 	bool	west;
 	bool	east;
+	bool	floor;
+	bool	ceil;
 }	t_num_text;
 
 t_image	ft_create_img(void *mlx, char *path);

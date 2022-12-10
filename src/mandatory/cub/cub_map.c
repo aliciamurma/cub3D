@@ -6,7 +6,7 @@
 /*   By: amurcia- <amurcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:36:20 by amurcia-          #+#    #+#             */
-/*   Updated: 2022/12/06 17:23:55 by amurcia-         ###   ########.fr       */
+/*   Updated: 2022/12/10 17:30:12 by amurcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ void	ft_check_surrounded_x(char **map)
 				ft_exit_cub3d(CUB_FORMAT);
 			if (map[c1][c2] == '0' && (map[c1][c2 +1] == ' '
 			|| map[c1][c2 +1] == '\n' || map[c1][c2 +1] == '\0'))
+				ft_exit_cub3d(CUB_FORMAT);
+			if (map[ft_strlen_map(map) - 1][c2]
+				&& (map[ft_strlen_map(map) - 1][c2] != '1'
+				&& map[ft_strlen_map(map) - 1][c2] != ' '))
 				ft_exit_cub3d(CUB_FORMAT);
 			c2++;
 		}
