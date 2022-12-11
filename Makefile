@@ -1,5 +1,6 @@
 # COLORS
 GREEN			:= \033[32m
+YELLOW			:= \033[33m
 BLUE			:= \033[34m
 NC				:= \033[m
 
@@ -136,6 +137,7 @@ all: $(LIBFT) $(MLX) $(BIN)
 bonus: $(LIBFT) $(MLX) $(BIN_B)
 
 $(OBJS_DIR)/%.o: %.c | $$(@D)
+	@printf "\r$(BLUE)Generating $(NAME) objects... %-38.38s$(NC)" $@
 	@$(CC) $(FLAGS) -c $(INC) $(INC_B) $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@) 
 
 
@@ -146,14 +148,17 @@ $(MLX): mlx_force_make
 	@make -s -C $(LIBS_PATH)/mlx 2> ERRORS
 	@rm ERRORS
 
+msg: 
+	@echo "$(BLUE)$(NAME) compiling...$(NC)"
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
-	@echo "$(BLUE)$(NAME) compiling...$(NC)"
+#	@echo "$(BLUE)$(NAME) compiling...$(NC)"
 	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN)
+	printf '\033[1A\033[K'
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"
 
 $(BIN_B): $(OBJS_B) $(BIN_DIR) $(LIBS)
-	@echo "$(BLUE)$(NAME_B) compiling...$(NC)"
+#	@echo "$(BLUE)$(NAME_B) compiling...$(NC)"
 	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS_B) $(LIBS) -o $(BIN_B)
 	@echo "$(GREEN)$(NAME_B) compiled!$(NC)"
 

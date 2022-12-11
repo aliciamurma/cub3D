@@ -77,12 +77,12 @@ BIN 		= $(BIN_DIR)/$(NAME)
 all: $(BIN_DIR) $(BIN)
 	
 $(OBJS_DIR)/%.o: %.c | $$(@D)
+	@printf "\r$(BLUE)Generating $(NAME) objects... %-38.38s$(NC)" $@
 	@$(CC) $(CFLAGS) -c $< -o $@ $(DEPFLAGS) $(patsubst %.o, %.d, $@)
 
 $(BIN):	$(OBJS)
-	@echo "$(BLUE)libt compiling...$(NC)"
 	@ar rc $(BIN) $(OBJS)
-	@echo "$(GREEN)libt compiled!$(NC)"
+	@echo "\n$(GREEN)libt compiled!$(NC)"
 
 bonus: $(B_OBJS) $(OBJS)
 	@ar rc $(NAME) $(OBJS) $(B_OBJS)
