@@ -14,13 +14,22 @@ CFLAGS+=-O2
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11
 
+
+%.o: %.c
+	printf "\r$(BLUE)Generating $(NAME) objects... %-38.38s$(NC)" $@
+	gcc -c $< -o ${<:.c=.o}
+
+%.o: %.m
+	printf "\r$(BLUE)Generating $(NAME) objects... %-38.38s$(NC)" $@
+	gcc -c $< -o ${<:.m=.o}
+
 all: $(NOM)
 
 $(NOM):	$(OBJ)
-	@echo "$(BLUE)mlx compiling...$(NC)"
 	@ar -r $(NOM) $(OBJ)
 	@ranlib $(NOM)
-	@echo "$(GREEN)mlx compiled!$(NC)"
+	printf '\033[1A\033[K'
+	@echo "\n$(GREEN)mlx compiled!$(NC)"
 
 clean:
 	@rm -f $(NOM) $(OBJ) *~

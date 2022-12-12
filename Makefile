@@ -73,7 +73,7 @@ INCLUDES 		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/mandatory/textures \
 					src/mandatory/types \
 					src/mandatory/validators \
-					src/mandatory/window \
+					src/mandatory/window
 
 INC			= $(addprefix -I , $(INCLUDES))
 
@@ -92,7 +92,7 @@ INCLUDES_B		:= $(LIBS_PATH)/$(LIBFT_PATH) $(LIBS_PATH)/$(MLX_PATH) \
 					src/bonus/textures \
 					src/bonus/types \
 					src/bonus/validators \
-					src/bonus/window \
+					src/bonus/window
 
 INC_B			= $(addprefix -I , $(INCLUDES_B))
 
@@ -123,7 +123,6 @@ vpath %.c src src/assets src/mandatory src/mandatory/game src/mandatory/exit src
 	src/mandatory/cub_info src/mandatory/helpers src/mandatory/inputs \
 	src/mandatory/raycast src/mandatory/player src/mandatory/textures src/mandatory/helpers \
 	src/mandatory/validators src/mandatory/cub src/mandatory/errors src/mandatory/images src/mandatory/render \
-	\
 	src/bonus \
 	src/bonus src/bonus/game src/bonus/exit src/bonus/window src/bonus/minimap \
 	src/bonus/cub_info src/bonus/helpers src/bonus/inputs \
@@ -152,7 +151,6 @@ msg:
 	@echo "$(BLUE)$(NAME) compiling...$(NC)"
 
 $(BIN): $(OBJS) $(BIN_DIR) $(LIBS)
-#	@echo "$(BLUE)$(NAME) compiling...$(NC)"
 	@$(CC) $(FLAGS) $(MLXFLAGS) $(INC) $(OBJS) $(LIBS) -o $(BIN)
 	printf '\033[1A\033[K'
 	@echo "$(GREEN)$(NAME) compiled!$(NC)"

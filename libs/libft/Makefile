@@ -82,7 +82,8 @@ $(OBJS_DIR)/%.o: %.c | $$(@D)
 
 $(BIN):	$(OBJS)
 	@ar rc $(BIN) $(OBJS)
-	@echo "\n$(GREEN)libt compiled!$(NC)"
+	printf '\033[1A\033[K'
+	@echo "$(GREEN)libt compiled!$(NC)"
 
 bonus: $(B_OBJS) $(OBJS)
 	@ar rc $(NAME) $(OBJS) $(B_OBJS)
