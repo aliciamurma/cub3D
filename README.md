@@ -19,6 +19,19 @@ Ejecute cub3D bonus version
 make run_b
 ```
 
+|**Key**|**Description**|
+|:--------|-----------|
+|w|move up|
+|s|move down|
+|a|move left|
+|d|move right|
+|space|shoot|
+|cmd|minimap|
+
+
+
+
+
 
 # Authors
 
